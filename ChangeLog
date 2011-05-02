@@ -1,0 +1,19 @@
+##########################################################################
+# CHANGE LOG
+# 
+# 1) Update this file before every push to the repository.
+# 2) Increment the program version before every push.
+#		- The major version number is incremented on when a major overhaul of code is completed
+#		- The minor version number is incremented on addition or removal of program functionality
+#		- The revision number is updated on bug fixes, tweaks in code, or modification of existing functionality
+# 3) Follow a simple outline in this file
+#		[ YYYY/MM/DD ] Version x.x
+# 		- Include a basic description of what was added or removed
+#		- Another simple description
+# 4) Organize the file such that new changes are at the top
+#
+##########################################################################
+
+
+[ 2011-05-02 ] Version 0.1.0
+- Initialised empty eclipse Android project, set the version, & removed sample controls.

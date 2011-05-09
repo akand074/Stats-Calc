@@ -17,3 +17,8 @@
 
 [ 2011-05-02 ] Version 0.1.0
 - Initialised empty eclipse Android project, set the version, & removed sample controls.
+[ 2011-05-08 ] Version 0.1.1
+- Started working on main activity
+- Set up overall layout
+- Added main background and button backgrounds
+- Button background caused loss of 3D-look and visual feedback

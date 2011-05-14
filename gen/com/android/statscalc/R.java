@@ -19,18 +19,73 @@ public final class R {
         public static final int permcomb=0x7f020005;
     }
     public static final class id {
-        public static final int basic=0x7f050001;
-        public static final int discrete=0x7f050005;
-        public static final int linreg=0x7f050002;
-        public static final int permComb=0x7f050004;
-        public static final int tableRow1=0x7f050000;
-        public static final int tableRow2=0x7f050003;
+        public static final int basic=0x7f06002a;
+        public static final int calc=0x7f060009;
+        public static final int discrete=0x7f06002d;
+        public static final int editText1=0x7f060004;
+        public static final int editText10=0x7f060019;
+        public static final int editText11=0x7f06001d;
+        public static final int editText12=0x7f060021;
+        public static final int editText13=0x7f060025;
+        public static final int editText14=0x7f060029;
+        public static final int editText2=0x7f06000e;
+        public static final int editText3=0x7f06000f;
+        public static final int editText4=0x7f060010;
+        public static final int editText5=0x7f060011;
+        public static final int editText6=0x7f060012;
+        public static final int editText7=0x7f060013;
+        public static final int editText8=0x7f060015;
+        public static final int editText9=0x7f060014;
+        public static final int horizontalScrollView1=0x7f06000c;
+        public static final int linearLayout1=0x7f060006;
+        public static final int linearLayout2=0x7f06000d;
+        public static final int linearLayout3=0x7f060017;
+        public static final int linearLayout4=0x7f06001b;
+        public static final int linearLayout5=0x7f06001f;
+        public static final int linearLayout6=0x7f060023;
+        public static final int linearLayout7=0x7f060027;
+        public static final int linreg=0x7f06002b;
+        public static final int load=0x7f060007;
+        public static final int permComb=0x7f06002c;
+        public static final int save=0x7f060008;
+        public static final int tableLayout1=0x7f060000;
+        public static final int tableRow1=0x7f060001;
+        public static final int tableRow2=0x7f060003;
+        public static final int tableRow3=0x7f060005;
+        public static final int tableRow4=0x7f06000a;
+        public static final int tableRow5=0x7f060016;
+        public static final int tableRow6=0x7f06001a;
+        public static final int tableRow7=0x7f06001e;
+        public static final int tableRow8=0x7f060022;
+        public static final int tableRow9=0x7f060026;
+        public static final int textView1=0x7f060002;
+        public static final int textView2=0x7f06000b;
+        public static final int textView3=0x7f060018;
+        public static final int textView4=0x7f06001c;
+        public static final int textView5=0x7f060020;
+        public static final int textView6=0x7f060024;
+        public static final int textView7=0x7f060028;
     }
     public static final class layout {
-        public static final int main=0x7f030000;
+        public static final int basic=0x7f030000;
+        public static final int main=0x7f030001;
+    }
+    public static final class menu {
+        public static final int menu=0x7f050000;
     }
     public static final class string {
         public static final int app_name=0x7f040001;
+        public static final int basicInput=0x7f040002;
+        public static final int calc=0x7f04000a;
+        public static final int empty=0x7f040004;
         public static final int hello=0x7f040000;
+        public static final int inputValues=0x7f040003;
+        public static final int load=0x7f04000c;
+        public static final int mean=0x7f040005;
+        public static final int median=0x7f040006;
+        public static final int mode=0x7f040008;
+        public static final int save=0x7f04000b;
+        public static final int stDev=0x7f040007;
+        public static final int stErr=0x7f040009;
     }
 }

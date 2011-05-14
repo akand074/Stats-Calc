@@ -2,4 +2,15 @@
 <resources>
     <string name="hello">Hello World, StatsCalcMain!</string>
     <string name="app_name">Stats Calc</string>
+    <string name="basicInput">Please input your values in the box below (separated by commas):</string>
+    <string name="inputValues">Inputted Values:</string>
+    <string name="empty"></string>
+    <string name="mean">Mean:     </string>
+    <string name="median">Median:  </string>
+    <string name="stDev">StDev:     </string>
+    <string name="mode">Mode:     </string>
+    <string name="stErr">StErr:       </string>
+    <string name="calc">Calc.</string>
+    <string name="save">Save</string>
+    <string name="load">Load</string>
 </resources>

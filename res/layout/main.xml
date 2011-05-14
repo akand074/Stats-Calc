@@ -3,11 +3,11 @@
     android:orientation="vertical"
     android:layout_height="fill_parent" android:layout_width="fill_parent" android:gravity="center" android:background="@drawable/main_screen">
     <TableRow android:layout_height="wrap_content" android:gravity="center_horizontal" android:id="@+id/tableRow1" android:layout_width="wrap_content">
-        <Button android:layout_width="100dip" android:layout_gravity="center_vertical|center_horizontal" android:id="@+id/basic" android:layout_height="100dip" android:background="@drawable/basic" android:layout_margin="5dip"></Button>
-        <Button android:layout_width="100dip" android:layout_gravity="center_vertical|center_horizontal" android:layout_height="100dip" android:background="@drawable/linreg" android:id="@+id/linreg" android:layout_margin="5dip"></Button>
+        <Button android:layout_width="100dip" android:layout_gravity="center_vertical|center_horizontal" android:id="@+id/basic" android:layout_height="100dip" android:background="@drawable/basic" android:layout_margin="5dip" android:clickable="true"></Button>
+        <Button android:layout_width="100dip" android:layout_gravity="center_vertical|center_horizontal" android:layout_height="100dip" android:background="@drawable/linreg" android:id="@+id/linreg" android:layout_margin="5dip" android:clickable="true"></Button>
     </TableRow>
     <TableRow android:id="@+id/tableRow2" android:layout_gravity="center_vertical|center_horizontal" android:layout_height="wrap_content" android:gravity="center_horizontal" android:layout_width="wrap_content">
-        <Button android:layout_width="100dip" android:layout_gravity="center_vertical|center_horizontal" android:id="@+id/permComb" android:layout_height="100dip" android:background="@drawable/permcomb" android:layout_margin="5dip"></Button>
-        <Button android:layout_width="100dip" android:layout_gravity="center_vertical|center_horizontal" android:id="@+id/discrete" android:layout_height="100dip" android:background="@drawable/discrete" android:layout_margin="5dip"></Button>
+        <Button android:layout_width="100dip" android:layout_gravity="center_vertical|center_horizontal" android:id="@+id/permComb" android:layout_height="100dip" android:background="@drawable/permcomb" android:layout_margin="5dip" android:clickable="true"></Button>
+        <Button android:layout_width="100dip" android:layout_gravity="center_vertical|center_horizontal" android:id="@+id/discrete" android:layout_height="100dip" android:background="@drawable/discrete" android:layout_margin="5dip" android:clickable="true"></Button>
     </TableRow>
 </LinearLayout>

@@ -13,4 +13,12 @@
     <string name="calc">Calc.</string>
     <string name="save">Save</string>
     <string name="load">Load</string>
+    <string name="basic_stats">Basic Stats</string>
+    <string name="perm_comb">Permutations and Combinations</string>
+    <string name="linear_regression">Linear Regression</string>
+    <string name="discrete_stats">Discrete Stats</string>
+    <string name="data_management">Data Management</string>
+    <string name="data_title">Data Title:</string>
+    <string name="data_points">Data points (comma seperated)</string>
+    <string name="save_data">Save Data</string>
 </resources>

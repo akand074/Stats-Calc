@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent" android:orientation="vertical">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/data_points" android:layout_margin="5dip" android:id="@+id/tDataValues"></TextView>
+    <EditText android:layout_height="wrap_content" android:gravity="top|left" android:layout_width="fill_parent" android:inputType="textMultiLine" android:layout_margin="5px" android:lines="3" android:text="1,2,3" android:id="@+id/eDataValues"></EditText>
+    <TableLayout android:id="@+id/tableLayout1" android:layout_gravity="center" android:layout_height="wrap_content" android:layout_width="fill_parent">
+        <TableRow android:layout_width="fill_parent" android:id="@+id/tableRow1" android:layout_height="wrap_content">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/data_title" android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:id="@+id/tDataTitle"></TextView>
+            <EditText android:text="EditText" android:layout_height="wrap_content" android:layout_width="wrap_content" android:width="150dip" android:id="@+id/eDataTitle"></EditText>
+            <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/save_data" android:onClick="saveData" android:id="@+id/bSaveData"></Button>
+        </TableRow>
+    </TableLayout>
+    <ListView android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/lDataList"></ListView>
+</LinearLayout>

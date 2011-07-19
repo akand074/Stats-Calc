@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_height="fill_parent" android:layout_width="fill_parent" android:gravity="center" android:background="@drawable/main_screen">
-    <TableRow android:layout_height="wrap_content" android:gravity="center_horizontal" android:id="@+id/tableRow1" android:layout_width="wrap_content">
-        <Button android:layout_width="100dip" android:layout_gravity="center_vertical|center_horizontal" android:id="@+id/basic" android:layout_height="100dip" android:background="@drawable/basic" android:layout_margin="5dip" android:clickable="true"></Button>
-        <Button android:layout_width="100dip" android:layout_gravity="center_vertical|center_horizontal" android:layout_height="100dip" android:background="@drawable/linreg" android:id="@+id/linreg" android:layout_margin="5dip" android:clickable="true"></Button>
-    </TableRow>
-    <TableRow android:id="@+id/tableRow2" android:layout_gravity="center_vertical|center_horizontal" android:layout_height="wrap_content" android:gravity="center_horizontal" android:layout_width="wrap_content">
-        <Button android:layout_width="100dip" android:layout_gravity="center_vertical|center_horizontal" android:id="@+id/permComb" android:layout_height="100dip" android:background="@drawable/permcomb" android:layout_margin="5dip" android:clickable="true"></Button>
-        <Button android:layout_width="100dip" android:layout_gravity="center_vertical|center_horizontal" android:id="@+id/discrete" android:layout_height="100dip" android:background="@drawable/discrete" android:layout_margin="5dip" android:clickable="true"></Button>
-    </TableRow>
+    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/tableLayout1">
+        <TableRow android:gravity="center_horizontal" android:layout_width="wrap_content" android:id="@+id/tableRow1" android:layout_height="wrap_content" android:padding="5px">
+            <Button android:layout_width="100dip" android:id="@+id/basic" android:layout_height="100dip" android:clickable="true" android:layout_margin="5dip" android:layout_gravity="center_vertical|center_horizontal" android:background="@drawable/basic" android:onClick="launchActivity" android:tag="BasicStats"></Button>
+            <Button android:layout_width="100dip" android:id="@+id/linreg" android:layout_height="100dip" android:clickable="true" android:layout_margin="5dip" android:layout_gravity="center_vertical|center_horizontal" android:background="@drawable/linreg" android:tag="LinearRegression" android:onClick="launchActivity"></Button>
+        </TableRow>
+        <TableRow android:gravity="center_horizontal" android:layout_gravity="center_vertical|center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tableRow2" android:padding="5px">
+            <Button android:layout_width="100dip" android:id="@+id/permComb" android:layout_height="100dip" android:clickable="true" android:layout_margin="5dip" android:layout_gravity="center_vertical|center_horizontal" android:background="@drawable/permcomb" android:tag="PermutationsCombinations" android:onClick="launchActivity"></Button>
+            <Button android:layout_width="100dip" android:id="@+id/discrete" android:layout_height="100dip" android:clickable="true" android:layout_margin="5dip" android:layout_gravity="center_vertical|center_horizontal" android:background="@drawable/discrete" android:tag="DiscreteStats" android:onClick="launchActivity"></Button>
+        </TableRow>
+    </TableLayout>
 </LinearLayout>

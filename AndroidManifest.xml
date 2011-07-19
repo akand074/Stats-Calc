@@ -11,6 +11,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:label="@string/basic_stats" android:name=".BasicStats"></activity>
+        <activity android:label="@string/perm_comb" android:name=".PermutationsCombinations"></activity>
+        <activity android:label="@string/linear_regression" android:name=".LinearRegression"></activity>
+        <activity android:label="@string/discrete_stats" android:name=".DiscreteStats"></activity>
+        <activity android:name=".DataManagement" android:label="@string/data_management"></activity>
 
     </application>
 </manifest>

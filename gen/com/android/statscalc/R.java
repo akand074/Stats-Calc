@@ -19,9 +19,14 @@ public final class R {
         public static final int permcomb=0x7f020005;
     }
     public static final class id {
-        public static final int basic=0x7f06002a;
+        public static final int bSaveData=0x7f06002e;
+        public static final int basic=0x7f060031;
+        public static final int button1=0x7f060030;
         public static final int calc=0x7f060009;
-        public static final int discrete=0x7f06002d;
+        public static final int data_management=0x7f060035;
+        public static final int discrete=0x7f060034;
+        public static final int eDataTitle=0x7f06002d;
+        public static final int eDataValues=0x7f06002b;
         public static final int editText1=0x7f060004;
         public static final int editText10=0x7f060019;
         public static final int editText11=0x7f06001d;
@@ -37,6 +42,7 @@ public final class R {
         public static final int editText8=0x7f060015;
         public static final int editText9=0x7f060014;
         public static final int horizontalScrollView1=0x7f06000c;
+        public static final int lDataList=0x7f06002f;
         public static final int linearLayout1=0x7f060006;
         public static final int linearLayout2=0x7f06000d;
         public static final int linearLayout3=0x7f060017;
@@ -44,10 +50,12 @@ public final class R {
         public static final int linearLayout5=0x7f06001f;
         public static final int linearLayout6=0x7f060023;
         public static final int linearLayout7=0x7f060027;
-        public static final int linreg=0x7f06002b;
+        public static final int linreg=0x7f060032;
         public static final int load=0x7f060007;
-        public static final int permComb=0x7f06002c;
+        public static final int permComb=0x7f060033;
         public static final int save=0x7f060008;
+        public static final int tDataTitle=0x7f06002c;
+        public static final int tDataValues=0x7f06002a;
         public static final int tableLayout1=0x7f060000;
         public static final int tableRow1=0x7f060001;
         public static final int tableRow2=0x7f060003;
@@ -68,7 +76,11 @@ public final class R {
     }
     public static final class layout {
         public static final int basic=0x7f030000;
-        public static final int main=0x7f030001;
+        public static final int data_management=0x7f030001;
+        public static final int discrete_stats=0x7f030002;
+        public static final int linear_regression=0x7f030003;
+        public static final int main=0x7f030004;
+        public static final int permutations_combinations=0x7f030005;
     }
     public static final class menu {
         public static final int menu=0x7f050000;
@@ -76,15 +88,23 @@ public final class R {
     public static final class string {
         public static final int app_name=0x7f040001;
         public static final int basicInput=0x7f040002;
+        public static final int basic_stats=0x7f04000d;
         public static final int calc=0x7f04000a;
+        public static final int data_management=0x7f040011;
+        public static final int data_points=0x7f040013;
+        public static final int data_title=0x7f040012;
+        public static final int discrete_stats=0x7f040010;
         public static final int empty=0x7f040004;
         public static final int hello=0x7f040000;
         public static final int inputValues=0x7f040003;
+        public static final int linear_regression=0x7f04000f;
         public static final int load=0x7f04000c;
         public static final int mean=0x7f040005;
         public static final int median=0x7f040006;
         public static final int mode=0x7f040008;
+        public static final int perm_comb=0x7f04000e;
         public static final int save=0x7f04000b;
+        public static final int save_data=0x7f040014;
         public static final int stDev=0x7f040007;
         public static final int stErr=0x7f040009;
     }

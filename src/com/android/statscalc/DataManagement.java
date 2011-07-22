@@ -36,7 +36,6 @@ public class DataManagement extends Activity {
         
         if ( resultRequired )
         	((Button) findViewById(R.id.bSelectData)).setVisibility(0); 
-
         
         updateListView();
     }
@@ -139,7 +138,7 @@ public class DataManagement extends Activity {
     }
     
     private String sanitizeData(String dataValues){
-    	// Remove all whitespaces
+    	// Remove all white spaces
     	dataValues = dataValues.replaceAll("[\\s]", "");
     	// Convert ; to , in case user doesn't read instructions
     	dataValues = dataValues.replaceAll(";+", ",");

@@ -1,20 +1,41 @@
 package com.android.statscalc;
 
+import org.apache.commons.math.stat.descriptive.DescriptiveStatistics;
+import org.apache.commons.math.stat.descriptive.UnivariateStatistic;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Debug;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class BasicStats extends Activity {
 	private String dataValues = "";
+	private EditText eMean;
+	private EditText eMedian;
+	private EditText eNumSamples;
+	private EditText eSum;
+	private EditText eStandardDeviation;
+	private EditText eMin;
+	private EditText eMax;
 	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.basic);
+        
+        eMean = (EditText) findViewById(R.id.eMean);
+        eMedian = (EditText) findViewById(R.id.eMedian);
+    	eNumSamples = (EditText) findViewById(R.id.eNumSamples);
+    	eSum = (EditText) findViewById(R.id.eSum);
+    	eStandardDeviation = (EditText) findViewById(R.id.eStandardDeviation);
+    	eMin = (EditText) findViewById(R.id.eMin);
+    	eMax = (EditText) findViewById(R.id.eMax);
     }
     
     @Override
@@ -27,8 +48,8 @@ public class BasicStats extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
-        switch (item.getItemId()) {
-        	case R.id.data_management:
+        switch ( item.getItemId() ) {
+        	case R.id.mManageData:
         		Intent activityIntent = new Intent(this, DataManagement.class);
             	activityIntent.putExtra("resultRequired", true);
         		startActivityForResult(activityIntent,1);
@@ -42,19 +63,30 @@ public class BasicStats extends Activity {
    		super.onActivityResult(requestCode, resultCode, data);
 
    		dataValues = data.getStringExtra("dataValues");
+   		
+   		Toast.makeText(getApplicationContext(), R.string.processing_data, Toast.LENGTH_SHORT);
+   		
    		analyzeData();
     }
     
-    private void analyzeData(){
+    private void analyzeData(){    	
     	String[] arrData = dataValues.split(",");
 
-    	float sum = 0;
-    	float observations = arrData.length;
+    	DescriptiveStatistics stats = new DescriptiveStatistics();
+
     	
-    	for (int i = 0; i < arrData.length; i++) {
-			float dataPoint = Float.parseFloat( arrData[i] );
-		
-			sum += dataPoint;
+    	for (int i = 0; i < arrData.length; i++) {		
+    		stats.addValue( Double.parseDouble( arrData[i] ) );
 		}
+    
+
+    	// Compute some statistics
+    	eMean.setText( (CharSequence) String.valueOf( stats.getMean() ) );
+    	eMedian.setText( (CharSequence) String.valueOf( stats.getPercentile(50) ) );
+    	eNumSamples.setText( (CharSequence) String.valueOf( stats.getN() ) );
+    	eSum.setText( (CharSequence) String.valueOf( stats.getSum() ) );
+    	eStandardDeviation.setText( (CharSequence) String.valueOf( stats.getStandardDeviation() ) );
+    	eMin.setText( (CharSequence) String.valueOf( stats.getMin() ) );
+    	eMax.setText( (CharSequence) String.valueOf( stats.getMax() ) );
     }
 }

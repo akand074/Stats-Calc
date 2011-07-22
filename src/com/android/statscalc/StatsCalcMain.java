@@ -45,7 +45,7 @@ public class StatsCalcMain extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-        	case R.id.data_management:
+        	case R.id.mManageData:
         		Intent activityIntent = new Intent(this, DataManagement.class);
             	startActivity(activityIntent);
         		break;

@@ -2,50 +2,62 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
-  android:layout_height="fill_parent">
-    <TableLayout android:layout_width="wrap_content" android:id="@+id/tableLayout1" android:layout_height="fill_parent">
-        <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <TextView android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/basicInput"></TextView>
+  android:layout_height="fill_parent" android:padding="10dip">
+    <TableLayout android:id="@+id/tableLayout1" android:layout_height="fill_parent" android:layout_width="fill_parent" android:stretchColumns="1">
+        <TableRow android:id="@+id/tableRow1" android:layout_height="wrap_content" android:layout_width="fill_parent">
+            <TextView android:id="@+id/textView1" android:layout_height="wrap_content" android:text="@string/basicInput" android:layout_width="fill_parent" android:layout_span="2"></TextView>
         </TableRow>
         <TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        </TableRow>
-        <TableRow android:id="@+id/tableRow3" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_gravity="right">
-            <LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_gravity="right">
-            </LinearLayout>
+        	<TextView android:layout_height="wrap_content" android:id="@+id/textView2" android:text="@string/number_samples" android:layout_width="wrap_content"></TextView>
+        	<EditText android:layout_height="40dip" android:id="@+id/eNumSamples" android:text="@string/empty" android:layout_width="70dip"></EditText>
         </TableRow>
         <TableRow android:id="@+id/tableRow4" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/TextView02" android:text="@string/sample_min"></TextView>
+                <EditText android:layout_width="70dip" android:layout_height="40dip" android:id="@+id/eMin" android:text="@string/empty"></EditText>
+            
         </TableRow>
-        <HorizontalScrollView android:id="@+id/horizontalScrollView1" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        </HorizontalScrollView>
+        <TableRow android:id="@+id/tableRow10" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView8" android:text="@string/sample_max"></TextView>
+                <EditText android:layout_width="70dip" android:layout_height="40dip" android:id="@+id/eMax" android:text="@string/empty"></EditText>
+            
+        </TableRow>
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/TableRow3">
+            
+                <TextView android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sum"></TextView>
+                <EditText android:text="@string/empty" android:layout_height="40dip" android:id="@+id/eSum" android:layout_width="70dip"></EditText>
+            
+        </TableRow>
         <TableRow android:layout_gravity="left" android:id="@+id/tableRow5" android:gravity="left" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <LinearLayout android:id="@+id/linearLayout3" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            
                 <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/mean" android:id="@+id/textView3"></TextView>
-                <EditText android:layout_width="40dip" android:layout_height="40dip" android:text="@string/empty" android:id="@+id/eMean"></EditText>
-            </LinearLayout>
+                <EditText android:layout_height="40dip" android:text="@string/empty" android:id="@+id/eMean" android:layout_width="70dip"></EditText>
+          
         </TableRow>
         <TableRow android:id="@+id/tableRow6" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <LinearLayout android:layout_height="wrap_content" android:id="@+id/linearLayout4" android:layout_width="wrap_content">
+          
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/median" android:id="@+id/textView4"></TextView>
-                <EditText android:layout_width="40dip" android:text="@string/empty" android:layout_height="40dip" android:id="@+id/eMedian"></EditText>
-            </LinearLayout>
+                <EditText android:text="@string/empty" android:layout_height="40dip" android:id="@+id/eMedian" android:layout_width="70dip"></EditText>
+          
         </TableRow>
         <TableRow android:id="@+id/tableRow7" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <LinearLayout android:id="@+id/linearLayout5" android:layout_width="wrap_content" android:layout_height="wrap_content">
+          
                 <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/mode" android:id="@+id/textView5"></TextView>
-                <EditText android:layout_height="40dip" android:layout_width="40dip" android:text="@string/empty" android:id="@+id/eMode"></EditText>
-            </LinearLayout>
+                <EditText android:layout_height="40dip" android:text="@string/empty" android:id="@+id/eMode" android:layout_width="70dip"></EditText>
+          
         </TableRow>
         <TableRow android:id="@+id/tableRow8" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <LinearLayout android:id="@+id/linearLayout6" android:layout_width="wrap_content" android:layout_height="wrap_content">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/stDev" android:id="@+id/textView6"></TextView>
-                <EditText android:layout_width="40dip" android:layout_height="40dip" android:text="@string/empty" android:id="@+id/eStandardDeviation"></EditText>
-            </LinearLayout>
+          
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView6" android:text="@string/standard_deviation"></TextView>
+                <EditText android:layout_height="40dip" android:text="@string/empty" android:id="@+id/eStandardDeviation" android:layout_width="70dip"></EditText>
+          
         </TableRow>
         <TableRow android:id="@+id/tableRow9" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <LinearLayout android:id="@+id/linearLayout7" android:layout_width="wrap_content" android:layout_height="wrap_content">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/stErr" android:id="@+id/textView7"></TextView>
-                <EditText android:layout_width="40dip" android:layout_height="40dip" android:text="@string/empty" android:id="@+id/eStandardError"></EditText>
-            </LinearLayout>
+          
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/standard_error" android:id="@+id/textView7"></TextView>
+                <EditText android:layout_height="40dip" android:text="@string/empty" android:id="@+id/eStandardError" android:layout_width="70dip"></EditText>
+          
         </TableRow>
     </TableLayout>
 </LinearLayout>

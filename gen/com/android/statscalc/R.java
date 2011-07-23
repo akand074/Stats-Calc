@@ -22,13 +22,13 @@ public final class R {
         public static final int TableRow3=0x7f06000c;
         public static final int TextView01=0x7f06000d;
         public static final int TextView02=0x7f060007;
-        public static final int bSaveData=0x7f060023;
-        public static final int bSelectData=0x7f060022;
-        public static final int basic=0x7f060026;
-        public static final int button1=0x7f060025;
-        public static final int discrete=0x7f060029;
+        public static final int bAddDataPoint=0x7f060023;
+        public static final int bSaveData=0x7f060025;
+        public static final int bSelectData=0x7f060024;
+        public static final int basic=0x7f06002a;
+        public static final int button1=0x7f060029;
+        public static final int discrete=0x7f06002d;
         public static final int eDataTitle=0x7f06001f;
-        public static final int eDataValues=0x7f060021;
         public static final int eMax=0x7f06000b;
         public static final int eMean=0x7f060011;
         public static final int eMedian=0x7f060014;
@@ -38,10 +38,14 @@ public final class R {
         public static final int eStandardDeviation=0x7f06001a;
         public static final int eStandardError=0x7f06001d;
         public static final int eSum=0x7f06000e;
-        public static final int lDataList=0x7f060024;
-        public static final int linreg=0x7f060027;
-        public static final int mManageData=0x7f06002a;
-        public static final int permComb=0x7f060028;
+        public static final int editText1=0x7f060027;
+        public static final int editText2=0x7f060028;
+        public static final int hvDataPoints=0x7f060021;
+        public static final int lDataList=0x7f060026;
+        public static final int lDataPoints=0x7f060022;
+        public static final int linreg=0x7f06002b;
+        public static final int mManageData=0x7f06002e;
+        public static final int permComb=0x7f06002c;
         public static final int tDataTitle=0x7f06001e;
         public static final int tDataValues=0x7f060020;
         public static final int tableLayout1=0x7f060000;
@@ -66,10 +70,11 @@ public final class R {
     public static final class layout {
         public static final int basic=0x7f030000;
         public static final int data_management=0x7f030001;
-        public static final int discrete_stats=0x7f030002;
-        public static final int linear_regression=0x7f030003;
-        public static final int main=0x7f030004;
-        public static final int permutations_combinations=0x7f030005;
+        public static final int data_point=0x7f030002;
+        public static final int discrete_stats=0x7f030003;
+        public static final int linear_regression=0x7f030004;
+        public static final int main=0x7f030005;
+        public static final int permutations_combinations=0x7f030006;
     }
     public static final class menu {
         public static final int menu=0x7f050000;

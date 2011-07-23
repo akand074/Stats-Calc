@@ -10,10 +10,14 @@
         </TableRow>
     </TableLayout>
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/data_points" android:layout_margin="5dip" android:id="@+id/tDataValues"></TextView>
-    <EditText android:layout_height="wrap_content" android:gravity="top|left" android:layout_width="fill_parent" android:inputType="textMultiLine" android:layout_margin="5px" android:text="1,2,3" android:id="@+id/eDataValues" android:lines="2"></EditText>
+    <HorizontalScrollView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/hvDataPoints" android:hapticFeedbackEnabled="true">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="horizontal" android:id="@+id/lDataPoints">
+        <Button android:id="@+id/bAddDataPoint" android:layout_height="wrap_content" android:layout_width="wrap_content" android:onClick="addDataPoint" android:text="+" android:gravity="center_vertical|center" android:layout_gravity="center_vertical"></Button>
+        </LinearLayout>
+    </HorizontalScrollView>
     <TableRow android:id="@+id/tableRow2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:gravity="center">
-        <Button android:layout_marginRight="5dip" android:id="@+id/bSelectData" android:layout_marginLeft="5dip" android:layout_height="wrap_content" android:onClick="selectData" android:text="@string/select_data" android:layout_width="wrap_content" android:visibility="gone" android:paddingRight="20dip" android:paddingLeft="20dip"></Button>
-        <Button android:layout_marginRight="5dip" android:id="@+id/bSaveData" android:layout_marginLeft="5dip" android:layout_height="wrap_content" android:onClick="saveData" android:text="@string/save_data" android:layout_width="wrap_content" android:paddingLeft="20dip" android:paddingRight="20dip"></Button>
+        <Button android:layout_marginRight="5dip" android:id="@+id/bSelectData" android:layout_marginLeft="5dip" android:layout_height="wrap_content" android:text="@string/select_data" android:layout_width="wrap_content" android:visibility="gone" android:paddingRight="20dip" android:paddingLeft="20dip" android:onClick="selectDataSet"></Button>
+        <Button android:layout_marginRight="5dip" android:id="@+id/bSaveData" android:layout_marginLeft="5dip" android:layout_height="wrap_content" android:text="@string/save_data" android:layout_width="wrap_content" android:paddingLeft="20dip" android:paddingRight="20dip" android:onClick="saveDataSet"></Button>
     </TableRow>
     <ListView android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/lDataList"></ListView>
 </LinearLayout>

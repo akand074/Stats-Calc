@@ -59,10 +59,13 @@ public class BasicStats extends Activity {
     }
     
     @Override
-    public void onActivityResult(int requestCode,int resultCode,Intent data){
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
    		super.onActivityResult(requestCode, resultCode, data);
-
-   		dataValues = data.getStringExtra("dataValues");
+   		
+   		if ( resultCode != RESULT_OK)
+   			return;
+   		
+		dataValues = data.getStringExtra("dataValues");
    		
    		Toast.makeText(getApplicationContext(), R.string.processing_data, Toast.LENGTH_SHORT);
    		
@@ -70,13 +73,14 @@ public class BasicStats extends Activity {
     }
     
     private void analyzeData(){    	
-    	String[] arrData = dataValues.split(",");
+    	String[] arrData = dataValues.split(";");
 
     	DescriptiveStatistics stats = new DescriptiveStatistics();
 
     	
-    	for (int i = 0; i < arrData.length; i++) {		
-    		stats.addValue( Double.parseDouble( arrData[i] ) );
+    	for (int i = 0; i < arrData.length; i++) {
+    		String[] dataPoint = arrData[i].split(",");
+    		stats.addValue( Double.parseDouble( dataPoint[1] ) );
 		}
     
 

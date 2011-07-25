@@ -25,9 +25,9 @@ public final class R {
         public static final int bAddDataPoint=0x7f060023;
         public static final int bSaveData=0x7f060025;
         public static final int bSelectData=0x7f060024;
-        public static final int basic=0x7f06002a;
+        public static final int basic=0x7f06002b;
         public static final int button1=0x7f060029;
-        public static final int discrete=0x7f06002d;
+        public static final int discrete=0x7f06002e;
         public static final int eDataTitle=0x7f06001f;
         public static final int eMax=0x7f06000b;
         public static final int eMean=0x7f060011;
@@ -43,9 +43,10 @@ public final class R {
         public static final int hvDataPoints=0x7f060021;
         public static final int lDataList=0x7f060026;
         public static final int lDataPoints=0x7f060022;
-        public static final int linreg=0x7f06002b;
-        public static final int mManageData=0x7f06002e;
-        public static final int permComb=0x7f06002c;
+        public static final int linreg=0x7f06002c;
+        public static final int mManageData=0x7f06002f;
+        public static final int permComb=0x7f06002d;
+        public static final int regression_graph=0x7f06002a;
         public static final int tDataTitle=0x7f06001e;
         public static final int tDataValues=0x7f060020;
         public static final int tableLayout1=0x7f060000;

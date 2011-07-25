@@ -1,18 +1,27 @@
 package com.android.statscalc;
 
+import org.achartengine.ChartFactory;
+import org.achartengine.GraphicalView;
+import org.achartengine.chart.PointStyle;
+import org.achartengine.model.XYMultipleSeriesDataset;
+import org.achartengine.model.XYSeries;
+import org.achartengine.renderer.XYMultipleSeriesRenderer;
+import org.achartengine.renderer.XYSeriesRenderer;
+import org.apache.commons.math.MathException;
 import org.apache.commons.math.stat.regression.SimpleRegression;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.widget.TableRow;
 
 
 public class LinearRegression extends Activity {
-	String dataValues;
+	private String dataValues = "";
 	
     /** Called when the activity is first created. */
     @Override
@@ -45,14 +54,59 @@ public class LinearRegression extends Activity {
     public void onActivityResult(int requestCode,int resultCode,Intent data){
    		super.onActivityResult(requestCode, resultCode, data);
 
-   		dataValues = data.getStringExtra("dataValues");
+   		if ( resultCode != RESULT_OK )
+   			return;
    		
-   		Toast.makeText(getApplicationContext(), R.string.processing_data, Toast.LENGTH_SHORT);
-   		
+   		if ( data.hasExtra("dataValues") )
+   			dataValues = data.getStringExtra("dataValues");
+   		   		
    		analyzeData();
     }
     
     private void analyzeData(){
+    	SimpleRegression regression = new SimpleRegression();
+    	XYSeries series = new XYSeries("Data Points");
+    	XYMultipleSeriesDataset multiSeriesDataset = new XYMultipleSeriesDataset();
+    	XYMultipleSeriesRenderer multiSeriesRenderer = new XYMultipleSeriesRenderer();
+    	XYSeriesRenderer seriesRenderer = new XYSeriesRenderer();
     	
+    	String[] temp = dataValues.split(";");
+    	double[][] dataPoints = new double[ temp.length ][ 2 ];
+    	
+    	for (int i = 0; i < temp.length; i++) {
+			String[] dataPoint = temp[i].split(",");
+			dataPoints[i][0] = Double.valueOf( dataPoint[0] );
+			dataPoints[i][1] = Double.valueOf( dataPoint[1] );
+			
+			series.add( dataPoints[i][0], dataPoints[i][1] );
+    	}
+    	
+    	seriesRenderer.setColor(Color.BLUE);
+    	seriesRenderer.setPointStyle(PointStyle.CIRCLE);
+    	
+    	multiSeriesRenderer.addSeriesRenderer(seriesRenderer);
+    	multiSeriesDataset.addSeries( series );
+    	
+    	
+    	GraphicalView chart = ChartFactory.getScatterChartView(this, multiSeriesDataset, multiSeriesRenderer);
+    	chart.setBackgroundColor(Color.WHITE);
+    	((TableRow) findViewById(R.id.regression_graph)).removeAllViews();
+    	((TableRow) findViewById(R.id.regression_graph)).addView(chart);
+    	
+    	regression.addData( dataPoints );
+    	
+    	regression.getN();
+    	regression.getIntercept();
+    	regression.getMeanSquareError();
+    	regression.getSlope();
+    	regression.getR();
+    	regression.getRSquare();
+    	regression.getSlopeStdErr();
+    	try {
+			regression.getSignificance();
+		} catch (MathException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }

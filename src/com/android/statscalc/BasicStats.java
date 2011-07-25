@@ -66,9 +66,7 @@ public class BasicStats extends Activity {
    			return;
    		
 		dataValues = data.getStringExtra("dataValues");
-   		
-   		Toast.makeText(getApplicationContext(), R.string.processing_data, Toast.LENGTH_SHORT);
-   		
+
    		analyzeData();
     }
     
@@ -76,14 +74,12 @@ public class BasicStats extends Activity {
     	String[] arrData = dataValues.split(";");
 
     	DescriptiveStatistics stats = new DescriptiveStatistics();
-
     	
     	for (int i = 0; i < arrData.length; i++) {
     		String[] dataPoint = arrData[i].split(",");
     		stats.addValue( Double.parseDouble( dataPoint[1] ) );
 		}
-    
-
+    	
     	// Compute some statistics
     	eMean.setText( (CharSequence) String.valueOf( stats.getMean() ) );
     	eMedian.setText( (CharSequence) String.valueOf( stats.getPercentile(50) ) );

@@ -8,6 +8,9 @@
 package com.android.statscalc;
 
 public final class R {
+    public static final class array {
+        public static final int distributions=0x7f050000;
+    }
     public static final class attr {
     }
     public static final class drawable {
@@ -19,69 +22,72 @@ public final class R {
         public static final int permcomb=0x7f020005;
     }
     public static final class id {
-        public static final int TableRow01=0x7f060032;
-        public static final int TableRow02=0x7f06002b;
-        public static final int TableRow03=0x7f060035;
-        public static final int TableRow04=0x7f06002d;
-        public static final int TableRow05=0x7f06002f;
-        public static final int TableRow3=0x7f06000c;
-        public static final int TextView01=0x7f06000d;
-        public static final int TextView02=0x7f060007;
-        public static final int bAddDataPoint=0x7f060023;
-        public static final int bSaveData=0x7f060025;
-        public static final int bSelectData=0x7f060024;
-        public static final int basic=0x7f06003a;
-        public static final int button1=0x7f060029;
-        public static final int discrete=0x7f06003d;
-        public static final int eDataTitle=0x7f06001f;
-        public static final int eMax=0x7f06000b;
-        public static final int eMean=0x7f060011;
-        public static final int eMedian=0x7f060014;
-        public static final int eMin=0x7f060008;
-        public static final int eMode=0x7f060017;
-        public static final int eNumSamples=0x7f060005;
-        public static final int eStandardDeviation=0x7f06001a;
-        public static final int eStandardError=0x7f06001d;
-        public static final int eSum=0x7f06000e;
-        public static final int editText1=0x7f060027;
-        public static final int editText2=0x7f060028;
-        public static final int hvDataPoints=0x7f060021;
-        public static final int lDataList=0x7f060026;
-        public static final int lDataPoints=0x7f060022;
-        public static final int linreg=0x7f06003b;
-        public static final int mManageData=0x7f06003e;
-        public static final int permComb=0x7f06003c;
-        public static final int regression_graph=0x7f06002a;
-        public static final int tDataTitle=0x7f06001e;
-        public static final int tDataValues=0x7f060020;
-        public static final int tEquation=0x7f06002e;
-        public static final int tIntercept=0x7f060036;
-        public static final int tInterceptError=0x7f060037;
-        public static final int tMeanSquareError=0x7f060031;
-        public static final int tNumDataPoints=0x7f06002c;
-        public static final int tRSquared=0x7f060039;
-        public static final int tRValue=0x7f060038;
-        public static final int tSignificance=0x7f060030;
-        public static final int tSlope=0x7f060033;
-        public static final int tSlopeError=0x7f060034;
-        public static final int tableLayout1=0x7f060000;
-        public static final int tableRow1=0x7f060001;
-        public static final int tableRow10=0x7f060009;
-        public static final int tableRow2=0x7f060003;
-        public static final int tableRow4=0x7f060006;
-        public static final int tableRow5=0x7f06000f;
-        public static final int tableRow6=0x7f060012;
-        public static final int tableRow7=0x7f060015;
-        public static final int tableRow8=0x7f060018;
-        public static final int tableRow9=0x7f06001b;
-        public static final int textView1=0x7f060002;
-        public static final int textView2=0x7f060004;
-        public static final int textView3=0x7f060010;
-        public static final int textView4=0x7f060013;
-        public static final int textView5=0x7f060016;
-        public static final int textView6=0x7f060019;
-        public static final int textView7=0x7f06001c;
-        public static final int textView8=0x7f06000a;
+        public static final int TableRow01=0x7f070035;
+        public static final int TableRow02=0x7f07002e;
+        public static final int TableRow03=0x7f070038;
+        public static final int TableRow04=0x7f070030;
+        public static final int TableRow05=0x7f070032;
+        public static final int TableRow3=0x7f07000c;
+        public static final int TextView01=0x7f07000d;
+        public static final int TextView02=0x7f070007;
+        public static final int bAddDataPoint=0x7f070023;
+        public static final int bSaveData=0x7f070025;
+        public static final int bSelectData=0x7f070024;
+        public static final int basic=0x7f07003d;
+        public static final int button1=0x7f070029;
+        public static final int discrete=0x7f070040;
+        public static final int eDataTitle=0x7f07001f;
+        public static final int eMax=0x7f07000b;
+        public static final int eMean=0x7f070011;
+        public static final int eMedian=0x7f070014;
+        public static final int eMin=0x7f070008;
+        public static final int eMode=0x7f070017;
+        public static final int eNumSamples=0x7f070005;
+        public static final int eStandardDeviation=0x7f07001a;
+        public static final int eStandardError=0x7f07001d;
+        public static final int eSum=0x7f07000e;
+        public static final int editText1=0x7f070027;
+        public static final int editText2=0x7f070028;
+        public static final int hvDataPoints=0x7f070021;
+        public static final int lDataList=0x7f070026;
+        public static final int lDataPoints=0x7f070022;
+        public static final int linearLayout1=0x7f07002a;
+        public static final int linreg=0x7f07003e;
+        public static final int mManageData=0x7f070041;
+        public static final int permComb=0x7f07003f;
+        public static final int regression_graph=0x7f07002d;
+        public static final int sDistributionSelector=0x7f07002c;
+        public static final int tDataTitle=0x7f07001e;
+        public static final int tDataValues=0x7f070020;
+        public static final int tDistributionSelection=0x7f07002b;
+        public static final int tEquation=0x7f070031;
+        public static final int tIntercept=0x7f070039;
+        public static final int tInterceptError=0x7f07003a;
+        public static final int tMeanSquareError=0x7f070034;
+        public static final int tNumDataPoints=0x7f07002f;
+        public static final int tRSquared=0x7f07003c;
+        public static final int tRValue=0x7f07003b;
+        public static final int tSignificance=0x7f070033;
+        public static final int tSlope=0x7f070036;
+        public static final int tSlopeError=0x7f070037;
+        public static final int tableLayout1=0x7f070000;
+        public static final int tableRow1=0x7f070001;
+        public static final int tableRow10=0x7f070009;
+        public static final int tableRow2=0x7f070003;
+        public static final int tableRow4=0x7f070006;
+        public static final int tableRow5=0x7f07000f;
+        public static final int tableRow6=0x7f070012;
+        public static final int tableRow7=0x7f070015;
+        public static final int tableRow8=0x7f070018;
+        public static final int tableRow9=0x7f07001b;
+        public static final int textView1=0x7f070002;
+        public static final int textView2=0x7f070004;
+        public static final int textView3=0x7f070010;
+        public static final int textView4=0x7f070013;
+        public static final int textView5=0x7f070016;
+        public static final int textView6=0x7f070019;
+        public static final int textView7=0x7f07001c;
+        public static final int textView8=0x7f07000a;
     }
     public static final class layout {
         public static final int basic=0x7f030000;
@@ -93,7 +99,7 @@ public final class R {
         public static final int permutations_combinations=0x7f030006;
     }
     public static final class menu {
-        public static final int menu=0x7f050000;
+        public static final int menu=0x7f060000;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
@@ -127,6 +133,7 @@ public final class R {
         public static final int save=0x7f04000a;
         public static final int save_data=0x7f040013;
         public static final int select_data=0x7f040014;
+        public static final int select_distribution=0x7f040025;
         public static final int significance=0x7f040023;
         public static final int slope=0x7f04001c;
         public static final int slope_standard_error=0x7f040021;

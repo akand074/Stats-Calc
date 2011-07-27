@@ -37,4 +37,10 @@
     <string name="mean_square_error">Mean Sequare Err:</string>
     <string name="significance">Significance:</string>
     <string name="equation">Equation:</string>
+    <string name="select_distribution">Select a distribution:</string>
+    <string-array name="distributions">
+        <item>Poisson</item>
+        <item>T</item>
+        <item>ChiSquared</item>
+    </string-array>
 </resources>

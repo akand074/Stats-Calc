@@ -13,21 +13,65 @@ import org.apache.commons.math.stat.regression.SimpleRegression;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint.Align;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.TableRow;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 
 
 public class LinearRegression extends Activity {
 	private String dataValues = "";
+	private XYSeries dataSeries;
+	private XYSeries lobfSeries;
+	private XYMultipleSeriesDataset multiSeriesDataset;
+	private XYMultipleSeriesRenderer multiSeriesRenderer;
+	private GraphicalView chart;
 	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.linear_regression);
+        
+        // Generate the graph
+    	multiSeriesDataset = new XYMultipleSeriesDataset();
+    	multiSeriesRenderer = new XYMultipleSeriesRenderer();
+    	XYSeriesRenderer seriesRenderer = new XYSeriesRenderer();
+    	XYSeriesRenderer lobfRenderer = new XYSeriesRenderer();
+    	dataSeries = new XYSeries("Data Points");
+    	lobfSeries = new XYSeries("Regression Line");
+    	
+    	lobfRenderer.setLineWidth(2);
+    	lobfRenderer.setColor(Color.GREEN);
+    	lobfRenderer.setPointStyle( PointStyle.CIRCLE );
+    	
+    	seriesRenderer.setLineWidth(0);
+    	seriesRenderer.setColor( Color.BLUE );
+    	seriesRenderer.setPointStyle( PointStyle.CIRCLE );
+    	seriesRenderer.setFillPoints( true );
+    	
+    	multiSeriesRenderer.setAxesColor( Color.WHITE );
+    	multiSeriesRenderer.setYLabelsAlign( Align.RIGHT );
+    	multiSeriesRenderer.setShowLegend( true );
+    	multiSeriesRenderer.setLabelsTextSize( 16 );
+    	multiSeriesRenderer.setShowAxes(true);
+    	multiSeriesRenderer.setXLabels(4);
+    	multiSeriesRenderer.setYLabels(4);
+	
+    	multiSeriesRenderer.addSeriesRenderer( seriesRenderer );
+    	multiSeriesRenderer.addSeriesRenderer( lobfRenderer );
+    	multiSeriesDataset.addSeries( dataSeries );
+    	multiSeriesDataset.addSeries( lobfSeries );
+    	
+    	// Render the graph
+    	chart = ChartFactory.getLineChartView(this, multiSeriesDataset, multiSeriesRenderer);
+    	chart.setBackgroundColor(Color.WHITE);
+
+    	((FrameLayout) findViewById(R.id.regression_graph)).addView( chart );
     }
     
     @Override
@@ -64,49 +108,42 @@ public class LinearRegression extends Activity {
     }
     
     private void analyzeData(){
-    	SimpleRegression regression = new SimpleRegression();
-    	XYSeries series = new XYSeries("Data Points");
-    	XYMultipleSeriesDataset multiSeriesDataset = new XYMultipleSeriesDataset();
-    	XYMultipleSeriesRenderer multiSeriesRenderer = new XYMultipleSeriesRenderer();
-    	XYSeriesRenderer seriesRenderer = new XYSeriesRenderer();
-    	
     	String[] temp = dataValues.split(";");
     	double[][] dataPoints = new double[ temp.length ][ 2 ];
+    	
+    	dataSeries.clear();
+    	lobfSeries.clear();
     	
     	for (int i = 0; i < temp.length; i++) {
 			String[] dataPoint = temp[i].split(",");
 			dataPoints[i][0] = Double.valueOf( dataPoint[0] );
 			dataPoints[i][1] = Double.valueOf( dataPoint[1] );
 			
-			series.add( dataPoints[i][0], dataPoints[i][1] );
+			dataSeries.add( dataPoints[i][0], dataPoints[i][1] );
     	}
-    	
-    	seriesRenderer.setColor(Color.BLUE);
-    	seriesRenderer.setPointStyle(PointStyle.CIRCLE);
-    	
-    	multiSeriesRenderer.addSeriesRenderer(seriesRenderer);
-    	multiSeriesDataset.addSeries( series );
-    	
-    	
-    	GraphicalView chart = ChartFactory.getScatterChartView(this, multiSeriesDataset, multiSeriesRenderer);
-    	chart.setBackgroundColor(Color.WHITE);
-    	((TableRow) findViewById(R.id.regression_graph)).removeAllViews();
-    	((TableRow) findViewById(R.id.regression_graph)).addView(chart);
+
+    	SimpleRegression regression = new SimpleRegression();
     	
     	regression.addData( dataPoints );
     	
-    	regression.getN();
-    	regression.getIntercept();
-    	regression.getMeanSquareError();
-    	regression.getSlope();
-    	regression.getR();
-    	regression.getRSquare();
-    	regression.getSlopeStdErr();
-    	try {
-			regression.getSignificance();
-		} catch (MathException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	((TextView) findViewById(R.id.tNumDataPoints)).setText( getString(R.string.num_data_points) + " " + regression.getN());
+    	((TextView) findViewById(R.id.tEquation)).setText( getString(R.string.equation) + " y = " + regression.getSlope() + "x + " + regression.getIntercept() );
+    	((TextView) findViewById(R.id.tIntercept)).setText( getString(R.string.intercept) + " " + regression.getIntercept() );
+    	((TextView) findViewById(R.id.tInterceptError)).setText( getString(R.string.intercept_standard_error) + " " + regression.getInterceptStdErr());
+    	((TextView) findViewById(R.id.tSlope)).setText( getString(R.string.slope) + " " + regression.getSlope() );
+    	((TextView) findViewById(R.id.tSlopeError)).setText( getString(R.string.slope_standard_error) + " " + regression.getSlopeStdErr() );
+    	((TextView) findViewById(R.id.tRValue)).setText( getString(R.string.r_value) + " " + regression.getR() );
+    	((TextView) findViewById(R.id.tRSquared)).setText( getString(R.string.r_squared) + " " + regression.getRSquare() );
+    	((TextView) findViewById(R.id.tMeanSquareError)).setText( getString(R.string.mean_square_error) + " " + regression.getMeanSquareError() );
+    	
+    	try { ((TextView) findViewById(R.id.tSignificance)).setText( getString(R.string.significance) + " " + regression.getSignificance() ); }
+    	catch (MathException e) { e.printStackTrace(); }
+    	
+    	lobfSeries.add( 0, regression.getIntercept() );
+    	lobfSeries.add( dataPoints[0][0], dataPoints[0][0] * regression.getSlope() + regression.getIntercept()  );
+    	lobfSeries.add( dataPoints[dataPoints.length - 1][0], dataPoints[dataPoints.length - 1][0] * regression.getSlope() + regression.getIntercept()  );
+    	lobfSeries.setTitle( "y = " + regression.getSlope() + "x + " + regression.getIntercept() );
+    	
+    	chart.repaint();
     }
 }

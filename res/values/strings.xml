@@ -27,4 +27,14 @@
     <string name="sample_max">Max</string>
     <string name="data_management">Data Management</string>
     <string name="processing_data">Processing data...</string>
+    <string name="num_data_points"># of Data Points:</string>
+    <string name="slope">Slope:</string>
+    <string name="intercept">Y Intercept:</string>
+    <string name="r_value">R:</string>
+    <string name="r_squared">R^2:</string>
+    <string name="intercept_standard_error">Intercept Std Err:</string>
+    <string name="slope_standard_error">Slope Std Err:</string>
+    <string name="mean_square_error">Mean Sequare Err:</string>
+    <string name="significance">Significance:</string>
+    <string name="equation">Equation:</string>
 </resources>

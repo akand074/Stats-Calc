@@ -37,4 +37,15 @@
     <string name="mean_square_error">Mean Sequare Err:</string>
     <string name="significance">Significance:</string>
     <string name="equation">Equation:</string>
+    <string name="select_distribution">Select a distribution:</string>
+    <string-array name="distributions">
+        <item>ChiSquared</item><item>Gaussian</item><item>Poisson</item>
+        <item>T</item>
+        
+        
+    </string-array>
+        <string name="load_enter_data">Press options to load a data set or enter some values below</string>
+        <string name="probability">Probability:</string>
+        <string name="calculate_probability">Calculate Probability</string>
+        <string name="solve_for_x">Solve for X</string>
 </resources>

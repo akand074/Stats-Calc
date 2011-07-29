@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:orientation="vertical" android:layout_height="wrap_content">
+    <TableLayout android:layout_width="wrap_content" android:id="@+id/tableLayout1" android:layout_height="fill_parent">
+        <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tableRow1">
+            <TextView android:layout_height="wrap_content" android:text="@string/mean" android:layout_width="wrap_content" android:id="@+id/tMu"></TextView>
+            <EditText android:layout_height="40dip" android:text="@string/empty" android:layout_width="70dip" android:id="@+id/eGaussianMean" android:inputType="number|numberSigned|numberDecimal"></EditText>
+        </TableRow>
+        <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/TableRow01">
+            <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tGaussianStandardDeviation" android:text="@string/standard_deviation"></TextView>
+            <EditText android:layout_height="40dip" android:text="@string/empty" android:layout_width="70dip" android:id="@+id/eGaussianStandardDeviation" android:inputType="number|numberSigned|numberDecimal"></EditText>
+        </TableRow>
+        <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/TableRow02">
+            <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="X:" android:id="@+id/tGaussianX"></TextView>
+            <EditText android:layout_height="40dip" android:text="@string/empty" android:layout_width="70dip" android:inputType="number|numberSigned|numberDecimal" android:id="@+id/eGaussianX"></EditText>
+        </TableRow>
+        <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/TableRow03">
+            <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tGaussianProbability" android:text="@string/probability"></TextView>
+            <EditText android:layout_height="40dip" android:text="@string/empty" android:layout_width="70dip" android:id="@+id/eGaussianProbability" android:inputType="number|numberSigned|numberDecimal"></EditText>
+        </TableRow>
+    </TableLayout>
+    <LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent" android:gravity="center">
+        <Button android:layout_width="wrap_content" android:id="@+id/bGaussianCalcP" android:layout_height="wrap_content" android:text="@string/calculate_probability" android:onClick="gaussianDistributionOnClick"></Button>
+        <Button android:layout_width="wrap_content" android:id="@+id/bGaussianCalcX" android:layout_height="wrap_content" android:text="@string/solve_for_x" android:onClick="gaussianDistributionOnClick"></Button>
+    </LinearLayout>
+</LinearLayout>

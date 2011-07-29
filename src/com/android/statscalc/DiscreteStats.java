@@ -153,7 +153,7 @@ public class DiscreteStats extends Activity {
     		stats.addValue( Double.parseDouble( dataPoint[1] ) );
 		}
     	    	
-    	if ( lastSelection == "Gaussian" ){
+    	if ( lastSelection.equals("Gaussian") ){
 	    	// Compute some statistics
 	    	((EditText) findViewById(R.id.eGaussianMean)).setText( String.valueOf(stats.getMean()) );
 	    	((EditText) findViewById(R.id.eGaussianStandardDeviation)).setText( String.valueOf(stats.getStandardDeviation()) );

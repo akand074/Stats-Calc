@@ -1,6 +1,8 @@
 package com.android.statscalc;
 
 
+import com.android.statscalc.stats.PermComb;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -50,42 +52,12 @@ public class PermutationsCombinations extends Activity {
     	long set = Long.parseLong(setSize.getText().toString());
     	long group = Long.parseLong(groupSize.getText().toString());
     	
-    	permVal.setText((CharSequence) String.valueOf(calcPermutations(set, group)));
-    	permWithRep.setText((CharSequence) String.valueOf(calcPermutationsWithRep(set, group)));
-    	combVal.setText((CharSequence) String.valueOf(calcCombinations(set, group)));
-    	combWithRep.setText((CharSequence) String.valueOf(calcCombinationsWithRep(set, group)));
-    	numSubset.setText((CharSequence) String.valueOf(calcNumSubset(set)));
-    	pigeonhole.setText((CharSequence) String.valueOf(calcPigeonhole(set, group)));
+    	permVal.setText((CharSequence) String.valueOf(PermComb.calcPermutations(set, group)));
+    	permWithRep.setText((CharSequence) String.valueOf(PermComb.calcPermutationsWithRep(set, group)));
+    	combVal.setText((CharSequence) String.valueOf(PermComb.calcCombinations(set, group)));
+    	combWithRep.setText((CharSequence) String.valueOf(PermComb.calcCombinationsWithRep(set, group)));
+    	numSubset.setText((CharSequence) String.valueOf(PermComb.calcNumSubset(set)));
+    	pigeonhole.setText((CharSequence) String.valueOf(PermComb.calcPigeonhole(set, group)));
 	}
 
-	private long calcPigeonhole(long set, long group) {
-		return set % group == 0? set/group : (set/group) + 1;
-	}
-
-	private long calcNumSubset(long set) {
-		return (long) Math.pow(2, set);
-	}
-
-	private long calcCombinations(long set, long group) {
-		return calcFactorial(set) / (calcFactorial(group) * calcFactorial(set - group)); 
-	}
-
-	private long calcCombinationsWithRep(long set, long group) {
-		return calcFactorial(set + group - 1) / (calcFactorial(group)*calcFactorial(set - 1));
-	}
-
-	private long calcPermutationsWithRep(long set, long group) {
-		return (long) Math.pow(set, group);
-	}
-
-	private long calcPermutations(long set, long group) {
-		return calcFactorial(set) / calcFactorial(set - group);
-	}
-
-	private long calcFactorial(long value) {
-		if(value == 0 || value == 1){
-			return 1;
-		}
-		return value * calcFactorial(value - 1);		
-	}
 }

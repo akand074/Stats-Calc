@@ -8,31 +8,36 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.EditText;
+import android.widget.TextView;
 
 public class BasicStats extends Activity {
 	private String dataValues = "";
-	private EditText eMean;
-	private EditText eMedian;
-	private EditText eNumSamples;
-	private EditText eSum;
-	private EditText eStandardDeviation;
-	private EditText eMin;
-	private EditText eMax;
+	
+	private TextView tNumSamples;
+	private TextView tMin;
+	private TextView tMax;
+	private TextView tSum;
+	private TextView tMean;
+	private TextView tMedian;
+	private TextView tStandardDeviation;
+	private TextView tSkewness;
+	private TextView tKurtosis;
 	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.basic);
-        
-        eMean = (EditText) findViewById(R.id.eMean);
-        eMedian = (EditText) findViewById(R.id.eMedian);
-    	eNumSamples = (EditText) findViewById(R.id.eNumSamples);
-    	eSum = (EditText) findViewById(R.id.eSum);
-    	eStandardDeviation = (EditText) findViewById(R.id.eStandardDeviation);
-    	eMin = (EditText) findViewById(R.id.eMin);
-    	eMax = (EditText) findViewById(R.id.eMax);
+
+        tNumSamples = (TextView) findViewById(R.id.tBasicNumSamples);
+    	tMin = (TextView) findViewById(R.id.tBasicMin);
+    	tMax = (TextView) findViewById(R.id.tBasicMax);
+    	tSum = (TextView) findViewById(R.id.tBasicSum);
+    	tMean = (TextView) findViewById(R.id.tBasicMean);
+        tMedian = (TextView) findViewById(R.id.tBasicMedian);   	
+    	tStandardDeviation = (TextView) findViewById(R.id.tBasicStandardDeviation);
+    	tKurtosis = (TextView) findViewById(R.id.tBasicKurtosis);
+    	tSkewness = (TextView) findViewById(R.id.tBasicSkewness);
     }
     
     @Override
@@ -77,13 +82,19 @@ public class BasicStats extends Activity {
     		stats.addValue( Double.parseDouble( dataPoint[1] ) );
 		}
     	
-    	// Compute some statistics
-    	eMean.setText( (CharSequence) String.valueOf( stats.getMean() ) );
-    	eMedian.setText( (CharSequence) String.valueOf( stats.getPercentile(50) ) );
-    	eNumSamples.setText( (CharSequence) String.valueOf( stats.getN() ) );
-    	eSum.setText( (CharSequence) String.valueOf( stats.getSum() ) );
-    	eStandardDeviation.setText( (CharSequence) String.valueOf( stats.getStandardDeviation() ) );
-    	eMin.setText( (CharSequence) String.valueOf( stats.getMin() ) );
-    	eMax.setText( (CharSequence) String.valueOf( stats.getMax() ) );
+    	// Regular expression to format numbers to -123.4321
+    	String regEx = "([+-]?\\d+\\.?\\d{0,4}).*";
+    	
+    	// Compute some statistics & format the result to 4 decimal places
+    	// Display the results
+    	tNumSamples.setText( (CharSequence) String.valueOf( stats.getN() ) );
+    	tMin.setText( (CharSequence) String.valueOf( stats.getMin() ).replaceAll(regEx, "$1") );
+    	tMax.setText( (CharSequence) String.valueOf( stats.getMax() ).replaceAll(regEx, "$1") );
+    	tSum.setText( (CharSequence) String.valueOf( stats.getSum() ).replaceAll(regEx, "$1") );	
+    	tMean.setText( (CharSequence) String.valueOf( stats.getMean() ).replaceAll(regEx, "$1") );
+    	tMedian.setText( (CharSequence) String.valueOf( stats.getPercentile(50) ).replaceAll(regEx, "$1") );  	
+    	tStandardDeviation.setText( (CharSequence) String.valueOf( stats.getStandardDeviation() ).replaceAll(regEx, "$1") );
+    	tKurtosis.setText( (CharSequence) String.valueOf( stats.getKurtosis() ).replaceAll(regEx, "$1") );
+    	tSkewness.setText( (CharSequence) String.valueOf( stats.getSkewness() ).replaceAll(regEx, "$1") );
     }
 }

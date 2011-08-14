@@ -2,12 +2,9 @@
 <resources>
     <string name="app_name">Stats Calc</string>
     <string name="basicInput">Click the options menu to load a data set.</string>
-    <string name="inputValues">Inputted Values:</string>
-    <string name="empty"></string>
-    <string name="mean">Mean:     </string>
-    <string name="median">Median:  </string>
+    <string name="mean">Mean</string>
+    <string name="median">Median</string>
     <string name="standard_deviation">Standard Deviation</string>
-    <string name="mode">Mode:     </string>
     <string name="standard_error">Standard Error</string>
     <string name="calc">Calc.</string>
     <string name="save">Save</string>
@@ -18,7 +15,7 @@
     <string name="discrete_stats">Discrete Stats</string>
     <string name="manage_data">Manage Data</string>
     <string name="data_title">Data Title:</string>
-    <string name="data_points">Data points (comma seperated)</string>
+    <string name="data_points">Data points (X, Y)</string>
     <string name="save_data">Save Data</string>
     <string name="select_data">Select Data</string>
     <string name="number_samples">Num of Samples</string>
@@ -49,4 +46,7 @@
         <string name="probability">Probability:</string>
         <string name="calculate_probability">Calculate Probability</string>
         <string name="solve_for_x">Solve for X</string>
+        <string name="kurtosis">Kurtosis</string>
+        <string name="skewness">Skewness</string>
+        <string name="saved_data">Saved Data:</string>
 </resources>

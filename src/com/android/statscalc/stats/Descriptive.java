@@ -47,9 +47,8 @@ public class Descriptive {
 	
 	public double getMean(){
 		double mean = 0;
-		for(int i = 0; i < sample.size(); i++){
-			mean += sample.get(i); 
-		}
+		mean = this.getSum();
+                mean /= sample.size();
 		return mean;
 	}
 	
@@ -103,7 +102,7 @@ public class Descriptive {
 
 	private void sortArray() {
 		for(int i = 0; i < sample.size() - 1; i++){
-			for(int j = 1; j < sample.size(); j ++){
+			for(int j = i + 1; j < sample.size(); j ++){
 				if(sample.get(j) < sample.get(i)){
 					Double temp = sample.get(j);
 					sample.set(j, sample.get(i));

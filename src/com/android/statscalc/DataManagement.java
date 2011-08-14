@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
@@ -73,6 +74,7 @@ public class DataManagement extends Activity {
     	
     	eX.setOnFocusChangeListener(DataPointFocus);
     	eY.setOnFocusChangeListener(DataPointFocus);
+    	eX.requestFocus();
     }
     
     public void addDataPoint(View v){

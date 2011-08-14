@@ -15,7 +15,7 @@
     <string name="discrete_stats">Discrete Stats</string>
     <string name="manage_data">Manage Data</string>
     <string name="data_title">Data Title:</string>
-    <string name="data_points">Data points (comma seperated)</string>
+    <string name="data_points">Data points (X, Y)</string>
     <string name="save_data">Save Data</string>
     <string name="select_data">Select Data</string>
     <string name="number_samples">Num of Samples</string>
@@ -47,4 +47,5 @@
         <string name="solve_for_x">Solve for X</string>
         <string name="kurtosis">Kurtosis</string>
         <string name="skewness">Skewness</string>
+        <string name="saved_data">Saved Data:</string>
 </resources>

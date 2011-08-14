@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <TableLayout android:layout_width="wrap_content" android:layout_height="fill_parent" android:id="@+id/tableLayout1">
+            <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:id="@+id/tMu" android:layout_height="wrap_content" android:text="@string/mean"></TextView>
+                <EditText android:layout_width="70dip" android:layout_height="40dip" android:inputType="number|numberSigned|numberDecimal" android:text="@string/empty" android:layout_marginLeft="10dip" android:id="@+id/eTMean">
+                    <requestFocus></requestFocus>
+                </EditText>
+            </TableRow>
+            <TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Standard Error: " android:id="@+id/tTStandardError"></TextView>
+                <EditText android:layout_width="70dip" android:layout_height="40dip" android:inputType="number|numberSigned|numberDecimal" android:text="@string/empty" android:layout_marginLeft="10dip" android:id="@+id/eTStandardError"></EditText>
+            </TableRow>
+            <TableRow android:id="@+id/TableRow02" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="X:" android:id="@+id/tTX"></TextView>
+                <EditText android:layout_width="70dip" android:layout_height="40dip" android:inputType="number|numberSigned|numberDecimal" android:text="@string/empty" android:layout_marginLeft="10dip" android:id="@+id/eTX"></EditText>
+            </TableRow>
+            <TableRow android:id="@+id/TableRow03" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="t: " android:id="@+id/tTT"></TextView>
+                <EditText android:layout_width="70dip" android:layout_height="40dip" android:inputType="number|numberSigned|numberDecimal" android:text="@string/empty" android:layout_marginLeft="10dip" android:id="@+id/eTT"></EditText>
+            </TableRow>
+        </TableLayout>
+        <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/linearLayout1">
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Calculate T" android:id="@+id/bTCalcT" android:onClick="tDistributionOnClick"></Button>
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/solve_for_x" android:id="@+id/bTCalcX" android:onClick="tDistributionOnClick"></Button>
+        </LinearLayout>
+    </LinearLayout>
+    
+</LinearLayout>

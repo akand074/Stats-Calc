@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
@@ -102,7 +101,7 @@ public class DataManagement extends Activity {
     	for (int i = 0; i < lDataPoints.getChildCount() - 1; i++){
     		lView = (LinearLayout) lDataPoints.getChildAt(i);
     		
-    		String dataPoint = (String) ( 
+    		String dataPoint = ( 
     										((EditText) lView.getChildAt(0)).getText() + "," +
     										((EditText) lView.getChildAt(1)).getText() + ";"
     									);
@@ -126,7 +125,7 @@ public class DataManagement extends Activity {
     	for (int i = 0; i < lDataPoints.getChildCount() - 1; i++){
     		lView = (LinearLayout) lDataPoints.getChildAt(i);
     		
-    		String dataPoint = (String) ( 
+    		String dataPoint = ( 
     										((EditText) lView.getChildAt(0)).getText() + "," +
     										((EditText) lView.getChildAt(1)).getText() + ";"
     									);

@@ -52,12 +52,12 @@ public class PermutationsCombinations extends Activity {
     	long set = Long.parseLong(setSize.getText().toString());
     	long group = Long.parseLong(groupSize.getText().toString());
     	
-    	permVal.setText((CharSequence) String.valueOf(PermComb.calcPermutations(set, group)));
-    	permWithRep.setText((CharSequence) String.valueOf(PermComb.calcPermutationsWithRep(set, group)));
-    	combVal.setText((CharSequence) String.valueOf(PermComb.calcCombinations(set, group)));
-    	combWithRep.setText((CharSequence) String.valueOf(PermComb.calcCombinationsWithRep(set, group)));
-    	numSubset.setText((CharSequence) String.valueOf(PermComb.calcNumSubset(set)));
-    	pigeonhole.setText((CharSequence) String.valueOf(PermComb.calcPigeonhole(set, group)));
+    	permVal.setText(String.valueOf(PermComb.calcPermutations(set, group)));
+    	permWithRep.setText(String.valueOf(PermComb.calcPermutationsWithRep(set, group)));
+    	combVal.setText(String.valueOf(PermComb.calcCombinations(set, group)));
+    	combWithRep.setText(String.valueOf(PermComb.calcCombinationsWithRep(set, group)));
+    	numSubset.setText(String.valueOf(PermComb.calcNumSubset(set)));
+    	pigeonhole.setText(String.valueOf(PermComb.calcPigeonhole(set, group)));
 	}
 
 }

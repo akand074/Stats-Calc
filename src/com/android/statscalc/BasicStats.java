@@ -87,14 +87,14 @@ public class BasicStats extends Activity {
     	
     	// Compute some statistics & format the result to 4 decimal places
     	// Display the results
-    	tNumSamples.setText( (CharSequence) String.valueOf( stats.getN() ) );
-    	tMin.setText( (CharSequence) String.valueOf( stats.getMin() ).replaceAll(regEx, "$1") );
-    	tMax.setText( (CharSequence) String.valueOf( stats.getMax() ).replaceAll(regEx, "$1") );
-    	tSum.setText( (CharSequence) String.valueOf( stats.getSum() ).replaceAll(regEx, "$1") );	
-    	tMean.setText( (CharSequence) String.valueOf( stats.getMean() ).replaceAll(regEx, "$1") );
-    	tMedian.setText( (CharSequence) String.valueOf( stats.getPercentile(50) ).replaceAll(regEx, "$1") );  	
-    	tStandardDeviation.setText( (CharSequence) String.valueOf( stats.getStandardDeviation() ).replaceAll(regEx, "$1") );
-    	tKurtosis.setText( (CharSequence) String.valueOf( stats.getKurtosis() ).replaceAll(regEx, "$1") );
-    	tSkewness.setText( (CharSequence) String.valueOf( stats.getSkewness() ).replaceAll(regEx, "$1") );
+    	tNumSamples.setText( String.valueOf( stats.getN() ) );
+    	tMin.setText( String.valueOf( stats.getMin() ).replaceAll(regEx, "$1") );
+    	tMax.setText( String.valueOf( stats.getMax() ).replaceAll(regEx, "$1") );
+    	tSum.setText( String.valueOf( stats.getSum() ).replaceAll(regEx, "$1") );	
+    	tMean.setText( String.valueOf( stats.getMean() ).replaceAll(regEx, "$1") );
+    	tMedian.setText( String.valueOf( stats.getPercentile(50) ).replaceAll(regEx, "$1") );  	
+    	tStandardDeviation.setText( String.valueOf( stats.getStandardDeviation() ).replaceAll(regEx, "$1") );
+    	tKurtosis.setText( String.valueOf( stats.getKurtosis() ).replaceAll(regEx, "$1") );
+    	tSkewness.setText( String.valueOf( stats.getSkewness() ).replaceAll(regEx, "$1") );
     }
 }

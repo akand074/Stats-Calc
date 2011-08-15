@@ -1,6 +1,7 @@
 package com.android.statscalc;
 
 import com.android.statscalc.stats.Bernoulli;
+import com.android.statscalc.stats.ChiSquared;
 import com.android.statscalc.stats.Descriptive;
 import com.android.statscalc.stats.Gaussian;
 import com.android.statscalc.stats.Poisson;
@@ -84,7 +85,7 @@ public class DiscreteStats extends Activity {
     		}
     		
     		try {
-				eProbability.setText( (CharSequence) String.valueOf( Gaussian.calcProbability(Double.valueOf(eX.getText().toString()), 
+				eProbability.setText( String.valueOf( Gaussian.calcProbability(Double.valueOf(eX.getText().toString()), 
 						Double.valueOf(eMean.getText().toString()), Double.valueOf(eStandardDeviation.getText().toString()))) );
     		} catch (NumberFormatException e) {
 				e.printStackTrace();
@@ -99,7 +100,7 @@ public class DiscreteStats extends Activity {
     		}
     		
     		try {
-				eX.setText( (CharSequence) String.valueOf( Gaussian.calcX(Double.valueOf(eProbability.getText().toString()), 
+				eX.setText( String.valueOf( Gaussian.calcX(Double.valueOf(eProbability.getText().toString()), 
 						Double.valueOf(eMean.getText().toString()), Double.valueOf(eStandardDeviation.getText().toString())) ) );
     		} catch (NumberFormatException e) {
 				e.printStackTrace();
@@ -125,31 +126,31 @@ public class DiscreteStats extends Activity {
     	}
    		
     	try {
-			eProbability.setText( (CharSequence) String.valueOf( Poisson.calcProbability(Integer.valueOf(eOccurences.getText().toString()), 
+			eProbability.setText( String.valueOf( Poisson.calcProbability(Integer.valueOf(eOccurences.getText().toString()), 
 					Double.valueOf(eLambda.getText().toString())) ) );
     	} catch (NumberFormatException e) {
 				e.printStackTrace();
 		}
     	try {
-			eProbabilityGTE.setText( (CharSequence) String.valueOf( Poisson.calcProbabilityGreaterThanOrEqual(Integer.valueOf(eOccurences.getText().toString()),
+			eProbabilityGTE.setText( String.valueOf( Poisson.calcProbabilityGreaterThanOrEqual(Integer.valueOf(eOccurences.getText().toString()),
 					Double.valueOf(eLambda.getText().toString())) ) );
     	} catch (NumberFormatException e) {
 				e.printStackTrace();
 		}
     	try {
-			eProbabilityGT.setText( (CharSequence) String.valueOf( Poisson.calcProbabilityGreaterThan(Integer.valueOf(eOccurences.getText().toString()), 
+			eProbabilityGT.setText( String.valueOf( Poisson.calcProbabilityGreaterThan(Integer.valueOf(eOccurences.getText().toString()), 
 					Double.valueOf(eLambda.getText().toString())) ) );
     	} catch (NumberFormatException e) {
 				e.printStackTrace();
 		}
     	try {
-			eProbabilityLTE.setText( (CharSequence) String.valueOf( Poisson.calcProbabilityLessThanOrEqual(Integer.valueOf(eOccurences.getText().toString()), 
+			eProbabilityLTE.setText( String.valueOf( Poisson.calcProbabilityLessThanOrEqual(Integer.valueOf(eOccurences.getText().toString()), 
 					Double.valueOf(eLambda.getText().toString())) ) );
     	} catch (NumberFormatException e) {
 				e.printStackTrace();
 		}
     	try {
-			eProbabilityLT.setText( (CharSequence) String.valueOf( Poisson.calcProbabilityLessThan(Integer.valueOf(eOccurences.getText().toString()), 
+			eProbabilityLT.setText( String.valueOf( Poisson.calcProbabilityLessThan(Integer.valueOf(eOccurences.getText().toString()), 
 					Double.valueOf(eLambda.getText().toString())) ) );
     	} catch (NumberFormatException e) {
 				e.printStackTrace();
@@ -174,31 +175,31 @@ public class DiscreteStats extends Activity {
     	}
    		
     	try {
-			eProbability.setText( (CharSequence) String.valueOf( Bernoulli.calcProbability(Integer.valueOf(eNumSuccess.getText().toString()), 
+			eProbability.setText( String.valueOf( Bernoulli.calcProbability(Integer.valueOf(eNumSuccess.getText().toString()), 
 					Integer.valueOf(eNumTrials.getText().toString()), Double.valueOf(ePercentSuccess.getText().toString()) / 100) ) );
     	} catch (NumberFormatException e) {
 				e.printStackTrace();
 		}
     	try {
-			eProbabilityGTE.setText( (CharSequence) String.valueOf( Bernoulli.calcProbabilityGreaterThanOrEqual(Integer.valueOf(eNumSuccess.getText().toString()), 
+			eProbabilityGTE.setText( String.valueOf( Bernoulli.calcProbabilityGreaterThanOrEqual(Integer.valueOf(eNumSuccess.getText().toString()), 
 					Integer.valueOf(eNumTrials.getText().toString()), Double.valueOf(ePercentSuccess.getText().toString()) / 100) ) );
     	} catch (NumberFormatException e) {
 				e.printStackTrace();
 		}
     	try {
-			eProbabilityGT.setText( (CharSequence) String.valueOf( Bernoulli.calcProbabilityGreaterThan(Integer.valueOf(eNumSuccess.getText().toString()), 
+			eProbabilityGT.setText( String.valueOf( Bernoulli.calcProbabilityGreaterThan(Integer.valueOf(eNumSuccess.getText().toString()), 
 					Integer.valueOf(eNumTrials.getText().toString()), Double.valueOf(ePercentSuccess.getText().toString()) / 100) ) );
     	} catch (NumberFormatException e) {
 				e.printStackTrace();
 		}
     	try {
-			eProbabilityLTE.setText( (CharSequence) String.valueOf( Bernoulli.calcProbabilityLessThanOrEqual(Integer.valueOf(eNumSuccess.getText().toString()), 
+			eProbabilityLTE.setText( String.valueOf( Bernoulli.calcProbabilityLessThanOrEqual(Integer.valueOf(eNumSuccess.getText().toString()), 
 					Integer.valueOf(eNumTrials.getText().toString()), Double.valueOf(ePercentSuccess.getText().toString()) / 100) ) );
     	} catch (NumberFormatException e) {
 				e.printStackTrace();
 		}
     	try {
-			eProbabilityLT.setText( (CharSequence) String.valueOf( Bernoulli.calcProbabilityLessThan(Integer.valueOf(eNumSuccess.getText().toString()), 
+			eProbabilityLT.setText( String.valueOf( Bernoulli.calcProbabilityLessThan(Integer.valueOf(eNumSuccess.getText().toString()), 
 					Integer.valueOf(eNumTrials.getText().toString()), Double.valueOf(ePercentSuccess.getText().toString()) / 100) ) );
     	} catch (NumberFormatException e) {
 				e.printStackTrace();
@@ -225,7 +226,7 @@ public class DiscreteStats extends Activity {
     		}
     		
     		try {
-				eT.setText( (CharSequence) String.valueOf( T.calcT(Double.valueOf(eX.toString()), Double.valueOf(eMean.getText().toString()), 
+				eT.setText( String.valueOf( T.calcT(Double.valueOf(eX.toString()), Double.valueOf(eMean.getText().toString()), 
 						Double.valueOf(eStandardError.getText().toString())) ) );
     		} catch (NumberFormatException e) {
 				e.printStackTrace();
@@ -240,7 +241,7 @@ public class DiscreteStats extends Activity {
     		}
     		
     		try {
-				eX.setText( (CharSequence) String.valueOf( T.calcX(Double.valueOf(eT.getText().toString()), Double.valueOf(eMean.getText().toString()), 
+				eX.setText( String.valueOf( T.calcX(Double.valueOf(eT.getText().toString()), Double.valueOf(eMean.getText().toString()), 
 						Double.valueOf(eStandardError.getText().toString())) ) );
     		} catch (NumberFormatException e) {
 				e.printStackTrace();
@@ -286,18 +287,28 @@ public class DiscreteStats extends Activity {
     
     private void analyzeData(){
     	String[] arrData = dataValues.split(";");
-
-    	Descriptive stats = new Descriptive();
     	
-    	for (int i = 0; i < arrData.length; i++) {
-    		String[] dataPoint = arrData[i].split(",");
-    		stats.addValue( Double.parseDouble( dataPoint[1] ) );
-		}
-    	    	
-    	if ( lastSelection.equals("Gaussian") ){
-	    	// Compute some statistics
-	    	((EditText) findViewById(R.id.eGaussianMean)).setText( String.valueOf(stats.getMean()) );
-	    	((EditText) findViewById(R.id.eGaussianStandardDeviation)).setText( String.valueOf(stats.getStandardDeviation()) );
+    	if (lastSelection.equals("Gaussian")){
+    		
+        	Descriptive stats = new Descriptive();
+        	
+        	for (int i = 0; i < arrData.length; i++) {
+        		String[] dataPoint = arrData[i].split(",");
+        		stats.addValue( Double.parseDouble( dataPoint[1] ) );
+    		}
+    	    // Compute some statistics
+    	    ((EditText) findViewById(R.id.eGaussianMean)).setText( String.valueOf(stats.getMean()) );
+    	    ((EditText) findViewById(R.id.eGaussianStandardDeviation)).setText( String.valueOf(stats.getStandardDeviation()) );
+    		
+    	} else if (lastSelection.equals("ChiSquared")){
+    		ChiSquared statsX = new ChiSquared();
+    		
+    		for (int i = 0; i < arrData.length; i++){
+    			String[] dataPointX = arrData[i].split(",");
+    			statsX.addExpectedValue(Double.parseDouble(dataPointX[0]));
+    			statsX.addObservedValue(Double.parseDouble(dataPointX[1]));
+    		}
+    		((EditText) findViewById(R.id.eChiSquared)).setText(String.valueOf(statsX.getChiSquared()));
     	}
     }
 }

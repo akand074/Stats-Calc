@@ -2,12 +2,12 @@
 <TableLayout 	xmlns:android="http://schemas.android.com/apk/res/android" 
 				android:layout_width="fill_parent" android:layout_height="fill_parent" android:stretchColumns="1" android:padding="5dip">
 		<TableRow android:layout_width="fill_parent" android:layout_height="wrap_content">
-			<TextView android:layout_width="wrap_content" android:text="@string/data_title" android:layout_height="wrap_content" android:id="@+id/tDataTitle"></TextView>
+			<TextView android:layout_width="wrap_content" android:text="@string/data_title" android:layout_height="wrap_content" android:id="@+id/tDataTitle" style="@style/PlainText"></TextView>
 			<EditText android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/eDataTitle" android:hint="Title"></EditText>
 		</TableRow>
 	    <TableRow android:layout_height="wrap_content" android:layout_width="fill_parent">
-	        <TextView android:text="@string/data_points" android:layout_height="wrap_content" android:id="@+id/tDataValues" android:layout_width="wrap_content"></TextView>
-	        <TextView android:layout_height="wrap_content" android:layout_width="135dip" android:id="@+id/tSavedData" android:text="@string/saved_data"></TextView>
+	        <TextView android:text="@string/data_points" android:layout_height="wrap_content" android:id="@+id/tDataValues" android:layout_width="wrap_content" style="@style/PlainText"></TextView>
+	        <TextView android:layout_height="wrap_content" android:layout_width="135dip" android:id="@+id/tSavedData" android:text="@string/saved_data" style="@style/PlainText"></TextView>
 	    </TableRow>
 	    <TableRow android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1">
 	        <ScrollView android:id="@+id/hvDataPoints" android:layout_height="fill_parent" android:layout_width="135dip">

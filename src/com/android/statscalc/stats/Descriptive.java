@@ -19,6 +19,10 @@ public class Descriptive {
 		sample.clear();
 	}
 	
+	public double getValue(int index){
+		return sample.get(index);
+	}
+	
 	public int getSampleSize(){
 		return sample.size();
 	}
@@ -98,6 +102,26 @@ public class Descriptive {
 	
 	public double getStandardError(){
 		return this.getStandardDeviation() / Math.sqrt(this.getSampleSize());
+	}
+	
+	public double getSkewness(){
+		double meanY = this.getMean();
+		double skewness = 0;
+		for (int i = 0; i < this.getSampleSize(); i++){
+			skewness += Math.pow(this.getValue(i) - meanY, 3);
+		}
+		skewness /= (this.getSampleSize() - 1) * Math.pow(this.getStandardDeviation(), 3);
+		return skewness;
+	}
+	
+	public double getKurtosis(){
+		double meanY = this.getMean();
+		double kurtosis = 0;
+		for (int i = 0; i < this.getSampleSize(); i++){
+			kurtosis += Math.pow(this.getValue(i) - meanY, 4);
+		}
+		kurtosis /= (this.getSampleSize() - 1) * Math.pow(this.getStandardDeviation(), 4);
+		return kurtosis;
 	}
 
 	private void sortArray() {

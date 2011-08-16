@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_height="wrap_content"
-	android:layout_width="fill_parent"
-	android:id="@+id/scrollView1">
+	android:layout_width="fill_parent">
 	<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:padding="10dip" android:orientation="vertical">
-	    <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:id="@+id/linearLayout1" android:layout_height="wrap_content">
-	        <TextView android:text="@string/select_distribution" android:paddingRight="10dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tDistributionSelection"></TextView>
+	    <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+	        <TextView android:text="@string/select_distribution" android:paddingRight="10dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tDistributionSelection" style="@style/PlainText"></TextView>
 	        <Spinner android:id="@+id/sDistributionSelector" android:layout_width="wrap_content" android:entries="@array/distributions" android:layout_height="wrap_content"></Spinner>
 	    </LinearLayout>
-	    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/load_enter_data" android:id="@+id/tSelectOrEnterData"></TextView>
 		<FrameLayout android:id="@+id/fDistribution" android:layout_width="fill_parent" android:layout_height="fill_parent"></FrameLayout>
 	</LinearLayout>
 </ScrollView>

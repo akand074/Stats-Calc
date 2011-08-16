@@ -15,7 +15,7 @@
     <string name="discrete_stats">Discrete Stats</string>
     <string name="manage_data">Manage Data</string>
     <string name="data_title">Data Title:</string>
-    <string name="data_points">Data points (X, Y)</string>
+    <string name="data_points">Data points</string>
     <string name="save_data">Save Data</string>
     <string name="select_data">Select Data</string>
     <string name="number_samples">Num of Samples</string>
@@ -34,7 +34,7 @@
     <string name="mean_square_error">Mean Sequare Err:</string>
     <string name="significance">Significance:</string>
     <string name="equation">Equation:</string>
-    <string name="select_distribution">Select a distribution:</string>
+    <string name="select_distribution">Select distribution:</string>
     <string-array name="distributions">
         <item>Gaussian</item><item>Poisson</item><item>Bernoulli</item><item>ChiSquared</item>
         <item>T</item>
@@ -42,11 +42,14 @@
         
         
     </string-array>
-        <string name="load_enter_data">Press options to load a data set or enter some values below</string>
+        <string name="load_enter_data">Press options to load a data set or enter the values below and press calculate</string>
         <string name="probability">Probability:</string>
         <string name="calculate_probability">Calculate Probability</string>
         <string name="solve_for_x">Solve for X</string>
         <string name="kurtosis">Kurtosis</string>
         <string name="skewness">Skewness</string>
         <string name="saved_data">Saved Data:</string>
+        <string name="load_data">Press options to select a data set</string>
+        <string name="enter_data">Please enter the following data and press calculate</string>
+        <string name="expected_observed">When entering data, use the X and Y columns for the expected and observed values, respectively.</string>
 </resources>

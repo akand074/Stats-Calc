@@ -4,41 +4,42 @@
   android:orientation="vertical"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
-    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/tableLayout1">
-        <TableRow android:id="@+id/tableRow1" android:layout_width="fill_parent" android:layout_height="wrap_content">
-            <TextView android:layout_width="wrap_content" android:id="@+id/textView1" android:layout_height="wrap_content" android:text="# of occurences: "></TextView>
-            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:layout_width="70dip" android:id="@+id/ePoissonX">
+    <TextView style="@style/PlainText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/tSelectOrEnterData" android:text="@string/enter_data"></TextView>
+    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TableRow android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="wrap_content" android:id="@+id/textView1" android:layout_height="wrap_content" android:text="# of occurences: " style="@style/PlainText"></TextView>
+            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:id="@+id/ePoissonX" android:lines="1" android:gravity="center" android:layout_width="80dip" android:hint="k">
                 <requestFocus></requestFocus>
             </EditText>
         </TableRow>
-        <TableRow android:id="@+id/tableRow2" android:layout_width="fill_parent" android:layout_height="wrap_content">
-            <TextView android:layout_width="wrap_content" android:id="@+id/textView2" android:layout_height="wrap_content" android:text="λ: "></TextView>
-            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:layout_width="70dip" android:id="@+id/ePoissonL">
+        <TableRow android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="wrap_content" android:id="@+id/textView2" android:layout_height="wrap_content" android:text="λ: " style="@style/PlainText"></TextView>
+            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:id="@+id/ePoissonL" android:lines="1" android:gravity="center" android:layout_width="80dip" android:hint="lambda">
             </EditText>
         </TableRow>
-        <TableRow android:id="@+id/tableRow3" android:layout_width="fill_parent" android:layout_height="wrap_content">
-            <TextView android:layout_width="wrap_content" android:id="@+id/textView3" android:layout_height="wrap_content" android:text="Probability(X = x): "></TextView>
-            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:layout_width="70dip" android:id="@+id/ePoissonP"></EditText>
+        <TableRow android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="wrap_content" android:id="@+id/textView3" android:layout_height="wrap_content" android:text="Probability(X = x): " style="@style/PlainText"></TextView>
+            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:id="@+id/ePoissonP" android:lines="1" android:gravity="center" android:layout_width="80dip"></EditText>
         </TableRow>
-        <TableRow android:id="@+id/tableRow4" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <TextView android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Probability(X &gt;= x): "></TextView>
-            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:id="@+id/ePoissonPGT_E" android:layout_width="70dip"></EditText>
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Probability(X &gt;= x): " style="@style/PlainText"></TextView>
+            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:id="@+id/ePoissonPGT_E" android:lines="1" android:gravity="center" android:layout_width="80dip"></EditText>
         </TableRow>
-        <TableRow android:id="@+id/tableRow5" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <TextView android:id="@+id/textView5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Probability(X &gt; x): "></TextView>
-            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:id="@+id/ePoissonPGT" android:layout_width="70dip"></EditText>
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:id="@+id/textView5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Probability(X &gt; x): " style="@style/PlainText"></TextView>
+            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:id="@+id/ePoissonPGT" android:lines="1" android:gravity="center" android:layout_width="80dip"></EditText>
         </TableRow>
-        <TableRow android:id="@+id/tableRow6" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <TextView android:id="@+id/textView6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Probability(X &lt;= x): "></TextView>
-            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:id="@+id/ePoissonPLT_E" android:layout_width="70dip"></EditText>
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:id="@+id/textView6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Probability(X &lt;= x): " style="@style/PlainText"></TextView>
+            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:id="@+id/ePoissonPLT_E" android:lines="1" android:gravity="center" android:layout_width="80dip"></EditText>
         </TableRow>
-        <TableRow android:id="@+id/tableRow7" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <TextView android:id="@+id/textView7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Probability(X &lt; x): "></TextView>
-            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:layout_width="70dip" android:id="@+id/ePoissonPLT"></EditText>
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:id="@+id/textView7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Probability(X &lt; x): " style="@style/PlainText"></TextView>
+            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:id="@+id/ePoissonPLT" android:lines="1" android:gravity="center" android:layout_width="80dip"></EditText>
         </TableRow>
     </TableLayout>
-    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/linearLayout1" android:orientation="vertical">
-        <Button android:id="@+id/bPoissonCalcP" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Calculate" android:onClick="poissonDistributionOnClick"></Button>
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <Button android:id="@+id/bPoissonCalcP" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="poissonDistributionOnClick" android:layout_gravity="center" android:text="@string/calc"></Button>
     </LinearLayout>
     
 </LinearLayout>

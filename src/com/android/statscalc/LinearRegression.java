@@ -7,8 +7,8 @@ import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
-import org.apache.commons.math.MathException;
-import org.apache.commons.math.stat.regression.SimpleRegression;
+
+import com.android.statscalc.stats.Regression;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -109,39 +109,33 @@ public class LinearRegression extends Activity {
     private void analyzeData(){
     	String[] temp = dataValues.split(";");
     	double[][] dataPoints = new double[ temp.length ][ 2 ];
+    	Regression regression = new Regression();
     	
     	dataSeries.clear();
     	lobfSeries.clear();
     	
     	for (int i = 0; i < temp.length; i++) {
-			String[] dataPoint = temp[i].split(",");
-			dataPoints[i][0] = Double.valueOf( dataPoint[0] );
-			dataPoints[i][1] = Double.valueOf( dataPoint[1] );
+    		String[] dataPoint = temp[i].split(",");
+			regression.addXValue(Double.parseDouble(dataPoint[0]));
+			regression.addYValue(Double.parseDouble(dataPoint[1]));
 			
 			dataSeries.add( dataPoints[i][0], dataPoints[i][1] );
     	}
-
-    	SimpleRegression regression = new SimpleRegression();
     	
-    	regression.addData( dataPoints );
-    	
-    	((TextView) findViewById(R.id.tNumDataPoints)).setText( getString(R.string.num_data_points) + " " + regression.getN());
-    	((TextView) findViewById(R.id.tEquation)).setText( getString(R.string.equation) + " y = " + regression.getSlope() + "x + " + regression.getIntercept() );
+    	((TextView) findViewById(R.id.tNumDataPoints)).setText( getString(R.string.num_data_points) + " " + regression.getNumDataPoints());
+    	((TextView) findViewById(R.id.tEquation)).setText( getString(R.string.equation) + " " + regression.getEquation());
     	((TextView) findViewById(R.id.tIntercept)).setText( getString(R.string.intercept) + " " + regression.getIntercept() );
-    	((TextView) findViewById(R.id.tInterceptError)).setText( getString(R.string.intercept_standard_error) + " " + regression.getInterceptStdErr());
     	((TextView) findViewById(R.id.tSlope)).setText( getString(R.string.slope) + " " + regression.getSlope() );
-    	((TextView) findViewById(R.id.tSlopeError)).setText( getString(R.string.slope_standard_error) + " " + regression.getSlopeStdErr() );
+    	((TextView) findViewById(R.id.tSlopeError)).setText( getString(R.string.slope_standard_error) + " " + regression.getSlopeError() );
     	((TextView) findViewById(R.id.tRValue)).setText( getString(R.string.r_value) + " " + regression.getR() );
-    	((TextView) findViewById(R.id.tRSquared)).setText( getString(R.string.r_squared) + " " + regression.getRSquare() );
+    	((TextView) findViewById(R.id.tRSquared)).setText( getString(R.string.r_squared) + " " + regression.getRSquared() );
     	((TextView) findViewById(R.id.tMeanSquareError)).setText( getString(R.string.mean_square_error) + " " + regression.getMeanSquareError() );
-    	
-    	try { ((TextView) findViewById(R.id.tSignificance)).setText( getString(R.string.significance) + " " + regression.getSignificance() ); }
-    	catch (MathException e) { e.printStackTrace(); }
+    	((TextView) findViewById(R.id.tSignificance)).setText( getString(R.string.significance) + " " + regression.getSignificance() );
     	
     	lobfSeries.add( 0, regression.getIntercept() );
     	lobfSeries.add( dataPoints[0][0], dataPoints[0][0] * regression.getSlope() + regression.getIntercept()  );
     	lobfSeries.add( dataPoints[dataPoints.length - 1][0], dataPoints[dataPoints.length - 1][0] * regression.getSlope() + regression.getIntercept()  );
-    	lobfSeries.setTitle( "y = " + regression.getSlope() + "x + " + regression.getIntercept() );
+    	lobfSeries.setTitle( regression.getEquation() );
     	
     	chart.repaint();
     }

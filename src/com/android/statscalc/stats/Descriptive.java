@@ -68,15 +68,12 @@ public class Descriptive {
 	}
 	
 	public double getMode(){
-		if(!sorted){
-			sortArray();
-		}
-		int count = 0;
 		int temp = 0;
 		int index = 0;
-		for(int i = 0; i < sample.size() - 1; i ++){
-			for(int j = 0; j < sample.size(); j ++){
-				if(sample.get(i) == sample.get(j)){
+		for(int i = 0; i < sample.size() - 1; i++){
+			int count = 0;
+			for(int j = 0; j < sample.size(); j++){
+				if(sample.get(i).equals(sample.get(j))){
 					count++;
 				}
 			}
@@ -84,6 +81,9 @@ public class Descriptive {
 				temp = count;
 				index = i;
 			}
+		}
+		if (temp < 2){
+			return 0;
 		}
 		return sample.get(index);
 	}

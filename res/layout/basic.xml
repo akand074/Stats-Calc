@@ -42,11 +42,19 @@
 	                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tBasicMedian" android:text="0" android:gravity="center" style="@style/PlainText"></TextView>
 	          
 	        </TableRow>
+	        <TableRow android:layout_width="wrap_content" android:layout_height="fill_parent" android:id="@+id/TableRow">
+	            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tBasicModeLabel" style="@style/PlainText" android:text="Mode"></TextView>
+	            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tBasicMode" style="@style/PlainText" android:text="0" android:gravity="center"></TextView>
+	        </TableRow>
 	        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
 	          
 	                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/standard_deviation" android:id="@+id/tBasicStandardDeviationLabel" style="@style/PlainText"></TextView>
 	                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tBasicStandardDeviation" android:text="0" android:gravity="center" style="@style/PlainText"></TextView>
 	          
+	        </TableRow>
+	        <TableRow android:layout_width="wrap_content" android:layout_height="fill_parent" android:id="@+id/TableRow">
+	            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tBasicStandardErrorLabel" style="@style/PlainText" android:text="Standard Error"></TextView>
+	            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tBasicStandardError" style="@style/PlainText" android:gravity="center" android:text="0"></TextView>
 	        </TableRow>
 	        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
 	            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kurtosis" android:id="@+id/tBasicKurtosisLabel" style="@style/PlainText"></TextView>

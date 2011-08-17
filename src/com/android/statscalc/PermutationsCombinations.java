@@ -46,11 +46,15 @@ public class PermutationsCombinations extends Activity {
     }
     
     private void calculateData() {
+    	long set = 0;
+    	long group = 0;
     	if(groupSize.getText().toString().equals("")){
-    		groupSize = setSize;
+    		set = Long.parseLong(setSize.getText().toString());
+        	group = Long.parseLong(setSize.getText().toString());
+    	} else {
+        	set = Long.parseLong(setSize.getText().toString());
+        	group = Long.parseLong(groupSize.getText().toString());
     	}
-    	long set = Long.parseLong(setSize.getText().toString());
-    	long group = Long.parseLong(groupSize.getText().toString());
     	
     	permVal.setText(String.valueOf(PermComb.calcPermutations(set, group)));
     	permWithRep.setText(String.valueOf(PermComb.calcPermutationsWithRep(set, group)));

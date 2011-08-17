@@ -1,6 +1,7 @@
 package com.android.statscalc;
 
-import org.apache.commons.math.stat.descriptive.DescriptiveStatistics;
+
+import com.android.statscalc.stats.Descriptive;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,7 +20,9 @@ public class BasicStats extends Activity {
 	private TextView tSum;
 	private TextView tMean;
 	private TextView tMedian;
+	private TextView tMode;
 	private TextView tStandardDeviation;
+	private TextView tStandardError;
 	private TextView tSkewness;
 	private TextView tKurtosis;
 	
@@ -34,8 +37,10 @@ public class BasicStats extends Activity {
     	tMax = (TextView) findViewById(R.id.tBasicMax);
     	tSum = (TextView) findViewById(R.id.tBasicSum);
     	tMean = (TextView) findViewById(R.id.tBasicMean);
-        tMedian = (TextView) findViewById(R.id.tBasicMedian);   	
+        tMedian = (TextView) findViewById(R.id.tBasicMedian);
+        tMode = (TextView) findViewById(R.id.tBasicMode);
     	tStandardDeviation = (TextView) findViewById(R.id.tBasicStandardDeviation);
+    	tStandardError = (TextView) findViewById(R.id.tBasicStandardError);
     	tKurtosis = (TextView) findViewById(R.id.tBasicKurtosis);
     	tSkewness = (TextView) findViewById(R.id.tBasicSkewness);
     }
@@ -75,7 +80,7 @@ public class BasicStats extends Activity {
     private void analyzeData(){    	
     	String[] arrData = dataValues.split(";");
 
-    	DescriptiveStatistics stats = new DescriptiveStatistics();
+    	Descriptive stats = new Descriptive();
     	
     	for (int i = 0; i < arrData.length; i++) {
     		String[] dataPoint = arrData[i].split(",");
@@ -87,13 +92,16 @@ public class BasicStats extends Activity {
     	
     	// Compute some statistics & format the result to 4 decimal places
     	// Display the results
-    	tNumSamples.setText( String.valueOf( stats.getN() ) );
+    	tNumSamples.setText( String.valueOf( stats.getSampleSize() ) );
     	tMin.setText( String.valueOf( stats.getMin() ).replaceAll(regEx, "$1") );
     	tMax.setText( String.valueOf( stats.getMax() ).replaceAll(regEx, "$1") );
     	tSum.setText( String.valueOf( stats.getSum() ).replaceAll(regEx, "$1") );	
     	tMean.setText( String.valueOf( stats.getMean() ).replaceAll(regEx, "$1") );
-    	tMedian.setText( String.valueOf( stats.getPercentile(50) ).replaceAll(regEx, "$1") );  	
+    	tMedian.setText( String.valueOf( stats.getMedian() ).replaceAll(regEx, "$1") );
+    	tMedian.setText( String.valueOf( stats.getMedian() ).replaceAll(regEx, "$1") );
+    	tMode.setText( String.valueOf( stats.getMode() ).replaceAll(regEx, "$1") );
     	tStandardDeviation.setText( String.valueOf( stats.getStandardDeviation() ).replaceAll(regEx, "$1") );
+    	tStandardError.setText( String.valueOf( stats.getStandardError() ).replaceAll(regEx, "$1") );
     	tKurtosis.setText( String.valueOf( stats.getKurtosis() ).replaceAll(regEx, "$1") );
     	tSkewness.setText( String.valueOf( stats.getSkewness() ).replaceAll(regEx, "$1") );
     }

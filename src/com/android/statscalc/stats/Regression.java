@@ -25,6 +25,10 @@ public class Regression {
 		y.clear();
 	}
 	
+	public int getNumDataPoints(){
+		return x.getSampleSize();
+	}
+	
 	public double getSlope(){
 		double meanX = x.getMean();
 		double meanY = y.getMean();
@@ -85,6 +89,10 @@ public class Regression {
 			sumXX += Math.pow(x.getValue(i) - meanX, 2);
 		}
 		return Math.sqrt(this.getMeanSquareError() / sumXX);
+	}
+	
+	public double getSignificance(){
+		return 0;
 	}
 
 }

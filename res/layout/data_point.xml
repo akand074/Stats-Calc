@@ -2,7 +2,7 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:orientation="horizontal" android:layout_height="wrap_content" android:layout_width="wrap_content">
-    <EditText android:id="@+id/editText1" android:width="50dip" android:gravity="center" android:layout_height="wrap_content" android:layout_width="wrap_content" android:hint="X"></EditText>
-    <EditText android:id="@+id/editText2" android:layout_height="wrap_content" android:width="50dip" android:gravity="center" android:layout_width="wrap_content" android:hint="Y"></EditText>
+    <EditText android:id="@+id/editText1" android:gravity="center" android:hint="X" android:inputType="number|numberSigned|numberDecimal" android:textSize="14dip" android:layout_width="60dip" android:layout_height="45dip"></EditText>
+    <EditText android:id="@+id/editText2" android:gravity="center" android:hint="Y" android:inputType="number|numberSigned|numberDecimal" android:textSize="14dip" android:layout_width="60dip" android:layout_height="45dip"></EditText>
     <Button android:id="@+id/button1" android:text="x" android:textSize="10dip" android:onClick="deleteDataPoint" android:gravity="center_vertical|center" android:layout_height="35dip" android:layout_width="35dip" android:visibility="invisible" android:layout_gravity="center_vertical"></Button>
 </LinearLayout>

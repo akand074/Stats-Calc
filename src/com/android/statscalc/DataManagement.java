@@ -1,5 +1,7 @@
 package com.android.statscalc;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Map;
 
 import android.app.Activity;
@@ -52,9 +54,7 @@ public class DataManagement extends Activity {
         
         lDataPoints = (LinearLayout) findViewById(R.id.lDataPoints);
         
-        addDataPoint("1", "4");
-        addDataPoint("2", "5");
-        addDataPoint("3", "6");
+        addDataPoint("", "");
         
         updateListView();
     }
@@ -84,60 +84,78 @@ public class DataManagement extends Activity {
     	((LinearLayout) v.getParent().getParent()).removeView((View) v.getParent());
     }
     
+    private String dataSetToString(){
+    	StringBuilder dataValues = new StringBuilder();
+    	LinearLayout lView;
+    	
+    	int arrLength = lDataPoints.getChildCount() - 1; // -1 is for the + button 
+    	
+    	Double[][] dataMatrix = new Double[ arrLength ][ 2 ];
+    	
+    	for ( int i = 0; i < arrLength; i++ ){
+    		lView = (LinearLayout) lDataPoints.getChildAt(i);
+    		
+    		try {
+    			dataMatrix[i][0] =  Double.valueOf( ((EditText) lView.getChildAt(0)).getText().toString() );
+    			dataMatrix[i][1] =  Double.valueOf( ((EditText) lView.getChildAt(1)).getText().toString() );
+    		} catch ( NumberFormatException ex ){
+    			continue;
+    		}
+    	}
+    	
+    	
+    	Arrays.sort( dataMatrix, new Comparator<Double[]>(){
+    	    @Override
+    	    public int compare(final Double[] first, final Double[] second){
+    	    	if ( first[0] == null || second[0] == null )
+    	    		return 1;
+    	    	
+    	    	return first[0].compareTo( second[0] );
+    	    }
+    	});
+    	
+    	for ( int i = 0; i < arrLength; i++ ){
+    		if ( dataMatrix[i][0] == null || dataMatrix[i][1] == null )
+    			continue;
+    		
+    		if ( (i + 1) < (arrLength) )
+    			if ( dataMatrix[i][0].equals( dataMatrix[i+1][0] ) )
+    				continue;
+    		
+    		dataValues.append( dataMatrix[i][0] + "," + dataMatrix[i][1] + ";" );
+    	}
+    	    	
+    	return dataValues.toString();
+    }
+    
     public void saveDataSet(View view){
     	EditText eDataTitle = (EditText) findViewById(R.id.eDataTitle);
     	
-    	if ( eDataTitle.getText().length() < 1 ){
-    		Toast.makeText(getApplicationContext(), "Please enter a valid title fot the data set.", Toast.LENGTH_SHORT);
+    	if ( eDataTitle.getText().toString().length() < 1 ){
+    		Toast.makeText(getApplicationContext(), "Please enter a title before saving the data set", Toast.LENGTH_SHORT).show();
+    		return;
+    	}
+    	    	
+    	SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+    	SharedPreferences.Editor settingsEditor = settings.edit();
+    	    	  	
+    	String dataValues = dataSetToString(); 
+    	
+    	if ( dataValues.length() < 1 ){
+    		Toast.makeText(getApplicationContext(), "Please enter valid data before saving", Toast.LENGTH_SHORT).show();
     		return;
     	}
     	
-    	SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-    	SharedPreferences.Editor settingsEditor = settings.edit();
-    	
-    	StringBuilder dataValues = new StringBuilder();
-    	LinearLayout lView;
-    	
-    	for (int i = 0; i < lDataPoints.getChildCount() - 1; i++){
-    		lView = (LinearLayout) lDataPoints.getChildAt(i);
-    		
-    		String dataPoint = ( 
-    										((EditText) lView.getChildAt(0)).getText() + "," +
-    										((EditText) lView.getChildAt(1)).getText() + ";"
-    									);
-    		
-    		dataPoint.replaceAll("[\\s]", "");
-    		
-    		if ( dataPoint.matches("^[+-]?\\d+[.]?\\d*,[+-]?\\d+[.]?\\d*;$") )
-    			dataValues.append( dataPoint );
-    	}
-    	  	
-    	settingsEditor.putString( eDataTitle.getText().toString(), dataValues.toString() );
+    	settingsEditor.putString( eDataTitle.getText().toString(), dataValues );
     	settingsEditor.commit();
 
     	updateListView();
+    	loadDataSet(eDataTitle.getText().toString());
     }
     
-    public void selectDataSet(View view){
-    	StringBuilder dataValues = new StringBuilder();
-    	LinearLayout lView;
-    	
-    	for (int i = 0; i < lDataPoints.getChildCount() - 1; i++){
-    		lView = (LinearLayout) lDataPoints.getChildAt(i);
-    		
-    		String dataPoint = ( 
-    										((EditText) lView.getChildAt(0)).getText() + "," +
-    										((EditText) lView.getChildAt(1)).getText() + ";"
-    									);
-    		
-    		dataPoint.replaceAll("[\\s]", "");
-    		
-    		if ( dataPoint.matches("^[+-]?\\d+[.]?\\d*,[+-]?\\d+[.]?\\d*;$") )
-    			dataValues.append( dataPoint );
-    	}
-    	
+    public void selectDataSet(View view){    	
     	Intent intent = new Intent();
-        intent.putExtra( "dataValues", dataValues.toString() );
+        intent.putExtra( "dataValues", dataSetToString() );
         setResult(RESULT_OK, intent);
         
         finish();

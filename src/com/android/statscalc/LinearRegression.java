@@ -108,16 +108,21 @@ public class LinearRegression extends Activity {
     
     private void analyzeData(){
     	String[] temp = dataValues.split(";");
-    	double[][] dataPoints = new double[ temp.length ][ 2 ];
-    	Regression regression = new Regression();
     	
     	dataSeries.clear();
     	lobfSeries.clear();
     	
+    	double[][] dataPoints = new double[ temp.length ][ 2 ];
+    	Regression regression = new Regression();
+    	
     	for (int i = 0; i < temp.length; i++) {
     		String[] dataPoint = temp[i].split(",");
-			regression.addXValue(Double.parseDouble(dataPoint[0]));
-			regression.addYValue(Double.parseDouble(dataPoint[1]));
+    		
+    		dataPoints[i][0] = Double.parseDouble(dataPoint[0]);
+    		dataPoints[i][1] = Double.parseDouble(dataPoint[1]);
+    		
+			regression.addXValue( dataPoints[i][0] );
+			regression.addYValue( dataPoints[i][1] );
 			
 			dataSeries.add( dataPoints[i][0], dataPoints[i][1] );
     	}

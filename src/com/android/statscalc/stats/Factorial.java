@@ -4,20 +4,17 @@ import java.math.BigInteger;
 
 public class Factorial {
 	
-	/*public static long calcFactorial(long value) {
-		if(value <= 1){
-			return 1;
-		}
-		return value * calcFactorial(value - 1);		
-	}*/
-	
 	public static BigInteger calcFactorial(long value){
-		BigInteger tempVal = new BigInteger(String.valueOf(value));
+		if ( value == 0 )
+			return BigInteger.valueOf(1);
+		
+		BigInteger tempVal = BigInteger.valueOf(value);
+		
 		while(value > 1){
-			BigInteger current = new BigInteger(String.valueOf(value - 1));
-			tempVal = tempVal.multiply(current);
+			tempVal = tempVal.multiply( BigInteger.valueOf(value - 1) );
 			value--;
 		}
+		
 		return tempVal;
 	}
 

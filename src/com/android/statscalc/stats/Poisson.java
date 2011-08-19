@@ -5,9 +5,10 @@ import java.math.BigDecimal;
 public class Poisson {
 	
 	public static double calcProbability(int x, double lambda) {
-		return new BigDecimal(String.valueOf((Math.pow(lambda, x) * Math.pow(
-				Math.E, lambda * -1)))).divide(
-				new BigDecimal((Factorial.calcFactorial(x)))).doubleValue();
+		return new BigDecimal( Math.pow(lambda, x) )
+			.multiply( new BigDecimal( Math.pow(Math.E, lambda * -1) ))
+			.divide( new BigDecimal( Factorial.calcFactorial(x) ), BigDecimal.ROUND_HALF_UP )
+			.doubleValue();
 	}
 	
 	public static double calcProbabilityLessThan(int x, double lambda){

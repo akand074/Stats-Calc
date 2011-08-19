@@ -1,12 +1,5 @@
 package com.android.statscalc;
 
-import com.android.statscalc.stats.Bernoulli;
-import com.android.statscalc.stats.ChiSquared;
-import com.android.statscalc.stats.Descriptive;
-import com.android.statscalc.stats.Gaussian;
-import com.android.statscalc.stats.Poisson;
-import com.android.statscalc.stats.T;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +15,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
+
+import com.android.statscalc.stats.Bernoulli;
+import com.android.statscalc.stats.ChiSquared;
+import com.android.statscalc.stats.Descriptive;
+import com.android.statscalc.stats.Gaussian;
+import com.android.statscalc.stats.Poisson;
+import com.android.statscalc.stats.T;
 
 public class DiscreteStats extends Activity {
 	private String dataValues = "";

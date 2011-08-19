@@ -1,8 +1,6 @@
 package com.android.statscalc;
 
 
-import com.android.statscalc.stats.PermComb;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +8,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.android.statscalc.stats.PermComb;
 
 public class PermutationsCombinations extends Activity {
 	private EditText setSize;
@@ -25,7 +25,7 @@ public class PermutationsCombinations extends Activity {
 	private OnClickListener clickCalc = new OnClickListener(){
 		public void onClick(View v) {
 		      calculateData();
-		    }
+		}
 	};
 	
     /** Called when the activity is first created. */

@@ -2,8 +2,11 @@ package com.android.statscalc.stats;
 
 public class Bernoulli {
 	
-	public static double calcProbability(int x, int n, double p){
-		return (Factorial.calcFactorial(n) / (Factorial.calcFactorial(x) * Factorial.calcFactorial(n - x))) * Math.pow(p, x) * Math.pow(1 - p, n - x);
+	public static double calcProbability(int x, int n, double p) {
+		return Factorial.calcFactorial(n).divide(
+				Factorial.calcFactorial(x).multiply(
+						Factorial.calcFactorial(n - x))).doubleValue()
+				* Math.pow(p, x) * Math.pow(1 - p, n - x);
 	}
 	
 	public static double calcProbabilityLessThan(int x, int n, double p){

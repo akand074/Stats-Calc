@@ -76,6 +76,7 @@ public class DiscreteStats extends Activity {
     		return;
     	}
     	
+    	
     	switch ( view.getId() ){
     	case R.id.bGaussianCalcP:
     		
@@ -98,6 +99,11 @@ public class DiscreteStats extends Activity {
     			Toast.makeText(getApplicationContext(), "Please enter a value for Probability", Toast.LENGTH_SHORT);
     			return;
     		}
+    		
+    		if ( Double.valueOf(eProbability.getText().toString()) < 0 || Double.valueOf(eProbability.getText().toString()) > 1){
+        		Toast.makeText(getApplicationContext(), "Probability must be between 0 and 1", Toast.LENGTH_SHORT);
+        		return;
+        	}
     		
     		try {
 				eX.setText( String.valueOf( Gaussian.calcX(Double.valueOf(eProbability.getText().toString()), 
@@ -171,6 +177,16 @@ public class DiscreteStats extends Activity {
     	
     	if ( eNumSuccess.getText().length() < 1 || eNumTrials.getText().length() < 1 || ePercentSuccess.getText().length() < 1){
     		Toast.makeText(getApplicationContext(), "Please enter a value for # of Successes, # of Trials and % Success", Toast.LENGTH_SHORT);
+    		return;
+    	}
+    	
+    	if ( Double.valueOf(eNumSuccess.getText().toString()) > Double.valueOf(eNumTrials.getText().toString())){
+    		Toast.makeText(getApplicationContext(), "You cannot have more successes than trials", Toast.LENGTH_SHORT);
+    		return;
+    	}
+    	
+    	if ( Double.valueOf(eProbability.getText().toString()) < 0 || Double.valueOf(eProbability.getText().toString()) > 100){
+    		Toast.makeText(getApplicationContext(), "% success must be between 0 and 100", Toast.LENGTH_SHORT);
     		return;
     	}
    		

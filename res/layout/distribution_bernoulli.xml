@@ -7,15 +7,15 @@
     <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
         <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TextView android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="# of Successes: " style="@style/PlainText"></TextView>
-            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:id="@+id/eBernoulliX" android:gravity="center" android:lines="1" android:layout_width="80dip" android:hint="X"> </EditText>
+            <EditText android:layout_height="40dip" android:id="@+id/eBernoulliX" android:gravity="center" android:lines="1" android:layout_width="80dip" android:hint="X" android:inputType="number"> </EditText>
         </TableRow>
         <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TextView android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="# of Trials" style="@style/PlainText"></TextView>
-            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:id="@+id/eBernoulliN" android:gravity="center" android:lines="1" android:layout_width="80dip" android:hint="n"></EditText>
+            <EditText android:layout_height="40dip" android:id="@+id/eBernoulliN" android:gravity="center" android:lines="1" android:layout_width="80dip" android:hint="n" android:inputType="number"></EditText>
         </TableRow>
         <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TextView android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="% Success: " style="@style/PlainText"></TextView>
-            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:id="@+id/eBernoulliS" android:gravity="center" android:lines="1" android:layout_width="80dip" android:hint="p"></EditText>
+            <EditText android:layout_height="40dip" android:id="@+id/eBernoulliS" android:gravity="center" android:lines="1" android:layout_width="80dip" android:hint="p" android:inputType="number|numberDecimal"></EditText>
         </TableRow>
         <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TextView android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Probability(X = x): " style="@style/PlainText"></TextView>

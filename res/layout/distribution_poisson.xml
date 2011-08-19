@@ -8,7 +8,7 @@
     <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
         <TableRow android:layout_width="fill_parent" android:layout_height="wrap_content">
             <TextView android:layout_width="wrap_content" android:id="@+id/textView1" android:layout_height="wrap_content" android:text="# of occurences: " style="@style/PlainText"></TextView>
-            <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:id="@+id/ePoissonX" android:lines="1" android:gravity="center" android:layout_width="80dip" android:hint="k">
+            <EditText android:layout_height="40dip" android:id="@+id/ePoissonX" android:lines="1" android:gravity="center" android:layout_width="80dip" android:hint="k" android:inputType="number">
                 <requestFocus></requestFocus>
             </EditText>
         </TableRow>

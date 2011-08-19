@@ -1,9 +1,13 @@
 package com.android.statscalc.stats;
 
+import java.math.BigDecimal;
+
 public class Poisson {
 	
-	public static double calcProbability(int x, double lambda){
-		return (Math.pow(lambda, x) * Math.pow(Math.E, lambda*-1)) / Factorial.calcFactorial(x);
+	public static double calcProbability(int x, double lambda) {
+		return new BigDecimal(String.valueOf((Math.pow(lambda, x) * Math.pow(
+				Math.E, lambda * -1)))).divide(
+				new BigDecimal((Factorial.calcFactorial(x)))).doubleValue();
 	}
 	
 	public static double calcProbabilityLessThan(int x, double lambda){

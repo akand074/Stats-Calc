@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class PermutationsCombinations extends Activity {
 	private EditText setSize;
@@ -54,6 +55,11 @@ public class PermutationsCombinations extends Activity {
     	} else {
         	set = Long.parseLong(setSize.getText().toString());
         	group = Long.parseLong(groupSize.getText().toString());
+    	}
+    	
+    	if ( group > set){
+    		Toast.makeText(getApplicationContext(), "The group cannot be larger than the set.", Toast.LENGTH_SHORT);
+    		return;
     	}
     	
     	permVal.setText(String.valueOf(PermComb.calcPermutations(set, group)));

@@ -7,7 +7,7 @@
 			<TextView android:layout_width="fill_parent" android:text="@string/basicInput" android:id="@+id/textView1" android:layout_height="wrap_content" style="@style/PlainText"></TextView>
 		    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/num_data_points" android:id="@+id/tNumDataPoints" style="@style/PlainText"></TextView>
 		    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/equation" android:id="@+id/tEquation" style="@style/PlainText"></TextView>
-		    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/significance" android:id="@+id/tSignificance" style="@style/PlainText"></TextView>
+		    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/significance" android:id="@+id/tSignificance" style="@style/PlainText" android:visibility="gone"></TextView>
 		    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mean_square_error" android:id="@+id/tMeanSquareError" style="@style/PlainText"></TextView>
 		    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/intercept" android:id="@+id/tIntercept" style="@style/PlainText"></TextView>
 		    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/slope" android:id="@+id/tSlope" style="@style/PlainText"></TextView>

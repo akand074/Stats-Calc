@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 public class LinearRegression extends Activity {
 	private String dataValues = "";
+	private static final String regEx = "([+-]?\\d+\\.?\\d{0,4}).*";
 	private XYSeries dataSeries;
 	private XYSeries lobfSeries;
 	private XYMultipleSeriesDataset multiSeriesDataset;
@@ -129,13 +130,13 @@ public class LinearRegression extends Activity {
     	
     	((TextView) findViewById(R.id.tNumDataPoints)).setText( getString(R.string.num_data_points) + " " + regression.getNumDataPoints());
     	((TextView) findViewById(R.id.tEquation)).setText( getString(R.string.equation) + " " + regression.getEquation());
-    	((TextView) findViewById(R.id.tIntercept)).setText( getString(R.string.intercept) + " " + regression.getIntercept() );
-    	((TextView) findViewById(R.id.tSlope)).setText( getString(R.string.slope) + " " + regression.getSlope() );
-    	((TextView) findViewById(R.id.tSlopeError)).setText( getString(R.string.slope_standard_error) + " " + regression.getSlopeError() );
-    	((TextView) findViewById(R.id.tRValue)).setText( getString(R.string.r_value) + " " + regression.getR() );
-    	((TextView) findViewById(R.id.tRSquared)).setText( getString(R.string.r_squared) + " " + regression.getRSquared() );
-    	((TextView) findViewById(R.id.tMeanSquareError)).setText( getString(R.string.mean_square_error) + " " + regression.getMeanSquareError() );
-    	((TextView) findViewById(R.id.tSignificance)).setText( getString(R.string.significance) + " " + regression.getSignificance() );
+    	((TextView) findViewById(R.id.tIntercept)).setText( getString(R.string.intercept) + " " + String.valueOf(regression.getIntercept()).replaceAll(regEx, "$1") );
+    	((TextView) findViewById(R.id.tSlope)).setText( getString(R.string.slope) + " " + String.valueOf(regression.getSlope()).replaceAll(regEx, "$1") );
+    	((TextView) findViewById(R.id.tSlopeError)).setText( getString(R.string.slope_standard_error) + " " + String.valueOf(regression.getSlopeError()).replaceAll(regEx, "$1") );
+    	((TextView) findViewById(R.id.tRValue)).setText( getString(R.string.r_value) + " " + String.valueOf(regression.getR()).replaceAll(regEx, "$1") );
+    	((TextView) findViewById(R.id.tRSquared)).setText( getString(R.string.r_squared) + " " + String.valueOf(regression.getRSquared()).replaceAll(regEx, "$1") );
+    	((TextView) findViewById(R.id.tMeanSquareError)).setText( getString(R.string.mean_square_error) + " " + String.valueOf(regression.getMeanSquareError()).replaceAll(regEx, "$1") );
+    	//((TextView) findViewById(R.id.tSignificance)).setText( getString(R.string.significance) + " " + String.valueOf(regression.getSignificance()).replaceAll(regEx, "$1") );
     	
     	lobfSeries.add( 0, regression.getIntercept() );
     	lobfSeries.add( dataPoints[0][0], dataPoints[0][0] * regression.getSlope() + regression.getIntercept()  );

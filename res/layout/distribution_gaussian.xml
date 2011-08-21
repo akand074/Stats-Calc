@@ -18,12 +18,12 @@
             <EditText android:layout_height="40dip" android:inputType="number|numberSigned|numberDecimal" android:id="@+id/eGaussianX" android:layout_marginLeft="10dip" android:gravity="center" android:hint="X" android:lines="1" android:layout_width="80dip"></EditText>
         </TableRow>
         <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/TableRow03">
-            <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tGaussianProbability" style="@style/PlainText" android:text="z-score: "></TextView>
+            <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tGaussianProbability" style="@style/PlainText" android:text="Z: "></TextView>
             <EditText android:layout_height="40dip" android:id="@+id/eGaussianProbability" android:inputType="number|numberSigned|numberDecimal" android:layout_marginLeft="10dip" android:gravity="center" android:lines="1" android:layout_width="80dip" android:hint="z"></EditText>
         </TableRow>
     </TableLayout>
     <LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent" android:gravity="center">
-        <Button android:layout_width="wrap_content" android:id="@+id/bGaussianCalcP" android:layout_height="wrap_content" android:onClick="gaussianDistributionOnClick" android:text="Calculate z-score"></Button>
+        <Button android:layout_width="wrap_content" android:id="@+id/bGaussianCalcP" android:layout_height="wrap_content" android:onClick="gaussianDistributionOnClick" android:text="Calculate Z"></Button>
         <Button android:layout_width="wrap_content" android:id="@+id/bGaussianCalcX" android:layout_height="wrap_content" android:text="@string/solve_for_x" android:onClick="gaussianDistributionOnClick"></Button>
     </LinearLayout>
 </LinearLayout>

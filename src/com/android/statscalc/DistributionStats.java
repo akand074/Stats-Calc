@@ -97,14 +97,9 @@ public class DistributionStats extends Activity {
     	case R.id.bGaussianCalcX:
     		
     		if ( eProbability.getText().length() < 1 ){
-    			Toast.makeText(getApplicationContext(), "Please enter a value for Probability", Toast.LENGTH_SHORT).show();
+    			Toast.makeText(getApplicationContext(), "Please enter a value for Z", Toast.LENGTH_SHORT).show();
     			return;
     		}
-    		
-    		if ( Double.valueOf(eProbability.getText().toString()) < 0 || Double.valueOf(eProbability.getText().toString()) > 1){
-        		Toast.makeText(getApplicationContext(), "Probability must be between 0 and 1", Toast.LENGTH_SHORT).show();
-        		return;
-        	}
     		
     		try {
 				eX.setText( String.valueOf( Gaussian.calcX(Double.valueOf(eProbability.getText().toString()), 
@@ -255,7 +250,7 @@ public class DistributionStats extends Activity {
     	case R.id.bTCalcX:
     		
     		if ( eT.getText().length() < 1 ){
-    			Toast.makeText(getApplicationContext(), "Please enter a value for Probability", Toast.LENGTH_SHORT).show();
+    			Toast.makeText(getApplicationContext(), "Please enter a value for t", Toast.LENGTH_SHORT).show();
     			return;
     		}
     		

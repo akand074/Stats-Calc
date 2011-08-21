@@ -3,11 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry kind="lib" path="lib/commons-math-2.2/commons-math-2.2.jar" sourcepath="lib/commons-math-2.2/commons-math-2.2-sources.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/home/fionex/Programming/Stats-Calc/lib/commons-math-2.2/commons-math-2.2-javadoc.jar!/"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="lib/achartengine-0.6.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

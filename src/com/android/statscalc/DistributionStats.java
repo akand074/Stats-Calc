@@ -23,7 +23,7 @@ import com.android.statscalc.stats.Gaussian;
 import com.android.statscalc.stats.Poisson;
 import com.android.statscalc.stats.T;
 
-public class DiscreteStats extends Activity {
+public class DistributionStats extends Activity {
 	private String dataValues = "";
 	private static String lastSelection = "";
 	private static final String regEx = "([+-]?\\d+\\.?\\d{0,4}).*";
@@ -32,7 +32,7 @@ public class DiscreteStats extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.discrete_stats);
+        setContentView(R.layout.distribution_stats);
 
     	((Spinner) findViewById(R.id.sDistributionSelector)).setOnItemSelectedListener(new OnItemSelectedListener() {
 			@Override
@@ -73,7 +73,7 @@ public class DiscreteStats extends Activity {
     	EditText eProbability = (EditText) findViewById(R.id.eGaussianProbability);
     	
     	if ( eMean.getText().length() < 1 || eStandardDeviation.getText().length() < 1 ){
-    		Toast.makeText(getApplicationContext(), "Please enter a value for Mean and Standard Deviation.", Toast.LENGTH_SHORT);
+    		Toast.makeText(getApplicationContext(), "Please enter a value for Mean and Standard Deviation.", Toast.LENGTH_SHORT).show();
     		return;
     	}
     	
@@ -82,7 +82,7 @@ public class DiscreteStats extends Activity {
     	case R.id.bGaussianCalcP:
     		
     		if ( eX.getText().length() < 1 ){
-    			Toast.makeText(getApplicationContext(), "Please enter a value for X", Toast.LENGTH_SHORT);
+    			Toast.makeText(getApplicationContext(), "Please enter a value for X", Toast.LENGTH_SHORT).show();
     			return;
     		}
     		
@@ -97,12 +97,12 @@ public class DiscreteStats extends Activity {
     	case R.id.bGaussianCalcX:
     		
     		if ( eProbability.getText().length() < 1 ){
-    			Toast.makeText(getApplicationContext(), "Please enter a value for Probability", Toast.LENGTH_SHORT);
+    			Toast.makeText(getApplicationContext(), "Please enter a value for Probability", Toast.LENGTH_SHORT).show();
     			return;
     		}
     		
     		if ( Double.valueOf(eProbability.getText().toString()) < 0 || Double.valueOf(eProbability.getText().toString()) > 1){
-        		Toast.makeText(getApplicationContext(), "Probability must be between 0 and 1", Toast.LENGTH_SHORT);
+        		Toast.makeText(getApplicationContext(), "Probability must be between 0 and 1", Toast.LENGTH_SHORT).show();
         		return;
         	}
     		
@@ -128,7 +128,7 @@ public class DiscreteStats extends Activity {
     	EditText eProbabilityLT = (EditText) findViewById(R.id.ePoissonPLT);
     	
     	if ( eOccurences.getText().length() < 1 || eLambda.getText().length() < 1 ){
-    		Toast.makeText(getApplicationContext(), "Please enter a value for # of occurences and Lambda.", Toast.LENGTH_SHORT);
+    		Toast.makeText(getApplicationContext(), "Please enter a value for # of occurences and Lambda.", Toast.LENGTH_SHORT).show();
     		return;
     	}
    		
@@ -177,17 +177,17 @@ public class DiscreteStats extends Activity {
     	EditText eProbabilityLT = (EditText) findViewById(R.id.eBernoulliPLT);
     	
     	if ( eNumSuccess.getText().length() < 1 || eNumTrials.getText().length() < 1 || ePercentSuccess.getText().length() < 1){
-    		Toast.makeText(getApplicationContext(), "Please enter a value for # of Successes, # of Trials and % Success", Toast.LENGTH_SHORT);
+    		Toast.makeText(getApplicationContext(), "Please enter a value for # of Successes, # of Trials and % Success", Toast.LENGTH_SHORT).show();
     		return;
     	}
     	
     	if ( Double.valueOf(eNumSuccess.getText().toString()) > Double.valueOf(eNumTrials.getText().toString())){
-    		Toast.makeText(getApplicationContext(), "You cannot have more successes than trials", Toast.LENGTH_SHORT);
+    		Toast.makeText(getApplicationContext(), "You cannot have more successes than trials", Toast.LENGTH_SHORT).show();
     		return;
     	}
     	
-    	if ( Double.valueOf(eProbability.getText().toString()) < 0 || Double.valueOf(eProbability.getText().toString()) > 100){
-    		Toast.makeText(getApplicationContext(), "% success must be between 0 and 100", Toast.LENGTH_SHORT);
+    	if ( Double.valueOf(ePercentSuccess.getText().toString()) < 0 || Double.valueOf(ePercentSuccess.getText().toString()) > 100){
+    		Toast.makeText(getApplicationContext(), "% success must be between 0 and 100", Toast.LENGTH_SHORT).show();
     		return;
     	}
    		
@@ -230,7 +230,7 @@ public class DiscreteStats extends Activity {
     	EditText eT = (EditText) findViewById(R.id.eTT);
     	
     	if ( eMean.getText().length() < 1 || eStandardError.getText().length() < 1 ){
-    		Toast.makeText(getApplicationContext(), "Please enter a value for Mean and Standard Deviation.", Toast.LENGTH_SHORT);
+    		Toast.makeText(getApplicationContext(), "Please enter a value for Mean and Standard Deviation.", Toast.LENGTH_SHORT).show();
     		return;
     	}
     	
@@ -238,13 +238,15 @@ public class DiscreteStats extends Activity {
     	case R.id.bTCalcT:
     		
     		if ( eX.getText().length() < 1 ){
-    			Toast.makeText(getApplicationContext(), "Please enter a value for X", Toast.LENGTH_SHORT);
+    			Toast.makeText(getApplicationContext(), "Please enter a value for X", Toast.LENGTH_SHORT).show();
     			return;
     		}
     		
     		try {
-				eT.setText( String.valueOf( T.calcT(Double.valueOf(eX.toString()), Double.valueOf(eMean.getText().toString()), 
-						Double.valueOf(eStandardError.getText().toString())) ).replaceAll(regEx, "$1") );
+				eT.setText( String.valueOf( T.calcT( 	Double.valueOf( eX.getText().toString() ),
+														Double.valueOf( eMean.getText().toString() ), 
+														Double.valueOf( eStandardError.getText().toString() )
+													) ).replaceAll(regEx, "$1") );
     		} catch (NumberFormatException e) {
 				e.printStackTrace();
 			}
@@ -253,13 +255,15 @@ public class DiscreteStats extends Activity {
     	case R.id.bTCalcX:
     		
     		if ( eT.getText().length() < 1 ){
-    			Toast.makeText(getApplicationContext(), "Please enter a value for Probability", Toast.LENGTH_SHORT);
+    			Toast.makeText(getApplicationContext(), "Please enter a value for Probability", Toast.LENGTH_SHORT).show();
     			return;
     		}
     		
     		try {
-				eX.setText( String.valueOf( T.calcX(Double.valueOf(eT.getText().toString()), Double.valueOf(eMean.getText().toString()), 
-						Double.valueOf(eStandardError.getText().toString())) ).replaceAll(regEx, "$1") );
+				eX.setText( String.valueOf( T.calcX(	Double.valueOf( eT.getText().toString() ),
+														Double.valueOf( eMean.getText().toString() ), 
+														Double.valueOf( eStandardError.getText().toString() )
+													) ).replaceAll(regEx, "$1") );
     		} catch (NumberFormatException e) {
 				e.printStackTrace();
 			}

@@ -58,7 +58,7 @@ public class PermutationsCombinations extends Activity {
     	}
     	
     	if ( group > set){
-    		Toast.makeText(getApplicationContext(), "The group cannot be larger than the set.", Toast.LENGTH_SHORT);
+    		Toast.makeText(getApplicationContext(), "The group cannot be larger than the set.", Toast.LENGTH_SHORT).show();
     		return;
     	}
     	

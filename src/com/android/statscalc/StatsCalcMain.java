@@ -22,8 +22,8 @@ public class StatsCalcMain extends Activity {
     	
     	if ( buttonTag.equals("BasicStats") )
     		activityToLaunch = BasicStats.class;
-    	else if ( buttonTag.equals("DiscreteStats") )
-    		activityToLaunch = DiscreteStats.class;
+    	else if ( buttonTag.equals("DistributionStats") )
+    		activityToLaunch = DistributionStats.class;
     	else if ( buttonTag.equals("LinearRegression") )
     		activityToLaunch = LinearRegression.class;
 		else if ( buttonTag.equals("PermutationsCombinations") )

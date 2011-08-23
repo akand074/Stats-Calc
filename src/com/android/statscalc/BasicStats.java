@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.android.statscalc.stats.Descriptive;
+import com.android.statscalc.stats.Functions;
 
 public class BasicStats extends Activity {
 	private String dataValues = "";
@@ -87,22 +88,19 @@ public class BasicStats extends Activity {
     		stats.addValue( Double.parseDouble( dataPoint[1] ) );
 		}
     	
-    	// Regular expression to format numbers to -123.4321
-    	String regEx = "([+-]?\\d+\\.?\\d{0,4}).*";
-    	
     	// Compute some statistics & format the result to 4 decimal places
     	// Display the results
     	tNumSamples.setText( String.valueOf( stats.getSampleSize() ) );
-    	tMin.setText( String.valueOf( stats.getMin() ).replaceAll(regEx, "$1") );
-    	tMax.setText( String.valueOf( stats.getMax() ).replaceAll(regEx, "$1") );
-    	tSum.setText( String.valueOf( stats.getSum() ).replaceAll(regEx, "$1") );	
-    	tMean.setText( String.valueOf( stats.getMean() ).replaceAll(regEx, "$1") );
-    	tMedian.setText( String.valueOf( stats.getMedian() ).replaceAll(regEx, "$1") );
-    	tMedian.setText( String.valueOf( stats.getMedian() ).replaceAll(regEx, "$1") );
-    	tMode.setText( String.valueOf( stats.getMode() ).replaceAll(regEx, "$1") );
-    	tStandardDeviation.setText( String.valueOf( stats.getStandardDeviation() ).replaceAll(regEx, "$1") );
-    	tStandardError.setText( String.valueOf( stats.getStandardError() ).replaceAll(regEx, "$1") );
-    	tKurtosis.setText( String.valueOf( stats.getKurtosis() ).replaceAll(regEx, "$1") );
-    	tSkewness.setText( String.valueOf( stats.getSkewness() ).replaceAll(regEx, "$1") );
+    	tMin.setText( String.valueOf( Functions.format(stats.getMin()) ));
+    	tMax.setText( String.valueOf( Functions.format(stats.getMax()) ) );
+    	tSum.setText( String.valueOf( Functions.format(stats.getSum()) ) );	
+    	tMean.setText( String.valueOf( Functions.format(stats.getMean()) ) );
+    	tMedian.setText( String.valueOf( Functions.format(stats.getMedian()) ) );
+    	tMedian.setText( String.valueOf( Functions.format(stats.getMedian()) ) );
+    	tMode.setText( String.valueOf( Functions.format(stats.getMode()) ) );
+    	tStandardDeviation.setText( String.valueOf( Functions.format(stats.getStandardDeviation()) ) );
+    	tStandardError.setText( String.valueOf( Functions.format(stats.getStandardError() )) );
+    	tKurtosis.setText( String.valueOf( Functions.format(stats.getKurtosis() )) );
+    	tSkewness.setText( String.valueOf( Functions.format(stats.getSkewness() )) );
     }
 }

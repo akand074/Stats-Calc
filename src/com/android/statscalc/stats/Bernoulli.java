@@ -3,8 +3,8 @@ package com.android.statscalc.stats;
 public class Bernoulli {
 	
 	public static double calcProbability(int x, int n, double p) {
-		return Factorial.calcFactorial(n)
-			.divide( Factorial.calcFactorial(x).multiply( Factorial.calcFactorial(n - x) ) )
+		return Functions.calcFactorial(n)
+			.divide( Functions.calcFactorial(x).multiply( Functions.calcFactorial(n - x) ) )
 			.doubleValue() * Math.pow(p, x) * Math.pow(1 - p, n - x);
 	}
 	

@@ -7,7 +7,7 @@ public class Poisson {
 	public static double calcProbability(int x, double lambda) {
 		return new BigDecimal( Math.pow(lambda, x) )
 			.multiply( new BigDecimal( Math.pow(Math.E, lambda * -1) ))
-			.divide( new BigDecimal( Factorial.calcFactorial(x) ), BigDecimal.ROUND_HALF_UP )
+			.divide( new BigDecimal( Functions.calcFactorial(x) ), BigDecimal.ROUND_HALF_UP )
 			.doubleValue();
 	}
 	

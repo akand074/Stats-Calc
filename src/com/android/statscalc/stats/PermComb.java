@@ -11,11 +11,11 @@ public class PermComb {
 	}
 
 	public static long calcCombinations(long set, long group) {
-		return Factorial.calcFactorial(set).divide((Factorial.calcFactorial(group).multiply(Factorial.calcFactorial(set - group)))).longValue(); 
+		return Functions.calcFactorial(set).divide((Functions.calcFactorial(group).multiply(Functions.calcFactorial(set - group)))).longValue(); 
 	}
 
 	public static long calcCombinationsWithRep(long set, long group) {
-		return Factorial.calcFactorial(set + group - 1).divide((Factorial.calcFactorial(group).multiply(Factorial.calcFactorial(set - 1)))).longValue();
+		return Functions.calcFactorial(set + group - 1).divide((Functions.calcFactorial(group).multiply(Functions.calcFactorial(set - 1)))).longValue();
 	}
 
 	public static long calcPermutationsWithRep(long set, long group) {
@@ -23,7 +23,7 @@ public class PermComb {
 	}
 
 	public static long calcPermutations(long set, long group) {
-		return Factorial.calcFactorial(set).divide(Factorial.calcFactorial(set - group)).longValue();
+		return Functions.calcFactorial(set).divide(Functions.calcFactorial(set - group)).longValue();
 	}
 
 }

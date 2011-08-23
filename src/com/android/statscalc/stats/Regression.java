@@ -48,8 +48,7 @@ public class Regression {
 	}
 	
 	public String getEquation(){
-		String regEx = "([+-]?\\d+\\.?\\d{0,4}).*";
-		return "y = " + String.valueOf(this.getSlope()).replaceAll(regEx, "$1") + "x + " + String.valueOf(this.getIntercept()).replaceAll(regEx, "$1");
+		return "y = " + String.valueOf(Functions.format(this.getSlope())) + "x + " + String.valueOf(Functions.format(this.getIntercept()));
 	}
 	
 	public double getErrorSquared(){

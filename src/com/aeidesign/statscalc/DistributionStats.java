@@ -1,4 +1,4 @@
-package com.android.statscalc;
+package com.aeidesign.statscalc;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,13 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-import com.android.statscalc.stats.Bernoulli;
-import com.android.statscalc.stats.ChiSquared;
-import com.android.statscalc.stats.Descriptive;
-import com.android.statscalc.stats.Functions;
-import com.android.statscalc.stats.Gaussian;
-import com.android.statscalc.stats.Poisson;
-import com.android.statscalc.stats.T;
+import com.aeidesign.statscalc.stats.Bernoulli;
+import com.aeidesign.statscalc.stats.ChiSquared;
+import com.aeidesign.statscalc.stats.Descriptive;
+import com.aeidesign.statscalc.stats.Functions;
+import com.aeidesign.statscalc.stats.Gaussian;
+import com.aeidesign.statscalc.stats.Poisson;
+import com.aeidesign.statscalc.stats.T;
 
 public class DistributionStats extends Activity {
 	private String dataValues = "";

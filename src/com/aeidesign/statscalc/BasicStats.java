@@ -1,4 +1,4 @@
-package com.android.statscalc;
+package com.aeidesign.statscalc;
 
 
 import android.app.Activity;
@@ -9,8 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.android.statscalc.stats.Descriptive;
-import com.android.statscalc.stats.Functions;
+import com.aeidesign.statscalc.stats.Descriptive;
+import com.aeidesign.statscalc.stats.Functions;
 
 public class BasicStats extends Activity {
 	private String dataValues = "";

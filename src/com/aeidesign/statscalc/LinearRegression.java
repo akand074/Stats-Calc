@@ -1,4 +1,4 @@
-package com.android.statscalc;
+package com.aeidesign.statscalc;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
@@ -19,8 +19,8 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.android.statscalc.stats.Functions;
-import com.android.statscalc.stats.Regression;
+import com.aeidesign.statscalc.stats.Functions;
+import com.aeidesign.statscalc.stats.Regression;
 
 
 public class LinearRegression extends Activity {

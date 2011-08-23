@@ -1,4 +1,4 @@
-package com.android.statscalc.stats;
+package com.aeidesign.statscalc.stats;
 
 public class T {
 	

@@ -1,4 +1,4 @@
-package com.android.statscalc;
+package com.aeidesign.statscalc;
 
 import java.util.Arrays;
 import java.util.Comparator;

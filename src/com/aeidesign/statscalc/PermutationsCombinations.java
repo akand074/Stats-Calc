@@ -1,4 +1,4 @@
-package com.android.statscalc;
+package com.aeidesign.statscalc;
 
 
 import android.app.Activity;
@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.statscalc.stats.PermComb;
+import com.aeidesign.statscalc.stats.PermComb;
 
 public class PermutationsCombinations extends Activity {
 	private EditText setSize;

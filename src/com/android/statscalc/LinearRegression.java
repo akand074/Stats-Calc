@@ -8,9 +8,6 @@ import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
-import com.android.statscalc.stats.Functions;
-import com.android.statscalc.stats.Regression;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -21,6 +18,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import com.android.statscalc.stats.Functions;
+import com.android.statscalc.stats.Regression;
 
 
 public class LinearRegression extends Activity {
@@ -108,16 +108,17 @@ public class LinearRegression extends Activity {
     }
     
     private void analyzeData(){
-    	String[] temp = dataValues.split(";");
+    	String[] dataSet = dataValues.split(";");
+    	int setSize = dataSet.length;
     	
     	dataSeries.clear();
     	lobfSeries.clear();
     	
-    	double[][] dataPoints = new double[ temp.length ][ 2 ];
+    	double[][] dataPoints = new double[ setSize ][ 2 ];
     	Regression regression = new Regression();
     	
-    	for (int i = 0; i < temp.length; i++) {
-    		String[] dataPoint = temp[i].split(",");
+    	for (int i = 0; i < setSize; i++) {
+    		String[] dataPoint = dataSet[i].split(",");
     		
     		dataPoints[i][0] = Double.parseDouble(dataPoint[0]);
     		dataPoints[i][1] = Double.parseDouble(dataPoint[1]);

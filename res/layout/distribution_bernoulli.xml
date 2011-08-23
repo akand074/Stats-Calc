@@ -4,7 +4,7 @@
   android:orientation="vertical"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
-    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="1">
         <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TextView android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="# of Successes: " style="@style/PlainText"></TextView>
             <EditText android:layout_height="40dip" android:id="@+id/eBernoulliX" android:gravity="center" android:lines="1" android:layout_width="80dip" android:hint="X" android:inputType="number"> </EditText>
@@ -16,6 +16,11 @@
         <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TextView android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="% Success: " style="@style/PlainText"></TextView>
             <EditText android:layout_height="40dip" android:id="@+id/eBernoulliS" android:gravity="center" android:lines="1" android:layout_width="80dip" android:hint="p" android:inputType="number|numberDecimal"></EditText>
+        </TableRow>
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10dip">
+            <LinearLayout android:layout_span="2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical">
+                <Button android:layout_width="wrap_content" android:id="@+id/eBernoulliCalcP" android:layout_height="wrap_content" android:text="@string/calc" android:onClick="bernoulliDistributionOnClick"></Button>
+            </LinearLayout>
         </TableRow>
         <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TextView android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Probability(X = x): " style="@style/PlainText"></TextView>
@@ -38,8 +43,5 @@
             <EditText android:layout_height="40dip" android:id="@+id/eBernoulliPLT" android:gravity="center" android:lines="1" android:inputType="number|numberSigned|numberDecimal" android:layout_width="80dip"></EditText>
         </TableRow>
     </TableLayout>
-    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center">
-        <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/eBernoulliCalcP" android:onClick="bernoulliDistributionOnClick" android:text="@string/calc"></Button>
-    </LinearLayout>
     
 </LinearLayout>

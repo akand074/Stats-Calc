@@ -79,12 +79,13 @@ public class BasicStats extends Activity {
     }
     
     private void analyzeData(){    	
-    	String[] arrData = dataValues.split(";");
-
+    	String[] dataSet = dataValues.split(";");
+    	int setSize = dataSet.length;
+    	
     	Descriptive stats = new Descriptive();
     	
-    	for (int i = 0; i < arrData.length; i++) {
-    		String[] dataPoint = arrData[i].split(",");
+    	for (int i = 0; i < setSize; i++) {
+    		String[] dataPoint = dataSet[i].split(",");
     		stats.addValue( Double.parseDouble( dataPoint[1] ) );
 		}
     	

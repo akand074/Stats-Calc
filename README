@@ -1,3 +1,38 @@
-Statistics Calculator For Android OS 
+######################################################
+#
+# Application: Stats Calc
+#
+######################################################
+#
+# Company: AEI Design
+# Lead Developers: Iyad Kandalaft & Andrew Kandalaft
+#
+######################################################
 
-//TO BE COMPLETED
+A basic statistics calculator for the android operating system. 
+The application sports an advanced data set entry and management interface that easily permits the storage and loading of data.
+
+The calculator provides basic analaysis functions such as
+
+Descriptive Statistics:
+- Mean, Median, Mode
+- Standard deviation & error
+- Kurtosis & Skewness
+
+Linear Regression & Graphing Features:
+- Line function
+- R & R^2 value
+- Mean square error and significance
+
+Permutations & combinations calculations:
+- Based on set and group size 
+- Permutations with & without repetition
+- Combinations with & without repetition
+- Pigeonhole
+
+Distribution statistics:
+- Gaussian
+- Chi Squared
+- Bernoulli
+- Poisson
+- T

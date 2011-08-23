@@ -171,7 +171,9 @@ public class DataManagement extends Activity {
     	
     	String[] dataValues = settings.getString( dataKey.toString(), "" ).split(";");
     	
-    	for (int i = 0; i < dataValues.length; i++) {
+    	int setSize = dataValues.length;
+    	
+    	for (int i = 0; i < setSize; i++) {
 			String[] dataPoint = dataValues[i].split(",");
 			
 			addDataPoint( dataPoint[0], dataPoint[1] );

@@ -37,7 +37,9 @@ public class ChiSquared {
 	
 	public double getChiSquared(){
 		double X = 0;
-		for(int i = 0; i < observed.size(); i++){
+		int observedSize = observed.size();
+		
+		for(int i = 0; i < observedSize; i++){
 			X += Math.pow(observed.get(i) - expected.get(i), 2) / expected.get(i);
 		}
 		return X;

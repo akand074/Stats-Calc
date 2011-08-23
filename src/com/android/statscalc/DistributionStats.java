@@ -303,12 +303,12 @@ public class DistributionStats extends Activity {
     
     private void analyzeData(){
     	String[] arrData = dataValues.split(";");
+    	int setSize = arrData.length;
     	
     	if (lastSelection.equals("Gaussian")){
-    		
         	Descriptive stats = new Descriptive();
         	
-        	for (int i = 0; i < arrData.length; i++) {
+        	for (int i = 0; i < setSize; i++) {
         		String[] dataPoint = arrData[i].split(",");
         		stats.addValue( Double.parseDouble( dataPoint[1] ) );
     		}
@@ -316,10 +316,20 @@ public class DistributionStats extends Activity {
     	    ((EditText) findViewById(R.id.eGaussianMean)).setText( String.valueOf(Functions.format(stats.getMean())) );
     	    ((EditText) findViewById(R.id.eGaussianStandardDeviation)).setText( String.valueOf(Functions.format(stats.getStandardDeviation())) );
     		
+    	} else if (lastSelection.equals("T")){
+        	Descriptive stats = new Descriptive();
+        	
+        	for (int i = 0; i < setSize; i++) {
+        		String[] dataPoint = arrData[i].split(",");
+        		stats.addValue( Double.parseDouble( dataPoint[1] ) );
+    		}
+    	    // Compute some statistics
+    	    ((EditText) findViewById(R.id.eTMean)).setText( String.valueOf(Functions.format(stats.getMean())) );
+    	    ((EditText) findViewById(R.id.eTStandardError)).setText( String.valueOf(Functions.format(stats.getStandardError())) );
     	} else if (lastSelection.equals("ChiSquared")){
     		ChiSquared statsX = new ChiSquared();
     		
-    		for (int i = 0; i < arrData.length; i++){
+    		for (int i = 0; i < setSize; i++){
     			String[] dataPointX = arrData[i].split(",");
     			statsX.addExpectedValue(Double.parseDouble(dataPointX[0]));
     			statsX.addObservedValue(Double.parseDouble(dataPointX[1]));

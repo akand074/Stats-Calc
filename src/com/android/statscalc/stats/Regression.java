@@ -35,7 +35,9 @@ public class Regression {
 		double sumXY = 0;
 		double sumXSqr = 0;
 		
-		for(int i = 0; i < x.getSampleSize(); i++){
+		int xSampleSize = x.getSampleSize();
+		
+		for(int i = 0; i < xSampleSize; i++){
 			sumXY += (x.getValue(i) - meanX) * (y.getValue(i) - meanY);
 			sumXSqr += Math.pow(x.getValue(i) - meanX, 2);
 		}
@@ -57,7 +59,9 @@ public class Regression {
 		double[] predicted = new double[x.getSampleSize()];
 		double sum = 0;
 		
-		for (int i = 0; i < predicted.length; i++){
+		int predictedLength = predicted.length;
+		
+		for (int i = 0; i < predictedLength; i++){
 			predicted[i] = slope * x.getValue(i) + intercept;
 			sum += Math.pow(predicted[i] - y.getValue(i), 2);
 		}
@@ -68,7 +72,10 @@ public class Regression {
 	public double getRSquared(){
 		double meanY = y.getMean();
 		double sum = 0;
-		for (int i = 0; i < y.getSampleSize(); i++){
+		
+		int ySampleSize = y.getSampleSize();
+		
+		for (int i = 0; i < ySampleSize; i++){
 			sum += Math.pow(y.getValue(i) - meanY, 2);
 		}
 		return 1 - (this.getErrorSquared() / sum);
@@ -85,7 +92,10 @@ public class Regression {
 	public double getSlopeError(){
 		double sumXX = 0;
 		double meanX = x.getMean();
-		for (int i = 0; i < x.getSampleSize(); i++){
+		
+		int xSampleSize = x.getSampleSize();
+		
+		for (int i = 0; i < xSampleSize; i++){
 			sumXX += Math.pow(x.getValue(i) - meanX, 2);
 		}
 		return Math.sqrt(this.getMeanSquareError() / sumXX);

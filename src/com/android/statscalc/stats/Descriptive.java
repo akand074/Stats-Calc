@@ -43,7 +43,8 @@ public class Descriptive {
 	
 	public double getSum(){
 		double sum = 0;
-		for(int i = 0; i < sample.size(); i ++){
+		int sampleSize = sample.size();
+		for(int i = 0; i < sampleSize; i ++){
 			sum += sample.get(i);
 		}
 		return sum;
@@ -52,7 +53,7 @@ public class Descriptive {
 	public double getMean(){
 		double mean = 0;
 		mean = this.getSum();
-                mean /= sample.size();
+		mean /= sample.size();
 		return mean;
 	}
 	
@@ -91,10 +92,11 @@ public class Descriptive {
 	public double getStandardDeviation(){
 		double mean = this.getMean();
 		double standardDeviation = 0;
-		for(int i = 0; i < sample.size(); i++){
+		int sampleSize = sample.size();
+		for(int i = 0; i < sampleSize; i++){
 			standardDeviation += Math.pow(sample.get(i) - mean, 2);
 		}
-		standardDeviation /= this.getSampleSize();
+		standardDeviation /= sampleSize;
 		standardDeviation = Math.sqrt(standardDeviation);
 		return standardDeviation;
 		
@@ -107,26 +109,29 @@ public class Descriptive {
 	public double getSkewness(){
 		double meanY = this.getMean();
 		double skewness = 0;
-		for (int i = 0; i < this.getSampleSize(); i++){
+		int sampleSize = sample.size();
+		for (int i = 0; i < sampleSize; i++){
 			skewness += Math.pow(this.getValue(i) - meanY, 3);
 		}
-		skewness /= (this.getSampleSize() - 1) * Math.pow(this.getStandardDeviation(), 3);
+		skewness /= (sampleSize - 1) * Math.pow(this.getStandardDeviation(), 3);
 		return skewness;
 	}
 	
 	public double getKurtosis(){
 		double meanY = this.getMean();
 		double kurtosis = 0;
-		for (int i = 0; i < this.getSampleSize(); i++){
+		int sampleSize = sample.size();
+		for (int i = 0; i < sampleSize; i++){
 			kurtosis += Math.pow(this.getValue(i) - meanY, 4);
 		}
-		kurtosis /= (this.getSampleSize() - 1) * Math.pow(this.getStandardDeviation(), 4);
+		kurtosis /= (sampleSize - 1) * Math.pow(this.getStandardDeviation(), 4);
 		return kurtosis;
 	}
 
 	private void sortArray() {
-		for(int i = 0; i < sample.size() - 1; i++){
-			for(int j = i + 1; j < sample.size(); j ++){
+		int sampleSize = sample.size();
+		for(int i = 0; i < sampleSize - 1; i++){
+			for(int j = i + 1; j < sampleSize; j ++){
 				if(sample.get(j) < sample.get(i)){
 					Double temp = sample.get(j);
 					sample.set(j, sample.get(i));
@@ -135,7 +140,6 @@ public class Descriptive {
 				}
 			}
 		}
-		
 	}
 
 }

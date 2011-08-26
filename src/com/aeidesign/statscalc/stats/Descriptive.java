@@ -63,11 +63,11 @@ public class Descriptive {
 	
 	public double getMeanGeometric(){
 		double mean = 1;
-		int sampleLength = sample.size();
-		for (int i = 0; i < sampleLength; i++){
+		double sampleSize = sample.size();
+		for (int i = 0; i < sampleSize; i++){
 			mean *= sample.get(i);
 		}
-		mean = Math.pow(mean, 1/sampleLength);
+		mean = Math.pow(mean, 1/sampleSize);
 		return mean;
 	}
 	

@@ -18,12 +18,18 @@ public class BasicStats extends Activity {
 	private TextView tNumSamples;
 	private TextView tMin;
 	private TextView tMax;
+	private TextView tRange;
 	private TextView tSum;
 	private TextView tMean;
+	private TextView tGeometricMean;
+	private TextView tLowerQuartile;
 	private TextView tMedian;
+	private TextView tUpperQuartile;
+	private TextView tIQR;
 	private TextView tMode;
 	private TextView tStandardDeviation;
 	private TextView tStandardError;
+	private TextView tVariance;
 	private TextView tSkewness;
 	private TextView tKurtosis;
 	
@@ -36,12 +42,18 @@ public class BasicStats extends Activity {
         tNumSamples = (TextView) findViewById(R.id.tBasicNumSamples);
     	tMin = (TextView) findViewById(R.id.tBasicMin);
     	tMax = (TextView) findViewById(R.id.tBasicMax);
+    	tRange = (TextView) findViewById(R.id.tBasicRange);
     	tSum = (TextView) findViewById(R.id.tBasicSum);
     	tMean = (TextView) findViewById(R.id.tBasicMean);
+    	tGeometricMean = (TextView) findViewById(R.id.tBasicGeometricMean);
+    	tLowerQuartile = (TextView) findViewById(R.id.tBasicLowerQuartile);
         tMedian = (TextView) findViewById(R.id.tBasicMedian);
+        tUpperQuartile = (TextView) findViewById(R.id.tBasicUpperQuartile);
+        tIQR = (TextView) findViewById(R.id.tBasicIQR);
         tMode = (TextView) findViewById(R.id.tBasicMode);
     	tStandardDeviation = (TextView) findViewById(R.id.tBasicStandardDeviation);
     	tStandardError = (TextView) findViewById(R.id.tBasicStandardError);
+    	tVariance = (TextView) findViewById(R.id.tBasicVariance);
     	tKurtosis = (TextView) findViewById(R.id.tBasicKurtosis);
     	tSkewness = (TextView) findViewById(R.id.tBasicSkewness);
     }
@@ -94,13 +106,18 @@ public class BasicStats extends Activity {
     	tNumSamples.setText( String.valueOf( stats.getSampleSize() ) );
     	tMin.setText( String.valueOf( Functions.format(stats.getMin()) ));
     	tMax.setText( String.valueOf( Functions.format(stats.getMax()) ) );
+    	tRange.setText( String.valueOf( Functions.format(stats.getVariance()) ) );
     	tSum.setText( String.valueOf( Functions.format(stats.getSum()) ) );	
     	tMean.setText( String.valueOf( Functions.format(stats.getMean()) ) );
+    	tGeometricMean.setText( String.valueOf( Functions.format(stats.getMeanGeometric()) ) );
+    	tLowerQuartile.setText( String.valueOf( Functions.format(stats.getLowerQuartile()) ) );
     	tMedian.setText( String.valueOf( Functions.format(stats.getMedian()) ) );
-    	tMedian.setText( String.valueOf( Functions.format(stats.getMedian()) ) );
+    	tUpperQuartile.setText( String.valueOf( Functions.format(stats.getUpperQuartile()) ) );
+    	tIQR.setText( String.valueOf( Functions.format(stats.getIQR()) ) );
     	tMode.setText( String.valueOf( Functions.format(stats.getMode()) ) );
     	tStandardDeviation.setText( String.valueOf( Functions.format(stats.getStandardDeviation()) ) );
     	tStandardError.setText( String.valueOf( Functions.format(stats.getStandardError() )) );
+    	tVariance.setText( String.valueOf( Functions.format(stats.getVariance() )) );
     	tKurtosis.setText( String.valueOf( Functions.format(stats.getKurtosis() )) );
     	tSkewness.setText( String.valueOf( Functions.format(stats.getSkewness() )) );
     }

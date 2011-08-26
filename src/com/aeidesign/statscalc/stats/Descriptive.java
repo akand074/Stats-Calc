@@ -50,10 +50,24 @@ public class Descriptive {
 		return sum;
 	}
 	
+	public double getRange(){
+		return getMax() - getMin();
+	}
+	
 	public double getMean(){
 		double mean = 0;
 		mean = this.getSum();
 		mean /= sample.size();
+		return mean;
+	}
+	
+	public double getMeanGeometric(){
+		double mean = 1;
+		int sampleLength = sample.size();
+		for (int i = 0; i < sampleLength; i++){
+			mean *= sample.get(i);
+		}
+		mean = Math.pow(mean, 1/sampleLength);
 		return mean;
 	}
 	
@@ -66,6 +80,32 @@ public class Descriptive {
 		} else {
 			return sample.get(sample.size() / 2);
 		}
+	}
+	
+	public double getLowerQuartile(){
+		if(!sorted){
+			sortArray();
+		}
+		if ((sample.size() / 2) % 2 == 0) {
+			return (sample.get(sample.size() / 4 - 1) + sample.get(sample.size() / 4)) / 2;
+		} else {
+			return sample.get(sample.size() / 4 - 1);
+		}
+	}
+	
+	public double getUpperQuartile(){
+		if(!sorted){
+			sortArray();
+		}
+		if ((sample.size() / 2) % 2 == 0) {
+			return (sample.get(sample.size() / 4 * 3 + 1) + sample.get(sample.size() / 4 * 3)) / 2;
+		} else {
+			return sample.get(sample.size() / 4 * 3);
+		}
+	}
+	
+	public double getIQR(){
+		return this.getUpperQuartile() - this.getLowerQuartile();
 	}
 	
 	public double getMode(){
@@ -106,6 +146,10 @@ public class Descriptive {
 		return this.getStandardDeviation() / Math.sqrt(this.getSampleSize());
 	}
 	
+	public double getVariance(){
+		return Math.pow(this.getStandardDeviation(), 2);
+	}
+	
 	public double getSkewness(){
 		double meanY = this.getMean();
 		double skewness = 0;
@@ -140,6 +184,7 @@ public class Descriptive {
 				}
 			}
 		}
+		sorted = true;
 	}
 
 }

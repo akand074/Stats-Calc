@@ -26,6 +26,7 @@ import android.widget.AdapterView.OnItemClickListener;
 public class DataManagement extends Activity {
     public static final String PREFS_NAME = "SavedData";
     private LinearLayout lDataPoints;
+    private int count;
     
     private OnFocusChangeListener DataPointFocus = new OnFocusChangeListener(){
 		@Override
@@ -87,6 +88,7 @@ public class DataManagement extends Activity {
     private String dataSetToString(){
     	StringBuilder dataValues = new StringBuilder();
     	LinearLayout lView;
+    	count = 0;
     	
     	int arrLength = lDataPoints.getChildCount() - 1; // -1 is for the + button 
     	
@@ -102,7 +104,6 @@ public class DataManagement extends Activity {
     			continue;
     		}
     	}
-    	
     	
     	Arrays.sort( dataMatrix, new Comparator<Double[]>(){
     	    @Override
@@ -123,6 +124,7 @@ public class DataManagement extends Activity {
     				continue;
     		
     		dataValues.append( dataMatrix[i][0] + "," + dataMatrix[i][1] + ";" );
+    		count++;
     	}
     	    	
     	return dataValues.toString();
@@ -153,9 +155,14 @@ public class DataManagement extends Activity {
     	loadDataSet(eDataTitle.getText().toString());
     }
     
-    public void selectDataSet(View view){    	
+    public void selectDataSet(View view){
+    	String dataValues = dataSetToString();
+    	if ( count < 2 ){
+    		Toast.makeText(getApplicationContext(), "Please enter at least two data points", Toast.LENGTH_SHORT).show();
+    		return;
+    	}
     	Intent intent = new Intent();
-        intent.putExtra( "dataValues", dataSetToString() );
+        intent.putExtra( "dataValues", dataValues );
         setResult(RESULT_OK, intent);
         
         finish();
@@ -193,7 +200,8 @@ public class DataManagement extends Activity {
     	updateListView();
     }
     
-    public void updateListView(){
+    @SuppressWarnings("unchecked")
+	public void updateListView(){
 		// Open stored preferences page
 		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
     	

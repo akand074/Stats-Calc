@@ -62,10 +62,14 @@ public class LinearRegression extends Activity {
     	multiSeriesRenderer.setXLabels(4);
     	multiSeriesRenderer.setYLabels(4);
 	
+    	multiSeriesRenderer.setShowGrid(true);
+
+    	
     	multiSeriesRenderer.addSeriesRenderer( seriesRenderer );
     	multiSeriesRenderer.addSeriesRenderer( lobfRenderer );
     	multiSeriesDataset.addSeries( dataSeries );
     	multiSeriesDataset.addSeries( lobfSeries );
+    	
     	
     	// Render the graph
     	chart = ChartFactory.getLineChartView(this, multiSeriesDataset, multiSeriesRenderer);

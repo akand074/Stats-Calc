@@ -107,7 +107,7 @@ public class BasicStats extends Activity {
     	tNumSamples.setText( String.valueOf( stats.getSampleSize() ) );
     	tMin.setText( String.valueOf( Functions.format(stats.getMin()) ));
     	tMax.setText( String.valueOf( Functions.format(stats.getMax()) ) );
-    	tRange.setText( String.valueOf( Functions.format(stats.getVariance()) ) );
+    	tRange.setText( String.valueOf( Functions.format(stats.getRange()) ) );
     	tSum.setText( String.valueOf( Functions.format(stats.getSum()) ) );	
     	tMean.setText( String.valueOf( Functions.format(stats.getMean()) ) );
     	tGeometricMean.setText( String.valueOf( Functions.format(stats.getMeanGeometric()) ) );

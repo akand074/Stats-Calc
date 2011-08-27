@@ -51,7 +51,7 @@ public class Descriptive {
 	}
 	
 	public double getRange(){
-		return getMax() - getMin();
+		return this.getMax() - this.getMin();
 	}
 	
 	public double getMean(){
@@ -90,6 +90,9 @@ public class Descriptive {
 		if(!sorted){
 			sortArray();
 		}
+		if (sample.size() < 4){
+			return 0;
+		}
 		if ((sample.size() / 2) % 2 == 0) {
 			return (sample.get(sample.size() / 4 - 1) + sample.get(sample.size() / 4)) / 2;
 		} else {
@@ -101,8 +104,11 @@ public class Descriptive {
 		if(!sorted){
 			sortArray();
 		}
+		if (sample.size() < 4){
+			return 0;
+		}
 		if ((sample.size() / 2) % 2 == 0) {
-			return (sample.get(sample.size() / 4 * 3 + 1) + sample.get(sample.size() / 4 * 3)) / 2;
+			return (sample.get(sample.size() / 4 * 3 - 1) + sample.get(sample.size() / 4 * 3)) / 2;
 		} else {
 			return sample.get(sample.size() / 4 * 3);
 		}

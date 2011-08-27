@@ -255,7 +255,8 @@ public class DataManagement extends Activity {
     	updateListView();
     }
 
-    public void updateListView(){ 
+    @SuppressWarnings("unchecked")
+	public void updateListView(){ 
 		// Load stored data key/value pairs
     	Map<String, String> savedData = (Map<String, String>) settings.getAll();
     	

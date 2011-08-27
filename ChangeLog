@@ -24,3 +24,6 @@
 [ 2011-08-26 ] Version 0.5.2
 - Fixed minor bugs (fixed permcomb that got reverted)
 - Added more descriptive functions
+[ 2011-08-27 ] Version 0.6.0
+- Added custom data management for descriptive
+- Bug fixes including geometric mean causing crash

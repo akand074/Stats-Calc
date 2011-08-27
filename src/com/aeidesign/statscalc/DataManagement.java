@@ -140,6 +140,9 @@ public class DataManagement extends Activity {
     			dataMatrix[i][0] =  Double.valueOf( ((EditText) lView.getChildAt(0)).getText().toString() );
     			dataMatrix[i][1] =  Double.valueOf( ((EditText) lView.getChildAt(1)).getText().toString() );
     		} catch ( NumberFormatException ex ){
+    			lDataPoints.removeViewAt(i);
+    			--i;
+    			--childCount;
     			continue;
     		}
     	}
@@ -192,6 +195,7 @@ public class DataManagement extends Activity {
     	// if less than 2 points in the set, stop
     	if ( dataCount < 2 ){
     		Toast.makeText(getApplicationContext(), "Please enter at least two data points before selecting the data", Toast.LENGTH_SHORT).show();
+    		numberDataPoints();
     		return;
     	}
     	
@@ -209,6 +213,7 @@ public class DataManagement extends Activity {
     	// If less than 2 points in the set, stop
     	if ( dataCount < 2 ){
     		Toast.makeText(getApplicationContext(), "Please enter at least two data points before selecting the data", Toast.LENGTH_SHORT).show();
+    		numberDataPoints();
     		return;
     	}
     	

@@ -4,7 +4,7 @@
     android:layout_height="fill_parent" android:layout_width="fill_parent" android:gravity="center">
     <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
         <TableRow android:gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:padding="5px">
-            <Button android:clickable="true" android:layout_margin="5dip" android:layout_gravity="center_vertical|center_horizontal" android:onClick="launchActivity" android:tag="BasicStats" android:layout_height="90dip" android:id="@+id/bMainBasicStats" android:text="Discrete Stats" android:layout_width="115dip" android:width="115dip"></Button>
+            <Button android:clickable="true" android:layout_margin="5dip" android:layout_gravity="center_vertical|center_horizontal" android:onClick="launchActivity" android:tag="BasicStats" android:layout_height="90dip" android:id="@+id/bMainBasicStats" android:layout_width="115dip" android:width="115dip" android:text="Descriptive"></Button>
             <Button android:clickable="true" android:layout_margin="5dip" android:layout_gravity="center_vertical|center_horizontal" android:tag="LinearRegression" android:onClick="launchActivity" android:layout_height="90dip" android:id="@+id/bMainLinearRegression" android:text="Linear Regression" android:layout_width="115dip" android:width="115dip"></Button>
         </TableRow>
         <TableRow android:gravity="center_horizontal" android:layout_gravity="center_vertical|center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:padding="5px">

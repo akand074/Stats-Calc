@@ -18,6 +18,9 @@
 - Cleaned up displayed messages
 - Readied application for first release and updated the manifest
 [ 2011-08-26 ] Version 0.5.1
-- Fixed data managment bug with less than two pairs of data
+- Fixed data management bug with less than two pairs of data
 - Misc bug fixes
 - Removed the images on the main screen to cut down app size
+[ 2011-08-26 ] Version 0.5.2
+- Fixed minor bugs (fixed permcomb that got reverted)
+- Added more descriptive functions

@@ -8,7 +8,7 @@ public class Functions {
 	
 	public static BigInteger calcFactorial(long value){
 		if ( value == 0 )
-			return BigInteger.valueOf(1);
+			return BigInteger.valueOf(1	);
 		
 		BigInteger tempVal = BigInteger.valueOf(value);
 		
@@ -21,7 +21,10 @@ public class Functions {
 	}
 	
 	public static double format(double value){
-        BigDecimal val = new BigDecimal(String.valueOf(value));
+		if ( Double.isNaN( value ) )
+			return Double.NaN;
+		
+        BigDecimal val = BigDecimal.valueOf(value);
         MathContext mc = new MathContext(5);
         val = val.round(mc);
         return val.doubleValue();

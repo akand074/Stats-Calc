@@ -72,6 +72,7 @@ public class BasicStats extends Activity {
         	case R.id.mManageData:
         		Intent activityIntent = new Intent(this, DataManagement.class);
             	activityIntent.putExtra("resultRequired", true);
+            	activityIntent.putExtra("unidimData", true);
         		startActivityForResult(activityIntent,1);
         		break;
         }

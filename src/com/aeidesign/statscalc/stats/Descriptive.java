@@ -67,6 +67,10 @@ public class Descriptive {
 		for (int i = 0; i < sampleSize; i++){
 			mean *= sample.get(i);
 		}
+		
+		//if ( mean < 0 )
+			//return 0;
+		
 		mean = Math.pow(mean, 1/sampleSize);
 		return mean;
 	}

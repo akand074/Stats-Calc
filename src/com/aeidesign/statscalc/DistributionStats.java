@@ -77,7 +77,6 @@ public class DistributionStats extends Activity {
     		return;
     	}
     	
-    	
     	switch ( view.getId() ){
     	case R.id.bGaussianCalcP:
     		
@@ -282,6 +281,11 @@ public class DistributionStats extends Activity {
         	case R.id.mManageData:
         		Intent activityIntent = new Intent(this, DataManagement.class);
             	activityIntent.putExtra("resultRequired", true);
+            	
+            	// Gaussian & T distribution only require unidimensional data
+            	if ( lastSelection.equals("Gaussian") || lastSelection.equals("T"))
+            		activityIntent.putExtra("unidimData", true);
+            	
         		startActivityForResult(activityIntent,1);
         		break;
         }

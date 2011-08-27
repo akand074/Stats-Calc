@@ -25,7 +25,14 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class DataManagement extends Activity {
     public static final String PREFS_NAME = "SavedData";
+    
+    SharedPreferences settings;
+	SharedPreferences.Editor settingsEditor;
+    
     private LinearLayout lDataPoints;
+    
+    private boolean unidimData = false;
+    private int dataCount = 0;
     
     private OnFocusChangeListener DataPointFocus = new OnFocusChangeListener(){
 		@Override
@@ -37,21 +44,30 @@ public class DataManagement extends Activity {
 		}
 	};
     
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.data_management);
         
+        // Load the data storage method
+        settings = getSharedPreferences(PREFS_NAME, 0);
+    	settingsEditor = settings.edit();
+        
+    	// Check if this activity was launched to return a result
         boolean resultRequired = false;
 
         Intent senderIntent = getIntent();
-        if ( senderIntent.getExtras() != null )
-        	resultRequired = senderIntent.getExtras().getBoolean("resultRequired", false);
         
+        if ( senderIntent.getExtras() != null ){
+        	resultRequired = senderIntent.getExtras().getBoolean("resultRequired", false);
+        	unidimData = senderIntent.getExtras().getBoolean("unidimData", false);
+        }
+        
+        // Show the Select Data button if a result is required
         if ( resultRequired )
         	((Button) findViewById(R.id.bSelectData)).setVisibility(0);
         
+        // Get a point to the Data Points Linear layout
         lDataPoints = (LinearLayout) findViewById(R.id.lDataPoints);
         
         addDataPoint("", "");
@@ -67,13 +83,35 @@ public class DataManagement extends Activity {
     	
     	EditText eX = ((EditText) nextPoints.getChildAt(0));
     	EditText eY = ((EditText) nextPoints.getChildAt(1));
-    	
-    	eX.setText(x);
-    	eY.setText(y);
+
+    	if ( ! unidimData ){
+	    	eX.setText(x);
+	    	eY.setText(y);
+	    	eX.requestFocus();
+    	} else {
+    		// Disable the X column, auto-populate it, and set focus on Y 
+    		eX.setEnabled(false);
+    		eX.setText( String.valueOf( ++dataCount ) );
+    		eY.setText(y);
+        	eY.requestFocus();
+    	}
     	
     	eX.setOnFocusChangeListener(DataPointFocus);
     	eY.setOnFocusChangeListener(DataPointFocus);
-    	eX.requestFocus();
+    }
+    
+    private void numberDataPoints(){
+    	int childCount = lDataPoints.getChildCount() - 1;
+    	
+    	// Reset dataCount, recount number of data points, re-assign X values
+    	for ( dataCount = 0; dataCount < childCount; dataCount++ ){
+    		LinearLayout p = (LinearLayout) lDataPoints.getChildAt( dataCount );
+    		
+    		if (! ( p instanceof LinearLayout ) )
+    			return;
+    		
+    		((EditText)  p.getChildAt(0)).setText( String.valueOf( dataCount + 1 ) ); // dataCount + 1 = first X value is 1
+    	}
     }
     
     public void addDataPoint(View v){
@@ -82,17 +120,20 @@ public class DataManagement extends Activity {
     
     public void deleteDataPoint(View v){
     	((LinearLayout) v.getParent().getParent()).removeView((View) v.getParent());
+    	
+    	if ( unidimData )
+    		numberDataPoints();  // A removed data point breaks the X sequence
     }
     
     private String dataSetToString(){
     	StringBuilder dataValues = new StringBuilder();
     	LinearLayout lView;
     	
-    	int arrLength = lDataPoints.getChildCount() - 1; // -1 is for the + button 
+    	int childCount = lDataPoints.getChildCount() - 1; // -1 is for the + button 
     	
-    	Double[][] dataMatrix = new Double[ arrLength ][ 2 ];
+    	Double[][] dataMatrix = new Double[ childCount ][ 2 ];
     	
-    	for ( int i = 0; i < arrLength; i++ ){
+    	for ( int i = 0; i < childCount; i++ ){
     		lView = (LinearLayout) lDataPoints.getChildAt(i);
     		
     		try {
@@ -114,15 +155,22 @@ public class DataManagement extends Activity {
     	    }
     	});
     	
-    	for ( int i = 0; i < arrLength; i++ ){
+    	dataCount = 0;  // Reset data point counter before sanitising data
+    	
+    	for ( int i = 0; i < childCount; i++ ){
     		if ( dataMatrix[i][0] == null || dataMatrix[i][1] == null )
     			continue;
     		
-    		if ( (i + 1) < (arrLength) )
+    		if ( (i + 1) < (childCount) )
     			if ( dataMatrix[i][0].equals( dataMatrix[i+1][0] ) )
     				continue;
     		
-    		dataValues.append( dataMatrix[i][0] + "," + dataMatrix[i][1] + ";" );
+    		// If 1 dimensional data is required, don't use the entered X values
+    		// Pre-entered X values could be useless if no Y value is entered
+    		if ( unidimData )
+    			dataValues.append( ++dataCount  + "," + dataMatrix[i][1] + ";" );
+    		else 
+    			dataValues.append( dataMatrix[i][0] + "," + dataMatrix[i][1] + ";" );
     	}
     	    	
     	return dataValues.toString();
@@ -135,9 +183,6 @@ public class DataManagement extends Activity {
     		Toast.makeText(getApplicationContext(), "Please enter a title before saving the data set", Toast.LENGTH_SHORT).show();
     		return;
     	}
-    	    	
-    	SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-    	SharedPreferences.Editor settingsEditor = settings.edit();
     	    	  	
     	String dataValues = dataSetToString(); 
     	
@@ -150,7 +195,7 @@ public class DataManagement extends Activity {
     	settingsEditor.commit();
 
     	updateListView();
-    	loadDataSet(eDataTitle.getText().toString());
+    	loadDataSet( eDataTitle.getText().toString() ); // Load the cleaned up data
     }
     
     public void selectDataSet(View view){    	
@@ -163,9 +208,7 @@ public class DataManagement extends Activity {
     
     public void loadDataSet(CharSequence dataKey){
     	EditText eDataTitle = (EditText) findViewById(R.id.eDataTitle);
-    	
-    	SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-    	
+    	    	
     	// Clear old data & EditTexts from Horizontal Scroll View
     	lDataPoints.removeViews(0, lDataPoints.getChildCount() - 1 );
     	
@@ -180,12 +223,13 @@ public class DataManagement extends Activity {
 		}
 
     	eDataTitle.setText( dataKey );
+    	
+    	// Re-number X values of saved sets if 1 dimensional data is required
+    	if ( unidimData )
+    		numberDataPoints();
     }
     
-    public void deleteDataSet(CharSequence dataKey){
-    	SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-    	SharedPreferences.Editor settingsEditor = settings.edit();
-    	
+    public void deleteDataSet(CharSequence dataKey){    	
     	settingsEditor.remove( dataKey.toString() );
     	
     	settingsEditor.commit();
@@ -193,10 +237,7 @@ public class DataManagement extends Activity {
     	updateListView();
     }
     
-    public void updateListView(){
-		// Open stored preferences page
-		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-    	
+    public void updateListView(){    	
 		// Load stored data key/value pairs
     	Map<String, String> savedData = (Map<String, String>) settings.getAll();
     	

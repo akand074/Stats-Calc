@@ -10,7 +10,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:configChanges="orientation" android:name="BasicStats" android:label="@string/discrete_stats"></activity>
+        <activity android:configChanges="orientation" android:name="BasicStats" android:label="@string/descriptive_stats"></activity>
         <activity android:label="@string/perm_comb" android:name="PermutationsCombinations" android:configChanges="orientation"></activity>
         <activity android:label="@string/linear_regression" android:configChanges="orientation" android:name="LinearRegression"></activity>
         <activity android:configChanges="orientation" android:label="@string/distribution_stats" android:name="DistributionStats"></activity>

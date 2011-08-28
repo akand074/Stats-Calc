@@ -53,4 +53,5 @@
         <string name="enter_data">Please enter the following data and press calculate</string>
         <string name="expected_observed">When entering data, use the X and Y columns for the expected and observed values, respectively.</string>
         <string name="discrete_stats">Discrete Stats</string>
+        <string name="descriptive_stats">Descriptive Stats</string>
 </resources>

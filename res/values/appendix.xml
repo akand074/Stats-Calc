@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="descriptive_help">new</string>
+    <string name="regression_help">new</string>
+    <string name="permcomb_help">new</string>
+    <string name="gaussian_help">new</string>
+    <string name="poisson_help">new</string>
+    <string name="bernoulli_help">new</string>
+    <string name="chisquared_help">new</string>
+    <string name="t_help">new</string>
+</resources>

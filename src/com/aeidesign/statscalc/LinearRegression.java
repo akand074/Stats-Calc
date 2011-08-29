@@ -93,6 +93,12 @@ public class LinearRegression extends Activity {
             	activityIntent.putExtra("resultRequired", true);
         		startActivityForResult(activityIntent,1);
         		break;
+        	case R.id.mHelp:
+        		Intent helpIntent = new Intent(this, Appendix.class);
+        		//TextView help = (TextView) findViewById(R.id.tAppendix);
+        		//help.setText(R.appendix.regression_help);
+        		startActivity(helpIntent);
+        		break;
         }
 		return true;
     }

@@ -2,7 +2,11 @@ package com.aeidesign.statscalc;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -44,6 +48,26 @@ public class PermutationsCombinations extends Activity {
         pigeonhole = (EditText) findViewById(R.id.pigeonhole);
         calc = (Button) findViewById(R.id.perComCalc);
         calc.setOnClickListener(clickCalc);       
+    }
+    
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch ( item.getItemId() ) {
+        	case R.id.mHelp:
+        		Intent helpIntent = new Intent(this, Appendix.class);
+        		//TextView help = (TextView) findViewById(R.id.tAppendix);
+        		//help.setText(R.appendix.permcomb_help);
+        		startActivity(helpIntent);
+        		break;
+        }
+		return true;
     }
     
     private void calculateData() {

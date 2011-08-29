@@ -5,7 +5,7 @@
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
     <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/linearLayout1">
-        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/appendix"></TextView>
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/tAppendix" ></TextView>
     </LinearLayout>
     
 </ScrollView>

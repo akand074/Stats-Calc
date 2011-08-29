@@ -15,5 +15,6 @@
         <activity android:label="@string/linear_regression" android:configChanges="orientation" android:name="LinearRegression"></activity>
         <activity android:configChanges="orientation" android:label="@string/distribution_stats" android:name="DistributionStats"></activity>
         <activity android:configChanges="orientation" android:name="DataManagement" android:label="@string/data_management"></activity>
+        <activity android:name="Appendix" android:label="@string/help_label" android:configChanges="orientation"></activity>
     </application>
 </manifest>

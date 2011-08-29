@@ -48,14 +48,24 @@ public class DistributionStats extends Activity {
 				
 				if ( selection.equals( "Gaussian" ) ){
 					inflater.inflate( R.layout.distribution_gaussian, root );
+	        		//TextView help = (TextView) findViewById(R.id.tAppendix);
+	        		//help.setText(R.appendix.gaussian_help);
 				} else if ( selection.equals( "T" ) ){
 					inflater.inflate( R.layout.distribution_t, root );
+					//TextView help = (TextView) findViewById(R.id.tAppendix);
+	        		//help.setText(R.appendix.t_help);
 				} else if ( selection.equals("Poisson")){
 					inflater.inflate(R.layout.distribution_poisson, root);
+					//TextView help = (TextView) findViewById(R.id.tAppendix);
+	        		//help.setText(R.appendix.poisson_help);
 				} else if ( selection.equals("ChiSquared")){
 					inflater.inflate(R.layout.distribution_chisquared, root);
+					//TextView help = (TextView) findViewById(R.id.tAppendix);
+	        		//help.setText(R.appendix.chisquared_help);
 				} else if ( selection.equals("Bernoulli")){
 					inflater.inflate(R.layout.distribution_bernoulli, root);
+					//TextView help = (TextView) findViewById(R.id.tAppendix);
+	        		//help.setText(R.appendix.bernoulli_help);
 				}
 			}
 
@@ -290,6 +300,10 @@ public class DistributionStats extends Activity {
             		activityIntent.putExtra("unidimData", true);
             	
         		startActivityForResult(activityIntent,1);
+        		break;
+        	case R.id.mHelp:
+        		Intent helpIntent = new Intent(this, Appendix.class);
+        		startActivity(helpIntent);
         		break;
         }
 		return true;

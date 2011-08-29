@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="descriptive_help">new</string>
-    <string name="regression_help">new</string>
-    <string name="permcomb_help">new</string>
-    <string name="gaussian_help">new</string>
-    <string name="poisson_help">new</string>
-    <string name="bernoulli_help">new</string>
-    <string name="chisquared_help">new</string>
-    <string name="t_help">new</string>
+    <string name="descriptive_help">Descriptive</string>
+    <string name="regression_help">Linear Regression</string>
+    <string name="permcomb_help">Permutations/Combinations</string>
+    <string name="gaussian_help">Gaussian</string>
+    <string name="poisson_help">Poisson</string>
+    <string name="bernoulli_help">Bernoulli</string>
+    <string name="chisquared_help">Chi-Squared</string>
+    <string name="t_help">T-test</string>
 </resources>

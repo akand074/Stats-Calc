@@ -2,4 +2,5 @@
 <menu
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:enabled="true" android:visible="true" android:title="@string/manage_data" android:id="@+id/mManageData"></item>
+    <item android:id="@+id/mHelp" android:title="@string/help_label" android:visible="true" android:enabled="true"></item>
 </menu>

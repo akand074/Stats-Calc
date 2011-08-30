@@ -48,24 +48,14 @@ public class DistributionStats extends Activity {
 				
 				if ( selection.equals( "Gaussian" ) ){
 					inflater.inflate( R.layout.distribution_gaussian, root );
-	        		TextView help = (TextView) findViewById(R.id.tAppendix);
-	        		help.setText(R.string.gaussian_help);
 				} else if ( selection.equals( "T" ) ){
 					inflater.inflate( R.layout.distribution_t, root );
-					TextView help = (TextView) findViewById(R.id.tAppendix);
-	        		help.setText(R.string.t_help);
 				} else if ( selection.equals("Poisson")){
 					inflater.inflate(R.layout.distribution_poisson, root);
-					TextView help = (TextView) findViewById(R.id.tAppendix);
-	        		help.setText(R.string.poisson_help);
 				} else if ( selection.equals("ChiSquared")){
 					inflater.inflate(R.layout.distribution_chisquared, root);
-					TextView help = (TextView) findViewById(R.id.tAppendix);
-	        		help.setText(R.string.chisquared_help);
 				} else if ( selection.equals("Bernoulli")){
 					inflater.inflate(R.layout.distribution_bernoulli, root);
-					TextView help = (TextView) findViewById(R.id.tAppendix);
-	        		help.setText(R.string.bernoulli_help);
 				}
 			}
 
@@ -310,6 +300,22 @@ public class DistributionStats extends Activity {
         		break;
         	case R.id.mHelp:
         		Intent helpIntent = new Intent(this, Appendix.class);
+        		
+        		int appendix_text_id = 0;
+        		
+        		if ( lastSelection.equals( "Gaussian" ) ){
+					appendix_text_id = R.string.gaussian_help;
+				} else if ( lastSelection.equals( "T" ) ){
+					appendix_text_id = R.string.t_help;
+				} else if ( lastSelection.equals("Poisson")){
+					appendix_text_id = R.string.poisson_help;
+				} else if ( lastSelection.equals("ChiSquared")){
+					appendix_text_id = R.string.chisquared_help;
+				} else if ( lastSelection.equals("Bernoulli")){
+					appendix_text_id = R.string.bernoulli_help;
+				}
+        		
+        		helpIntent.putExtra("appendix_text_id", appendix_text_id);
         		startActivity(helpIntent);
         		break;
         }

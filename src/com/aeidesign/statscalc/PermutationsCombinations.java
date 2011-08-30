@@ -68,8 +68,7 @@ public class PermutationsCombinations extends Activity {
         switch ( item.getItemId() ) {
         	case R.id.mHelp:
         		Intent helpIntent = new Intent(this, Appendix.class);
-        		TextView help = (TextView) findViewById(R.id.tAppendix);
-        		help.setText(R.string.permcomb_help);
+        		helpIntent.putExtra("appendix_text_id", R.string.permcomb_help);
         		startActivity(helpIntent);
         		break;
         }

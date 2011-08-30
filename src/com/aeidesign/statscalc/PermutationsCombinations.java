@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aeidesign.statscalc.stats.PermComb;
@@ -56,14 +57,19 @@ public class PermutationsCombinations extends Activity {
         return true;
     }
     
+    public boolean onPrepareOptionsMenu(Menu menu){
+    	menu.removeItem(R.id.mManageData);
+    	return true;
+    }
+    
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch ( item.getItemId() ) {
         	case R.id.mHelp:
         		Intent helpIntent = new Intent(this, Appendix.class);
-        		//TextView help = (TextView) findViewById(R.id.tAppendix);
-        		//help.setText(R.appendix.permcomb_help);
+        		TextView help = (TextView) findViewById(R.id.tAppendix);
+        		help.setText(R.string.permcomb_help);
         		startActivity(helpIntent);
         		break;
         }

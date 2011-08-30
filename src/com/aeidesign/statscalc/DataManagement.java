@@ -11,6 +11,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.widget.AdapterView;
@@ -73,6 +76,31 @@ public class DataManagement extends Activity {
         addDataPoint("", "");
         
         updateListView();
+    }
+    
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+    
+    public boolean onPrepareOptionsMenu(Menu menu){
+    	menu.removeItem(R.id.mManageData);
+    	return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch ( item.getItemId() ) {
+        	case R.id.mHelp:
+        		Intent helpIntent = new Intent(this, Appendix.class);
+        		TextView help = (TextView) findViewById(R.id.tAppendix);
+        		help.setText(R.string.permcomb_help);
+        		startActivity(helpIntent);
+        		break;
+        }
+		return true;
     }
     
     public void addDataPoint(CharSequence x, CharSequence y){

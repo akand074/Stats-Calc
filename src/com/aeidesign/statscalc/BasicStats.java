@@ -77,8 +77,8 @@ public class BasicStats extends Activity {
         		break;
         	case R.id.mHelp:
         		Intent helpIntent = new Intent(this, Appendix.class);
-        		//TextView help = (TextView) findViewById(R.id.tAppendix);
-        		//help.setText(R.appendix.descriptive_help);
+        		TextView help = (TextView) findViewById(R.id.tAppendix);
+        		help.setText(R.string.descriptive_help);
         		startActivity(helpIntent);
         		break;
         }

@@ -8,4 +8,5 @@
     <string name="bernoulli_help">Bernoulli</string>
     <string name="chisquared_help">Chi-Squared</string>
     <string name="t_help">T-test</string>
+    <string name="datamanagement_help">Data Management</string>
 </resources>

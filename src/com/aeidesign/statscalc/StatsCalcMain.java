@@ -41,6 +41,11 @@ public class StatsCalcMain extends Activity {
         return true;
     }
     
+    public boolean onPrepareOptionsMenu(Menu menu){
+    	menu.removeItem(R.id.mHelp);
+    	return true;
+    }
+    
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection

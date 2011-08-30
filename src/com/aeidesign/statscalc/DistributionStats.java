@@ -276,7 +276,10 @@ public class DistributionStats extends Activity {
     
     public boolean onPrepareOptionsMenu(Menu menu){
     	if (lastSelection.equals("Poisson") || lastSelection.equals("Bernoulli")){
-        	menu.setGroupVisible(R.id.mManageData, false);
+        	menu.removeItem(R.id.mManageData);
+        } else {
+        	menu.clear();
+        	onCreateOptionsMenu(menu);
         }
     	return true;
     }

@@ -16,6 +16,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -54,7 +56,7 @@ public class LinearRegression extends Activity {
     	seriesRenderer.setPointStyle( PointStyle.CIRCLE );
     	seriesRenderer.setFillPoints( true );
     	
-    	multiSeriesRenderer.setAxesColor( Color.WHITE );
+    	multiSeriesRenderer.setAxesColor( Color.BLACK );
     	multiSeriesRenderer.setYLabelsAlign( Align.RIGHT );
     	multiSeriesRenderer.setShowLegend( true );
     	multiSeriesRenderer.setLabelsTextSize( 16 );
@@ -63,16 +65,17 @@ public class LinearRegression extends Activity {
     	multiSeriesRenderer.setYLabels(4);
 	
     	multiSeriesRenderer.setShowGrid(true);
+    	multiSeriesRenderer.setBackgroundColor(Color.WHITE);
+    	multiSeriesRenderer.setApplyBackgroundColor(true);
+    	multiSeriesRenderer.setMarginsColor(Color.WHITE);
     	
     	multiSeriesRenderer.addSeriesRenderer( seriesRenderer );
     	multiSeriesRenderer.addSeriesRenderer( lobfRenderer );
     	multiSeriesDataset.addSeries( dataSeries );
     	multiSeriesDataset.addSeries( lobfSeries );
     	
-    	
     	// Render the graph
     	chart = ChartFactory.getLineChartView(this, multiSeriesDataset, multiSeriesRenderer);
-    	chart.setBackgroundColor(Color.WHITE);
 
     	((FrameLayout) findViewById(R.id.regression_graph)).addView( chart );
     }

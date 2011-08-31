@@ -75,8 +75,6 @@ public class LinearRegression extends Activity {
     	// Render the graph
     	chart = ChartFactory.getLineChartView(this, multiSeriesDataset, multiSeriesRenderer);
     	
-    	((FrameLayout) findViewById(R.id.regression_graph)).setBackgroundColor(-1);
-    	//((FrameLayout) findViewById(R.id.regression_graph)).addView( chart );
     }
     
     @Override
@@ -107,13 +105,15 @@ public class LinearRegression extends Activity {
     @Override
     public void onActivityResult(int requestCode,int resultCode,Intent data){
    		super.onActivityResult(requestCode, resultCode, data);
-   		((FrameLayout) findViewById(R.id.regression_graph)).addView( chart );
 
    		if ( resultCode != RESULT_OK )
    			return;
    		
    		if ( data.hasExtra("dataValues") )
    			dataValues = data.getStringExtra("dataValues");
+   		
+   		((FrameLayout) findViewById(R.id.regression_graph)).removeAllViews();
+   		((FrameLayout) findViewById(R.id.regression_graph)).addView( chart );
    		   		
    		analyzeData();
     }

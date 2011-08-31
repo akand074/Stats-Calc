@@ -16,8 +16,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -76,8 +74,9 @@ public class LinearRegression extends Activity {
     	
     	// Render the graph
     	chart = ChartFactory.getLineChartView(this, multiSeriesDataset, multiSeriesRenderer);
-
-    	((FrameLayout) findViewById(R.id.regression_graph)).addView( chart );
+    	
+    	((FrameLayout) findViewById(R.id.regression_graph)).setBackgroundColor(-1);
+    	//((FrameLayout) findViewById(R.id.regression_graph)).addView( chart );
     }
     
     @Override
@@ -108,6 +107,7 @@ public class LinearRegression extends Activity {
     @Override
     public void onActivityResult(int requestCode,int resultCode,Intent data){
    		super.onActivityResult(requestCode, resultCode, data);
+   		((FrameLayout) findViewById(R.id.regression_graph)).addView( chart );
 
    		if ( resultCode != RESULT_OK )
    			return;

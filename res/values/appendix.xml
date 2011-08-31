@@ -8,5 +8,30 @@
     <string name="bernoulli_help">Bernoulli</string>
     <string name="chisquared_help">Chi-Squared</string>
     <string name="t_help">T-test</string>
-    <string name="datamanagement_help">Data Management</string>
+    <string name="datamanagement_help">
+    	<b>Data Management</b>\n
+    	The data management screen allows you to easily enter, store, retrieve, and modify data for use within Stats Calc.\n\n
+    	<b>Storing Data</b>\n
+    	- Begin by entering a unique title for the data set. Thereafter, enter data in the X and Y text boxes.\n
+    	- To add another point, touch the <i>+</i> button.\n
+    	- To remove a data point, put your curser on the data point\'s text boxes and touch the <i>x</i> button that appears.\n
+    	- Touch the <i>Save</i> button to store the data using the chosen title.\n\n
+    	<i>Tips:</i>\n
+    	- The order of entering data points is irrelevant. Saving or selecting data will reorder points by increasing X values.\n
+    	- Multiple points with identical X values causes only the last point to be registered.\n
+    	- Invalid or empty data points will automatically be removed.\n
+    	- Using the same title as another set will overwrite the old data set.\n\n
+    	<b>Loading Saved Data</b>\n
+    	- Tap the title of the set you want to load from the column on the right.\n
+    	- Tap <i>Load</i> from the pop up menu.\n
+    	- The data will be loaded and will populate the column on the left.\n
+    	- You may modify and resave the data under the same or different title.\n\n
+    	<b>Deleting Saved Data</b>\n
+    	- Tap the title of the set you want to delete from the column on the right.\n
+    	- Tap <i>Delete</i> from the pop up menu and the data set will be removed permanently.\n\n
+    	<b>Selecting Data</b>\n
+    	- When you open Data Management from one of the Stats Calc functions, a <i>Select Data</i> button will appear.\n
+    	- After entering data or loading a saved set, tap on <i>Select Data</i>.\n
+    	- Data Management will close and the results will be shown in the Stats Calc function you opened Data Management from.\n
+   	</string>
 </resources>

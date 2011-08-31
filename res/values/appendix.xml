@@ -1,13 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="descriptive_help">Descriptive</string>
-    <string name="regression_help">Linear Regression</string>
-    <string name="permcomb_help">Permutations/Combinations</string>
-    <string name="gaussian_help">Gaussian</string>
-    <string name="poisson_help">Poisson</string>
-    <string name="bernoulli_help">Bernoulli</string>
-    <string name="chisquared_help">Chi-Squared</string>
-    <string name="t_help">T-test</string>
+    <string name="descriptive_help">
+    	<b>Descriptive Statistics</b>\n
+    	Summary characteristics of a distribution.\n\n
+    	<b>Num of Samples: </b>
+    	The total number of data points in the data set.\n
+    	<b>Min: </b>
+    	The smallest value in the data set.\n
+    	<b>Max: </b>
+    	The largest value in the data set.\n
+    	<b>Range: </b>
+    	The length of the smallest interval that contains all of the data. 
+    	It is the difference between the maximum and the minimum value in the data set.\n
+    	<b>Sum: </b>
+    	The resultant of adding together every data point in the set.\n
+    	<b>Arithmetic Mean: </b>
+    	The sum of all data points divided by the total number of data points in the set.
+    	Commonly known as the average and is used as a measure of centrality for normal distributed data.\n
+    	<b>Geometric Mean: </b>
+    	An average derived by multiplying all the numbers in a data set and taking the nth root
+    	where 'n' is the number of terms in the data set. This is useful in situations where simple addition isn't descriptive 
+    	of true mean. For example, when describing rates of return.\n
+    	<b>Lower Quartile: </b>
+    	Point that separates the lower 25% of data from the upper 75% of data.\n
+    	<b>Median: </b>
+    	The number which separates the lower half of the data set from the higher half. Used as a measure of 
+    	centrality for skewed data.\n
+    	<b>Upper Quartile: </b>
+    	Point that separates the lower 75% of data from the upper 25% of data.\n
+    	<b>IQR: </b>
+    	The interquartile range. This is the difference between the upper and lower quartile. This represents 
+    	the distance between the top of the lower quartile and the bottom of the upper quartile.\n
+    	<b>Mode: </b>
+    	The value that occurs most frequently in a data set. <b>NOTE: </b>This currently returns 0 if none exists 
+    	or otherwise the last occurence if more than one exists.\n
+    	<b>Standard Deviation: </b>
+    	Numerical value that describes how much variation there is from the mean. Low standard 
+    	deviation means that data points are clustered very close to the mean. Higher standard deviations indicate the data points 
+    	are spread out over a large range.\n
+    	<b>Standard Error: </b>
+    	A method of estimating standard deviation. Used when standard deviation of the entire population 
+    	is not feasible to calculate and thus a sample is taken and used to calculate standard error as an estimation of the 
+    	standard deviation.\n
+    	<b>Variance: </b>
+    	A measure of how far a set of numbers are spread out from each other. It is the standard deviation squared.\n
+    	<b>Kurtosis: </b>
+    	A numerical measure of the peakedness of a distribution. A higher kurtosis value means that a larger 
+    	portion of the variance is the result of infrequent extreme deviations (i.e outliers).\n
+    	<b>Skewness: </b>
+    	A numerical measure of how skewed a distribution is. Equals 0 when the distribution is normal. Higher values 
+    	indicate a higher degree of skewedness. Negative values indicate left skew data (longer left tail), while positive values indicate 
+    	right skew data (longer right tail).
+    	</string>
+    <string name="regression_help">
+    	<b>Linear Regression</b>\n
+    	A method of approximating the relationship between data points with given dependent (Y values) and independent(X values) variables.
+    	Approximates a line of best fit whose equation predicts any Y value given an X value./n/n
+    	<b># of Data Points: </b>
+    	Total number of data points in the sample data set.\n
+    	<b>Equation: </b>
+    	Linear equation in the form of "y = mx + b". Where 'm' gives the slope of the line, and 'b' gives the y-intercept so 
+    	that at any given point x, y = mx + b.\n 
+    	<b>Mean Square Error: </b>
+    	A numerical value that is the average of the squared differences between the given data points and the 
+    	predicted data points using a regression line. Used to quantify how accurate a line of best fit is. 
+    	The lower the MSE, the more accurate the line of best fit is.\n
+    	<b>Y Intercept: </b>
+    	The point at which the regression line crosses the y axis, or where x = 0.\n
+    	<b>Slope: </b>
+    	Describes the steepness of the regression line. If slope > 1, as x increases, y increases at a greater rate. If slope = 1, 
+    	x and y increases at the same rate. If slope < 1, as x increases, y increases at a slower rate. Slope can also be negative 
+    	which means that y is decreasing.\n  
+    	<b>Slope Std Error: </b>
+    	The standard error of the slope of the regression line. This value is higher when the data is more skewed.\n
+    	<b>R: </b>The correlation coefficient. A measure of linear dependence between 2 variables. Takes on a value ranging from -1 to 1. 
+    	<b>R^2: </b>The coefficient of determination. A value ranging from 0 to 1 that describes the goodness of fit of a regression line. 
+    	A value of 1.0 indicates the regression line perfectly fits and describes the data. As the value decreases, so does the goodness of fit of the model.  
+    </string>
+    <string name="permcomb_help">
+    	<b>Permutations & Combinations</b>\n
+    	Methods of calculating the number of different ways you can arrange a set of objects into a particular size of group.\n\n
+    	<b>Set Size: </b>
+    	The total number of objects\n
+    	<b>Group Size: </b>
+    	The size of the group in which objects are going to be put in.\n
+    	<b>Permutations: </b>
+    	The total number of non-repeating different arrangements of objects, where order of the objects matter.\n
+    	<b>Permutations w/ Reptitions: </b>
+    	The total number of different arrangements of objects, where the order of objects matter and objects can be used more than once.\n
+    	<b>Combinations: </b>
+    	The total number of non-repeating different arrangements of objects, where the order of the objects doesn't matter.\n
+    	<b>Combinations w/ Reptitions: </b>
+    	The total number of different arrangements of objects, where the order of objects doesn't matter and objects can be used more than once.\n
+	</string>
+    <string name="gaussian_help">
+    	<b>Gaussian Distribution</b>\n
+    	Also known as normal distribution. A continuous probability that describes data points that generally cluster around 
+    	the mean of a data set. A perfectly normal distribution follows the 3 sigma rule: 68% of the data is within +/- 1 
+    	standard deviation of the mean, 95% of data is within +/-2 standard deviations of the mean, and 99.7% of data is 
+    	within +/- 3 standard deviations of the mean. Commonly referred to as the bell curve, as the data takes the shape 
+    	of a bell.\n
+    	<b>Mean: </b>
+    	The given mean of the population in question (see descriptive stats for more information).\n
+    	<b>Standard Deviation: </b>
+    	The given standard deviation of the population in question (see descriptive stats for more information).\n
+    	<b>X: </b>
+    	The given value for which you want to find a probability of occurrence. The raw value to be standardized.\n 
+    	<b>Z: </b>
+    	The z-score value which is equal to the difference between a data point and a population mean divided by the population standard deviation. 
+    	Z represents the difference between the given value and the mean in terms of standard deviations. Assumes a 
+    	meaningful value between -4 and 4 that represents the probability of the given value occurring (probability derived 
+    	from consulting a standard normal table).\n 
+    </string>
+    <string name="poisson_help">
+    	<b>Poisson Distribution</b>\n
+    	Discrete probability distribution that yields a probability value for various outcomes for the number of events occurring
+    	in a fixed period of time, given a known average number for which the event occurs in the fixed period of time.\n\n
+    	<b># of occurences: </b>
+    	The desired number of occurences in a fixed time interval.\n
+    	<b>Lambda: </b>
+    	A given. The known average for the number of occurrences in a fixed time interval.\n
+    	<b>Probability: </b>\n
+    	- (X = x) represents probability of getting exactly the desired number of successes.\n
+    	- (X < x) represents probability of getting less than the desired number of successes.\n
+    	- (X <= x) represents probability of getting less than or equal to the desired number of successes.\n
+    	- (X > x) represents probability of getting greater than the desired number of successes.\n
+    	- (X >= x) represents probability of getting greater than or equal to the desired number of successes.\n
+    </string>
+    <string name="bernoulli_help">
+    	<b>Bernoulli Distribution</b>\n
+    	Discrete probability distribution that yields a probability value for various outcomes given a success/fail experiment that 
+    	has a given probability of success (i.e. flipping a coin), a desired number of successes, and a given number of trials.\n\n
+    	<b># of Successes: </b>
+    	The total number of desired successes.\n
+    	<b># of Trials: </b>
+    	The total number of trials to be performed.
+    	<b>% Success: </b>
+    	The percent chance of succeeding in the success/fail trial(commonly the probability of success, but percent is used for convenience).\n
+    	<b>Probability: </b>\n
+    		- (X = x) represents probability of getting exactly the desired number of successes.\n
+    		- (X < x) represents probability of getting less than the desired number of successes.\n
+    		- (X <= x) represents probability of getting less than or equal to the desired number of successes.\n
+    		- (X > x) represents probability of getting greater than the desired number of successes.\n
+    		- (X >= x) represents probability of getting greater than or equal to the desired number of successes.\n
+    </string>
+    <string name="chisquared_help">
+    	<b>Chi-Squared Distribution</b>\n
+    	Renders a test statistics based on the sum of the difference of observed and expected values squared divided by expected 
+    	values. Used with tables to determine statistical significance.\n\n
+    	<b>X^2: </b>
+    	The Chi-Squared value that results.
+    </string>
+    <string name="t_help">
+    	<b>The Students T-Distribution</b>\n
+    	Continuous probability distribution that is similar to a Gaussian distribution, however, it is used when mean is being 
+    	estimated and true standard deviation is unknown. Uses standard error to estimate standard deviation.\n\n
+    	<b>Mean: </b>
+    	The given mean of the population in question (see descriptive stats for more information).\n
+    	<b>Standard Deviation: </b>
+    	The given standard error of the population in question (see descriptive stats for more information).\n
+    	<b>X: </b>
+    	The given value for which you want to find a probability of occurrence. The raw value to be standardized.\n 
+    	<b>t: </b>
+    	A value similar to a Z-score in principle. It is an arbitrary value that, when considered with the degrees of freedom of 
+    	the sample (equal to n-1), can be used in conjunction with a t table in order to determine the probability of X occurring 
+    	given varying left and right tail significance levels. 
+    </string>
     <string name="datamanagement_help">
     	<b>Data Management</b>\n
     	The data management screen allows you to easily enter, store, retrieve, and modify data for use within Stats Calc.\n\n

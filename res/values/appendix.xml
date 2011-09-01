@@ -24,7 +24,7 @@
 	</string>
 	<string name="regression_help">
 		<b>Linear Regression</b> \n
-		A method of approximating the relationship between data points with given dependent (Y values) and independent(X values) variables. Approximates a line of best fit whose equation predicts any Y value given an X value./n/n
+		A method of approximating the relationship between data points with given dependent (Y values) and independent(X values) variables. Approximates a line of best fit whose equation predicts any Y value given an X value.\n\n
 		<b># of Data Points: </b> Total number of data points in the sample data set.\n\n
 		<b>Equation: </b> Linear equation in the form of "y = mx + b". Where <i>m</i> gives the slope of the line, and <i>b</i> gives the y-intercept so that at any given point x, y = mx + b.\n\n
 		<b>Mean Square Error: </b> A numerical value that is the average of the squared differences between the given data points and the predicted data points using a regression line. Used to quantify how accurate a line of best fit is. The lower the MSE, the more accurate the line of best fit is.\n\n

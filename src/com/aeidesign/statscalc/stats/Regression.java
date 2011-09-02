@@ -1,8 +1,8 @@
 package com.aeidesign.statscalc.stats;
 
 public class Regression {
-	Descriptive x;
-	Descriptive y;
+	private Descriptive x;
+	private Descriptive y;
 	
 	public Regression(){
 		x = new Descriptive();
@@ -82,7 +82,17 @@ public class Regression {
 	}
 	
 	public double getR(){
-		return Math.sqrt(this.getRSquared());
+		double meanX = x.getMean();
+		double meanY = y.getMean();
+		double sum = 0;
+		
+		int sampleSize = y.getSampleSize();
+		
+		for (int i = 0; i < sampleSize; i++){
+			sum += (x.getValue(i) - meanX) * (y.getValue(i) - meanY);
+		}
+		
+		return sum / ((sampleSize) * y.getStandardDeviation() * x.getStandardDeviation());
 	}
 	
 	public double getMeanSquareError(){

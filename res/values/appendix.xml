@@ -9,7 +9,7 @@
 		<b>Range: </b> The length of the smallest interval that contains all of the data. It is the difference between the maximum and the minimum value in the data set.\n\n
 		<b>Sum: </b> The resultant of adding together every data point in the set.\n\n
 		<b>Arithmetic Mean: </b> The sum of all data points divided by the total number of data points in the set. Commonly known as the average and is used as a measure of centrality for normal distributed data.\n\n
-		<b>Geometric Mean: </b> An average derived by multiplying all the numbers in a data set and taking the <i>n</i>th root where <i>n</i> is the number of terms in the data set. This is useful in situations where simple addition is not descriptive of true mean. For example, when describing rates of return.\n\n
+		<b>Geometric Mean: </b> An average derived by multiplying all the numbers in a data set and taking the <i>n</i>th root where <i>n</i> is the number of terms in the data set. This is useful in situations where simple addition is not descriptive of true mean. For example, when describing rates of return. NOTE: This only works for a pure positive set. NaN will result when negative values exist.\n\n
 		<b>Lower Quartile: </b> Point that separates the lower 25 percent of data from the upper 75 percent.\n\n
 		<b>Median: </b> The number which separates the lower half of the data set from the higher half. Used as a measure of centrality for skewed data.\n\n
 		<b>Upper Quartile: </b>	Point that separates the lower 75 percent of data from the upper 25 percent.\n\n

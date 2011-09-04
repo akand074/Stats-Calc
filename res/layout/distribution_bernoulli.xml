@@ -44,5 +44,4 @@
             <EditText android:layout_height="40dip" android:id="@+id/eBernoulliPLT" android:gravity="center" android:lines="1" android:inputType="number|numberSigned|numberDecimal" android:layout_width="80dip"></EditText>
         </TableRow>
     </TableLayout>
-    
 </LinearLayout>

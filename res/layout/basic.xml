@@ -2,6 +2,7 @@
 
 <ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
 	android:layout_height="fill_parent" android:layout_width="fill_parent" android:background="@drawable/numbers2">  
 	<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:padding="10dip">
 	    <TableLayout android:layout_height="fill_parent" android:layout_width="fill_parent" android:stretchColumns="1">
@@ -88,6 +89,7 @@
 	            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/skewness" android:id="@+id/tBasicSkewnessLabel" style="@style/PlainText"></TextView>
 	            <TextView android:layout_width="wrap_content" android:gravity="center" android:text="0" android:layout_height="wrap_content" android:id="@+id/tBasicSkewness" style="@style/PlainText"></TextView>
 	        </TableRow>
+	        	<com.google.ads.AdView android:id="@+id/adView" android:layout_width="wrap_content" android:layout_height="wrap_content" ads:adUnitId="a14e62b90928c5e" ads:adSize="BANNER" ads:loadAdOnCreate="true"/>
 	    </TableLayout>
 	</LinearLayout>
 </ScrollView>

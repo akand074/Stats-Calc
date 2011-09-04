@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical" android:weightSum="1" android:background="@drawable/numbers2">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads" android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical" android:weightSum="1" android:background="@drawable/numbers2">
+	<com.google.ads.AdView android:id="@+id/adView" android:layout_width="wrap_content" android:layout_height="wrap_content" ads:adUnitId="a14e62b90928c5e" ads:adSize="BANNER" ads:loadAdOnCreate="true"/>
 	<FrameLayout android:layout_width="fill_parent" android:id="@+id/regression_graph" android:layout_height="fill_parent" android:layout_weight="0.35">
 		<TextView android:id="@+id/textView1" style="@style/PlainText" android:layout_height="wrap_content" android:text="@string/basicInput" android:layout_gravity="center" android:gravity="center" android:layout_width="160dip"></TextView>
 	</FrameLayout>

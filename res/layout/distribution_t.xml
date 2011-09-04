@@ -26,5 +26,5 @@
         <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/linearLayout1">
             <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Calculate T" android:id="@+id/bTCalcT" android:onClick="tDistributionOnClick"></Button>
             <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/solve_for_x" android:id="@+id/bTCalcX" android:onClick="tDistributionOnClick"></Button>
-        </LinearLayout>    
+        </LinearLayout>
 </LinearLayout>

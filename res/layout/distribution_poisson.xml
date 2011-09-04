@@ -43,5 +43,4 @@
             <EditText android:inputType="number|numberSigned|numberDecimal" android:layout_height="40dip" android:id="@+id/ePoissonPLT" android:lines="1" android:gravity="center" android:layout_width="80dip"></EditText>
         </TableRow>
     </TableLayout>
-    
 </LinearLayout>

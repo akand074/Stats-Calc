@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView android:id="@+id/ScrollView1"
   xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
   android:orientation="vertical"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
-    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/linearLayout1">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
         <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/tAppendix" android:text="Info"></TextView>
+        <com.google.ads.AdView android:id="@+id/adView" android:layout_width="wrap_content" android:layout_height="wrap_content" ads:adUnitId="a14e62b90928c5e" ads:adSize="BANNER" ads:loadAdOnCreate="true"/>
     </LinearLayout>
     
 </ScrollView>

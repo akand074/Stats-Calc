@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.ads.*;
+
 import com.aeidesign.statscalc.stats.PermComb;
 
 public class PermutationsCombinations extends Activity {
@@ -37,6 +39,10 @@ public class PermutationsCombinations extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.permutations_combinations);
+        
+     // Look up the AdView as a resource and load a request.
+        AdView adView = (AdView)this.findViewById(R.id.adView);
+        adView.loadAd(new AdRequest());
         
         setSize = (EditText) findViewById(R.id.setSize);
         groupSize = (EditText) findViewById(R.id.groupSize);

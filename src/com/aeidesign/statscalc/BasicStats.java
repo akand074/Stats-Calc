@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.google.ads.*;
+
 import com.aeidesign.statscalc.stats.Descriptive;
 import com.aeidesign.statscalc.stats.Functions;
 
@@ -38,6 +40,10 @@ public class BasicStats extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.basic);
+        
+     // Look up the AdView as a resource and load a request.
+        AdView adView = (AdView)this.findViewById(R.id.adView);
+        adView.loadAd(new AdRequest());
 
         tNumSamples = (TextView) findViewById(R.id.tBasicNumSamples);
     	tMin = (TextView) findViewById(R.id.tBasicMin);

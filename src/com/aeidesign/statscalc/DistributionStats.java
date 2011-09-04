@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
+import com.google.ads.*;
+
 import com.aeidesign.statscalc.stats.Bernoulli;
 import com.aeidesign.statscalc.stats.ChiSquared;
 import com.aeidesign.statscalc.stats.Descriptive;
@@ -62,6 +64,10 @@ public class DistributionStats extends Activity {
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {}
 		});
+    	
+    	// Look up the AdView as a resource and load a request.
+        AdView adView = (AdView)this.findViewById(R.id.adView);
+        adView.loadAd(new AdRequest());
     
     }
     

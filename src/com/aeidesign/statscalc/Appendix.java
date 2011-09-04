@@ -1,5 +1,7 @@
 package com.aeidesign.statscalc;
 
+import com.google.ads.*;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +22,10 @@ public class Appendix extends Activity {
         
         TextView tHelp = (TextView) findViewById(R.id.tAppendix);
         tHelp.setText( getText( appendix_text_id ) );
+        
+     // Look up the AdView as a resource and load a request.
+        AdView adView = (AdView)this.findViewById(R.id.adView);
+        adView.loadAd(new AdRequest());
         
 	}
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout 	xmlns:android="http://schemas.android.com/apk/res/android" 
+				xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
 				android:layout_width="fill_parent" android:layout_height="fill_parent" android:stretchColumns="1" android:padding="5dip" android:background="@drawable/numbers">
 		<TableRow android:layout_width="fill_parent" android:layout_height="wrap_content">
 			<TextView android:layout_width="wrap_content" android:text="@string/data_title" android:layout_height="wrap_content" android:id="@+id/tDataTitle" style="@style/PlainText"></TextView>
@@ -16,6 +17,9 @@
 	            </LinearLayout>
 	        </ScrollView>
 	        <ListView android:id="@+id/lDataList" android:layout_height="fill_parent" android:divider="#DDDDDD" android:layout_width="fill_parent" android:dividerHeight="1dip"></ListView>
+	    </TableRow>
+	    <TableRow android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content">
+	    	<com.google.ads.AdView android:id="@+id/adView" android:layout_width="wrap_content" android:layout_height="wrap_content" ads:adUnitId="a14e62b90928c5e" ads:adSize="BANNER" ads:loadAdOnCreate="true"/>
 	    </TableRow>
 	    <TableRow android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content">
 	        <Button android:layout_width="wrap_content" android:visibility="gone" android:id="@+id/bSelectData" android:layout_height="wrap_content" android:paddingRight="20dip" android:onClick="selectDataSet" android:text="@string/select_data" android:paddingLeft="20dip"></Button>

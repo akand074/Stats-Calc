@@ -8,6 +8,8 @@ import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
+import com.google.ads.*;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -36,6 +38,10 @@ public class LinearRegression extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.linear_regression);
+        
+     // Look up the AdView as a resource and load a request.
+        AdView adView = (AdView)this.findViewById(R.id.adView);
+        adView.loadAd(new AdRequest());
         
         // Generate the graph
     	multiSeriesDataset = new XYMultipleSeriesDataset();

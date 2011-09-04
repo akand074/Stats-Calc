@@ -39,10 +39,6 @@ public class LinearRegression extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.linear_regression);
         
-     // Look up the AdView as a resource and load a request.
-        AdView adView = (AdView)this.findViewById(R.id.adView);
-        adView.loadAd(new AdRequest());
-        
         // Generate the graph
     	multiSeriesDataset = new XYMultipleSeriesDataset();
     	multiSeriesRenderer = new XYMultipleSeriesRenderer();
@@ -80,7 +76,6 @@ public class LinearRegression extends Activity {
     	
     	// Render the graph
     	chart = ChartFactory.getLineChartView(this, multiSeriesDataset, multiSeriesRenderer);
-    	
     }
     
     @Override

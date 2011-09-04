@@ -21,12 +21,7 @@ public class Appendix extends Activity {
         	appendix_text_id = senderIntent.getExtras().getInt("appendix_text_id");
         
         TextView tHelp = (TextView) findViewById(R.id.tAppendix);
-        tHelp.setText( getText( appendix_text_id ) );
-        
-     // Look up the AdView as a resource and load a request.
-        AdView adView = (AdView)this.findViewById(R.id.adView);
-        adView.loadAd(new AdRequest());
-        
+        tHelp.setText( getText( appendix_text_id ) );        
 	}
 
 }

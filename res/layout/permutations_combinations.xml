@@ -1,51 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView 
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
-	android:layout_height="wrap_content" android:layout_width="fill_parent" android:background="@drawable/numbers2">
-	<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical" android:padding="10dip">
-	    <TableLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:stretchColumns="1">
-	        <TableRow android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_vertical">
-	            <TextView android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/PlainText" android:text="Set Size:"></TextView>
-	            <EditText android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/setSize" android:isScrollContainer="true" android:gravity="center" android:hint="Set" android:width="80dip" android:layout_gravity="center" android:inputType="number">
-	                <requestFocus></requestFocus>
-	            </EditText>
-	        </TableRow>
-	        <TableRow android:layout_width="wrap_content" android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center_vertical">
-	            <TextView android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/PlainText" android:text="Group Size (if differs):"></TextView>
-	            <EditText android:layout_width="wrap_content" android:id="@+id/groupSize" android:gravity="center" android:hint="Group" android:width="80dip" android:layout_gravity="center" android:layout_height="wrap_content" android:inputType="number"></EditText>
-	        </TableRow>
-	        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
-	            <Button android:text="@string/calc" android:id="@+id/perComCalc" android:width="70dip" android:tag="Calc" android:layout_height="wrap_content" android:layout_width="wrap_content"></Button>
-	        </TableRow>
-	    </TableLayout>
-	    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="1" android:shrinkColumns="1">
-	        <TableRow android:layout_weight="1" android:baselineAligned="true" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_width="fill_parent">
-	            <TextView android:id="@+id/textView4" android:layout_height="wrap_content" android:text="Permutations:" style="@style/PlainText" android:layout_width="150dip"></TextView>
-	            <EditText android:layout_height="wrap_content" android:id="@+id/permVal" android:scrollHorizontally="true" android:selectAllOnFocus="true" android:layout_marginLeft="5dip" android:hint="0" android:gravity="center" android:layout_width="fill_parent"></EditText>
-	        </TableRow>
-	        <TableRow android:layout_height="wrap_content" android:layout_width="fill_parent">
-	            <TextView android:layout_width="wrap_content" android:layout_marginLeft="5dip" android:layout_height="wrap_content" style="@style/PlainText" android:id="@+id/textView5" android:text="w/ repetition:" android:gravity="right"></TextView>
-	            <EditText android:scrollHorizontally="true" android:id="@+id/permWithRep" android:layout_marginLeft="5dip" android:layout_height="wrap_content" android:selectAllOnFocus="true" android:gravity="center" android:hint="0" android:layout_width="fill_parent"></EditText>
-	        </TableRow>
-	        <TableRow android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_width="fill_parent">
-	            <TextView android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Combinations:" style="@style/PlainText"></TextView>
-	            <EditText android:id="@+id/combVal" android:layout_height="wrap_content" android:scrollHorizontally="true" android:selectAllOnFocus="true" android:layout_marginLeft="5dip" android:hint="0" android:gravity="center" android:layout_width="fill_parent"></EditText>
-	        </TableRow>
-	        <TableRow android:layout_height="wrap_content" android:layout_width="fill_parent">
-	            <TextView android:layout_width="wrap_content" android:layout_marginLeft="5dip" android:layout_height="wrap_content" style="@style/PlainText" android:id="@+id/textView6" android:text="w/ repetition:" android:gravity="right"></TextView>
-	            <EditText android:scrollHorizontally="true" android:id="@+id/combWithRep" android:layout_marginLeft="5dip" android:layout_height="wrap_content" android:selectAllOnFocus="true" android:gravity="center" android:hint="0" android:layout_width="fill_parent"></EditText>
-	        </TableRow>
-	        <TableRow android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_width="fill_parent">
-	            <TextView android:id="@+id/TextView03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="# of subsets:" style="@style/PlainText"></TextView>
-	            <EditText android:id="@+id/numSubset" android:layout_height="wrap_content" android:scrollHorizontally="true" android:selectAllOnFocus="true" android:layout_marginLeft="5dip" android:hint="0" android:gravity="center" android:layout_width="fill_parent"></EditText>
-	        </TableRow>
-	        <TableRow android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_width="fill_parent">
-	            <TextView android:id="@+id/TextView04" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pigeonhole:" style="@style/PlainText"></TextView>
-	            <EditText android:id="@+id/pigeonhole" android:layout_height="wrap_content" android:scrollHorizontally="true" android:selectAllOnFocus="true" android:layout_marginLeft="5dip" android:hint="0" android:gravity="center" android:layout_width="fill_parent"></EditText>
-	        </TableRow>
-	    </TableLayout>    
-	    <com.google.ads.AdView android:id="@+id/adView" android:layout_width="wrap_content" android:layout_height="wrap_content" ads:adUnitId="a14e62b90928c5e" ads:adSize="BANNER" ads:loadAdOnCreate="true"/>
-	</LinearLayout>
-</ScrollView>
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads" android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical">
+	<com.google.ads.AdView android:id="@+id/adView" android:layout_height="wrap_content" ads:adUnitId="a14e62b90928c5e" ads:adSize="BANNER" ads:loadAdOnCreate="true" android:layout_width="fill_parent"/>
+	<ScrollView android:layout_height="wrap_content" android:layout_width="fill_parent" android:background="@drawable/numbers2">
+		<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical" android:padding="10dip">
+		    <TableLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:stretchColumns="1">
+		        <TableRow android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_vertical">
+		            <TextView android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/PlainText" android:text="Set Size:"></TextView>
+		            <EditText android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/setSize" android:isScrollContainer="true" android:gravity="center" android:hint="Set" android:width="80dip" android:layout_gravity="center" android:inputType="number">
+		                <requestFocus></requestFocus>
+		            </EditText>
+		        </TableRow>
+		        <TableRow android:layout_width="wrap_content" android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center_vertical">
+		            <TextView android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/PlainText" android:text="Group Size (if differs):"></TextView>
+		            <EditText android:layout_width="wrap_content" android:id="@+id/groupSize" android:gravity="center" android:hint="Group" android:width="80dip" android:layout_gravity="center" android:layout_height="wrap_content" android:inputType="number"></EditText>
+		        </TableRow>
+		        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
+		            <Button android:text="@string/calc" android:id="@+id/perComCalc" android:width="70dip" android:tag="Calc" android:layout_height="wrap_content" android:layout_width="wrap_content"></Button>
+		        </TableRow>
+		    </TableLayout>
+		    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="1" android:shrinkColumns="1">
+		        <TableRow android:layout_weight="1" android:baselineAligned="true" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_width="fill_parent">
+		            <TextView android:id="@+id/textView4" android:layout_height="wrap_content" android:text="Permutations:" style="@style/PlainText" android:layout_width="150dip"></TextView>
+		            <EditText android:layout_height="wrap_content" android:id="@+id/permVal" android:scrollHorizontally="true" android:selectAllOnFocus="true" android:layout_marginLeft="5dip" android:hint="0" android:gravity="center" android:layout_width="fill_parent"></EditText>
+		        </TableRow>
+		        <TableRow android:layout_height="wrap_content" android:layout_width="fill_parent">
+		            <TextView android:layout_width="wrap_content" android:layout_marginLeft="5dip" android:layout_height="wrap_content" style="@style/PlainText" android:id="@+id/textView5" android:text="w/ repetition:" android:gravity="right"></TextView>
+		            <EditText android:scrollHorizontally="true" android:id="@+id/permWithRep" android:layout_marginLeft="5dip" android:layout_height="wrap_content" android:selectAllOnFocus="true" android:gravity="center" android:hint="0" android:layout_width="fill_parent"></EditText>
+		        </TableRow>
+		        <TableRow android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_width="fill_parent">
+		            <TextView android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Combinations:" style="@style/PlainText"></TextView>
+		            <EditText android:id="@+id/combVal" android:layout_height="wrap_content" android:scrollHorizontally="true" android:selectAllOnFocus="true" android:layout_marginLeft="5dip" android:hint="0" android:gravity="center" android:layout_width="fill_parent"></EditText>
+		        </TableRow>
+		        <TableRow android:layout_height="wrap_content" android:layout_width="fill_parent">
+		            <TextView android:layout_width="wrap_content" android:layout_marginLeft="5dip" android:layout_height="wrap_content" style="@style/PlainText" android:id="@+id/textView6" android:text="w/ repetition:" android:gravity="right"></TextView>
+		            <EditText android:scrollHorizontally="true" android:id="@+id/combWithRep" android:layout_marginLeft="5dip" android:layout_height="wrap_content" android:selectAllOnFocus="true" android:gravity="center" android:hint="0" android:layout_width="fill_parent"></EditText>
+		        </TableRow>
+		        <TableRow android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_width="fill_parent">
+		            <TextView android:id="@+id/TextView03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="# of subsets:" style="@style/PlainText"></TextView>
+		            <EditText android:id="@+id/numSubset" android:layout_height="wrap_content" android:scrollHorizontally="true" android:selectAllOnFocus="true" android:layout_marginLeft="5dip" android:hint="0" android:gravity="center" android:layout_width="fill_parent"></EditText>
+		        </TableRow>
+		        <TableRow android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_width="fill_parent">
+		            <TextView android:id="@+id/TextView04" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pigeonhole:" style="@style/PlainText"></TextView>
+		            <EditText android:id="@+id/pigeonhole" android:layout_height="wrap_content" android:scrollHorizontally="true" android:selectAllOnFocus="true" android:layout_marginLeft="5dip" android:hint="0" android:gravity="center" android:layout_width="fill_parent"></EditText>
+		        </TableRow>
+		    </TableLayout>
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

@@ -64,10 +64,6 @@ public class DistributionStats extends Activity {
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {}
 		});
-    	
-    	// Look up the AdView as a resource and load a request.
-        AdView adView = (AdView)this.findViewById(R.id.adView);
-        adView.loadAd(new AdRequest());
     
     }
     

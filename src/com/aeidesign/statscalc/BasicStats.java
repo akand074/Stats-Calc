@@ -40,10 +40,6 @@ public class BasicStats extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.basic);
-        
-     // Look up the AdView as a resource and load a request.
-        AdView adView = (AdView)this.findViewById(R.id.adView);
-        adView.loadAd(new AdRequest());
 
         tNumSamples = (TextView) findViewById(R.id.tBasicNumSamples);
     	tMin = (TextView) findViewById(R.id.tBasicMin);

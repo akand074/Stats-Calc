@@ -4,14 +4,16 @@
     android:orientation="vertical"
     android:layout_height="fill_parent" android:layout_width="fill_parent" android:background="@drawable/background" android:gravity="top">
     <com.google.ads.AdView android:id="@+id/adView" android:layout_height="wrap_content" ads:adUnitId="a14e62b90928c5e" ads:adSize="BANNER" ads:loadAdOnCreate="true" android:layout_width="fill_parent"/>
-    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <TableRow android:gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:padding="5px">
-            <Button android:clickable="true" android:layout_gravity="center_vertical|center_horizontal" android:onClick="launchActivity" android:tag="BasicStats" android:id="@+id/bMainBasicStats" android:width="140dip" android:layout_height="140dip" android:layout_width="140dip" android:layout_margin="5dip" android:background="@drawable/descriptive"></Button>
-            <Button android:clickable="true" android:layout_gravity="center_vertical|center_horizontal" android:tag="LinearRegression" android:onClick="launchActivity" android:id="@+id/bMainLinearRegression" android:layout_width="140dip" android:layout_height="140dip" android:width="140dip" android:layout_margin="5dip" android:background="@drawable/linearreg"></Button>
-        </TableRow>
-        <TableRow android:gravity="center_horizontal" android:layout_gravity="center_vertical|center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:padding="5px">
-            <Button android:clickable="true" android:layout_gravity="center_vertical|center_horizontal" android:tag="PermutationsCombinations" android:onClick="launchActivity" android:id="@+id/bMainPermutationsCombinations" android:layout_width="140dip" android:layout_height="140dip" android:width="140dip" android:layout_margin="5dip" android:background="@drawable/permcomb"></Button>
-            <Button android:clickable="true" android:layout_gravity="center_vertical|center_horizontal" android:onClick="launchActivity" android:id="@+id/bMainDistribution" android:tag="DistributionStats" android:layout_width="140dip" android:layout_height="140dip" android:width="140dip" android:layout_margin="5dip" android:background="@drawable/distribution"></Button>
-        </TableRow>
-    </TableLayout>
+    <ScrollView android:layout_width="fill_parent" android:id="@+id/scrollView1" android:layout_height="fill_parent">
+        <TableLayout android:id="@+id/tableLayout1" android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TableRow android:id="@+id/tableRow1" android:padding="5px" android:gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <Button android:tag="BasicStats" android:background="@drawable/descriptive" android:id="@+id/bMainBasicStats" android:layout_height="140dip" android:layout_margin="5dip" android:onClick="launchActivity" android:clickable="true" android:width="140dip" android:layout_width="140dip" android:layout_gravity="center"></Button>
+                <Button android:tag="LinearRegression" android:background="@drawable/linearreg" android:id="@+id/bMainLinearRegression" android:layout_height="140dip" android:layout_margin="5dip" android:onClick="launchActivity" android:clickable="true" android:width="140dip" android:layout_width="140dip" android:layout_gravity="center"></Button>
+            </TableRow>
+            <TableRow android:layout_gravity="center_vertical|center_horizontal" android:id="@+id/tableRow2" android:padding="5px" android:gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <Button android:tag="PermutationsCombinations" android:background="@drawable/permcomb" android:id="@+id/bMainPermutationsCombinations" android:layout_height="140dip" android:layout_margin="5dip" android:onClick="launchActivity" android:clickable="true" android:width="140dip" android:layout_width="140dip" android:layout_gravity="center"></Button>
+                <Button android:tag="DistributionStats" android:background="@drawable/distribution" android:id="@+id/bMainDistribution" android:layout_height="140dip" android:layout_margin="5dip" android:onClick="launchActivity" android:clickable="true" android:width="140dip" android:layout_width="140dip" android:layout_gravity="center"></Button>
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
 </LinearLayout>

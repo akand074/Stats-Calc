@@ -4,7 +4,7 @@
     <uses-sdk android:minSdkVersion="7" />
 
     <application android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:label="@string/app_name" android:name="StatsCalcMain" android:screenOrientation="portrait">
+        <activity android:label="@string/app_name" android:name="StatsCalcMain">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

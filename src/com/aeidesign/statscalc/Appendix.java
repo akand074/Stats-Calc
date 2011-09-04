@@ -1,7 +1,5 @@
 package com.aeidesign.statscalc;
 
-import com.google.ads.*;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

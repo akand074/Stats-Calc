@@ -9,8 +9,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.google.ads.*;
-
 import com.aeidesign.statscalc.stats.Descriptive;
 import com.aeidesign.statscalc.stats.Functions;
 

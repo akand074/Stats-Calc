@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Map;
 
-import com.google.ads.*;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;

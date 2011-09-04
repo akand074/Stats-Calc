@@ -8,8 +8,6 @@ import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
-import com.google.ads.*;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;

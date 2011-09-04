@@ -16,8 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-import com.google.ads.*;
-
 import com.aeidesign.statscalc.stats.Bernoulli;
 import com.aeidesign.statscalc.stats.ChiSquared;
 import com.aeidesign.statscalc.stats.Descriptive;

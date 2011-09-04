@@ -8,8 +8,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.ads.*;
-
 public class StatsCalcMain extends Activity {
     /** Called when the activity is first created. */
     @Override

@@ -83,6 +83,12 @@ public class PermutationsCombinations extends Activity {
     private void calculateData() {
     	long set = 0;
     	long group = 0;
+    	
+    	if ( setSize.getText().toString().equals("")){
+    		Toast.makeText(getApplicationContext(), "Please enter a value for the set", Toast.LENGTH_SHORT).show();
+    		return;
+    	}
+    	
     	if(groupSize.getText().toString().equals("")){
     		set = Long.parseLong(setSize.getText().toString());
         	group = Long.parseLong(setSize.getText().toString());
@@ -95,6 +101,8 @@ public class PermutationsCombinations extends Activity {
     		Toast.makeText(getApplicationContext(), "The group cannot be larger than the set.", Toast.LENGTH_SHORT).show();
     		return;
     	}
+    	
+    	
     	
     	permVal.setText(String.valueOf(PermComb.calcPermutations(set, group)));
     	permWithRep.setText(String.valueOf(PermComb.calcPermutationsWithRep(set, group)));

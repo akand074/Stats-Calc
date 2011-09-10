@@ -43,6 +43,8 @@
 		<b>Permutations with Reptitions: </b> The total number of different arrangements of objects, where the order of objects matter and objects can be used more than once.\n\n
 		<b>Combinations: </b> The total number of non-repeating different arrangements of objects, where the order of the objects doesn\'t matter.\n\n
 		<b>Combinations with Reptitions: </b> The total number of different arrangements of objects, where the order of objects doesn\'t matter and objects can be used more than once.\n\n
+		<b># of Subsets: </b> The total number of subsets that can be made from a set. NOTE: This only uses the value given for set.\n\n
+		<b>Pigeonhole: </b> The minimum number of objects that one group must have. For example if you have 10 objects in a set and 3 groups to put them in, then at least one group must have 4 objects. That is, it\'s impossible to arrange 10 objects into 3 groups without at least one group having 4 or more objects, making the result 4. NOTE: The value in group is being considered as the number of groups, not group size, for this function.\n\n
 	</string>
 	<string name="gaussian_help">
 		<b>Gaussian Distribution</b>\n

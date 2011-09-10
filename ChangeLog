@@ -27,3 +27,11 @@
 [ 2011-08-27 ] Version 0.6.0
 - Added custom data management for descriptive
 - Bug fixes including geometric mean causing crash
+[ 2011-09-04 ] Version 1.0.0
+- UI Redesign
+- Added Help menu
+- Lots of bug fixes
+[ 2011-09-09] Version 1.0.1
+- Added missing permutation help
+- Replaced PNGs with JPEGs to cut file size
+- Forced portrait orientation for main.xml

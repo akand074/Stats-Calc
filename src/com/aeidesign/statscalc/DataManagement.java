@@ -107,7 +107,7 @@ public class DataManagement extends Activity {
     	LayoutInflater inflater = LayoutInflater.from(this);
     	LinearLayout nextPoints = (LinearLayout) inflater.inflate(R.layout.data_point, null);
     	
-    	lDataPoints.addView(nextPoints, lDataPoints.getChildCount() - 1);
+    	lDataPoints.addView(nextPoints, lDataPoints.getChildCount());
     	
     	EditText eX = ((EditText) nextPoints.getChildAt(0));
     	EditText eY = ((EditText) nextPoints.getChildAt(1));
@@ -129,7 +129,7 @@ public class DataManagement extends Activity {
     }
     
     private void numberDataPoints(){
-    	int childCount = lDataPoints.getChildCount() - 1;
+    	int childCount = lDataPoints.getChildCount();
     	
     	// Reset dataCount, recount number of data points, re-assign X values
     	for ( dataCount = 0; dataCount < childCount; dataCount++ ){
@@ -157,7 +157,7 @@ public class DataManagement extends Activity {
     	StringBuilder dataValues = new StringBuilder();
     	LinearLayout lView;
     	
-    	int childCount = lDataPoints.getChildCount() - 1; // -1 is for the + button 
+    	int childCount = lDataPoints.getChildCount(); 
     	
     	Double[][] dataMatrix = new Double[ childCount ][ 2 ];
     	
@@ -255,8 +255,8 @@ public class DataManagement extends Activity {
     public void loadDataSet(CharSequence dataKey){
     	EditText eDataTitle = (EditText) findViewById(R.id.eDataTitle);
     	    	
-    	// Clear old data & EditTexts from Horizontal Scroll View
-    	lDataPoints.removeViews(0, lDataPoints.getChildCount() - 1 );
+    	// Clear old data & EditTexts from Scroll View
+    	lDataPoints.removeAllViews();
     	
     	String[] dataValues = settings.getString( dataKey.toString(), "" ).split(";");
     	

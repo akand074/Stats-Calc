@@ -101,6 +101,11 @@ public class LinearRegression extends Activity {
 		return true;
     }
     
+    public boolean onPrepareOptionsMenu(Menu menu){
+        menu.removeItem(R.id.mTable);
+    	return true;
+    }
+    
     @Override
     public void onActivityResult(int requestCode,int resultCode,Intent data){
    		super.onActivityResult(requestCode, resultCode, data);

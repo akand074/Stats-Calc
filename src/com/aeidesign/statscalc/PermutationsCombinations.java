@@ -58,6 +58,7 @@ public class PermutationsCombinations extends Activity {
     
     public boolean onPrepareOptionsMenu(Menu menu){
     	menu.removeItem(R.id.mManageData);
+        menu.removeItem(R.id.mTable);
     	return true;
     }
     

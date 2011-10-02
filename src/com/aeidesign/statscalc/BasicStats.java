@@ -65,6 +65,11 @@ public class BasicStats extends Activity {
         return true;
     }
     
+    public boolean onPrepareOptionsMenu(Menu menu){
+        menu.removeItem(R.id.mTable);
+    	return true;
+    }
+    
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection

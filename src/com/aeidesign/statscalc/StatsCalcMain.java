@@ -43,6 +43,7 @@ public class StatsCalcMain extends Activity {
     
     public boolean onPrepareOptionsMenu(Menu menu){
     	menu.removeItem(R.id.mHelp);
+    	menu.removeItem(R.id.mTable);
     	return true;
     }
     

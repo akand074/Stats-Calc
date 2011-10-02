@@ -3,4 +3,5 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:enabled="true" android:title="@string/manage_data" android:id="@+id/mManageData" android:visible="true"></item>
     <item android:id="@+id/mHelp" android:title="@string/help_label" android:visible="true" android:enabled="true"></item>
+    <item android:id="@+id/mTable" android:title="@string/tables_label" android:visible="true" android:enabled="true"></item>
 </menu>

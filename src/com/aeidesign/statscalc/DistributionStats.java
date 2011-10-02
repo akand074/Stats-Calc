@@ -277,6 +277,7 @@ public class DistributionStats extends Activity {
     public boolean onPrepareOptionsMenu(Menu menu){
     	if (lastSelection.equals("Poisson") || lastSelection.equals("Bernoulli")){
         	menu.removeItem(R.id.mManageData);
+        	menu.removeItem(R.id.mTable);
         } else {
         	menu.clear();
         	onCreateOptionsMenu(menu);
@@ -320,6 +321,22 @@ public class DistributionStats extends Activity {
         		
         		helpIntent.putExtra("appendix_text_id", appendix_text_id);
         		startActivity(helpIntent);
+        		break;
+        	case R.id.mTable:
+        		Intent tableIntent = new Intent(this, Table.class);
+        		
+        		int table_id = 0;
+        		
+        		if ( lastSelection.equals( "Gaussian" ) ){
+					table_id = 1;
+				} else if ( lastSelection.equals( "T" ) ){
+					table_id = 2;
+				} else if ( lastSelection.equals("ChiSquared")){
+					table_id = 3;
+				} 
+        		
+        		tableIntent.putExtra("table_id", table_id);
+        		startActivity(tableIntent);
         		break;
         }
 		return true;

@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Spinner;
@@ -113,53 +114,85 @@ public class DistributionStats extends Activity {
     }
     
     public void poissonDistributionOnClick(View view){
-    	EditText eOccurences = (EditText) findViewById(R.id.ePoissonX);
-    	EditText eLambda = (EditText) findViewById(R.id.ePoissonL);
-    	EditText eProbability = (EditText) findViewById(R.id.ePoissonP);
-    	EditText eProbabilityGTE = (EditText) findViewById(R.id.ePoissonPGT_E);
-    	EditText eProbabilityGT = (EditText) findViewById(R.id.ePoissonPGT);
-    	EditText eProbabilityLTE = (EditText) findViewById(R.id.ePoissonPLT_E);
-    	EditText eProbabilityLT = (EditText) findViewById(R.id.ePoissonPLT);
+    	final EditText eOccurences = (EditText) findViewById(R.id.ePoissonX);
+    	final EditText eLambda = (EditText) findViewById(R.id.ePoissonL);
+    	final EditText eProbability = (EditText) findViewById(R.id.ePoissonP);
+    	final EditText eProbabilityGTE = (EditText) findViewById(R.id.ePoissonPGT_E);
+    	final EditText eProbabilityGT = (EditText) findViewById(R.id.ePoissonPGT);
+    	final EditText eProbabilityLTE = (EditText) findViewById(R.id.ePoissonPLT_E);
+    	final EditText eProbabilityLT = (EditText) findViewById(R.id.ePoissonPLT);
+    	final Button bPoissonCalcP = ((Button) findViewById(R.id.bPoissonCalcP));
     	
     	if ( eOccurences.getText().length() < 1 || eLambda.getText().length() < 1 ){
     		Toast.makeText(getApplicationContext(), "Please enter a value for # of occurences and Lambda.", Toast.LENGTH_SHORT).show();
     		return;
     	}
-   		
-    	try {
-			eProbability.setText( String.valueOf( Functions.format(Poisson.calcProbability(Integer.valueOf(eOccurences.getText().toString()), 
-					Double.valueOf(eLambda.getText().toString()))) ) );
-    	} catch (NumberFormatException e) {
-				e.printStackTrace();
-		}
-    	try {
-			eProbabilityGTE.setText( String.valueOf( Functions.format(Poisson.calcProbabilityGreaterThanOrEqual(Integer.valueOf(eOccurences.getText().toString()),
-					Double.valueOf(eLambda.getText().toString()))) ) );
-    	} catch (NumberFormatException e) {
-				e.printStackTrace();
-		}
-    	try {
-			eProbabilityGT.setText( String.valueOf( Functions.format(Poisson.calcProbabilityGreaterThan(Integer.valueOf(eOccurences.getText().toString()), 
-					Double.valueOf(eLambda.getText().toString()))) ) );
-    	} catch (NumberFormatException e) {
-				e.printStackTrace();
-		}
-    	try {
-			eProbabilityLTE.setText( String.valueOf( Functions.format(Poisson.calcProbabilityLessThanOrEqual(Integer.valueOf(eOccurences.getText().toString()), 
-					Double.valueOf(eLambda.getText().toString()))) ) );
-    	} catch (NumberFormatException e) {
-				e.printStackTrace();
-		}
-    	try {
-			eProbabilityLT.setText( String.valueOf( Functions.format(Poisson.calcProbabilityLessThan(Integer.valueOf(eOccurences.getText().toString()), 
-					Double.valueOf(eLambda.getText().toString()))) ));
-    	} catch (NumberFormatException e) {
-				e.printStackTrace();
-		}
     	
+    	bPoissonCalcP.setEnabled(false);
+    	bPoissonCalcP.setText( "Calculating ..." );
+    	
+		new Thread(new Runnable() {
+			public void run() {
+				final double p = Functions.format(Poisson.calcProbability(
+						Integer.valueOf(eOccurences.getText().toString()),
+						Double.valueOf(eLambda.getText().toString())));
+				eProbability.post(new Runnable() {
+					public void run() {
+						eProbability.setText(String.valueOf(p));
+					}
+				});
 
+
+				final double pGTE = Functions.format(Poisson
+						.calcProbabilityGreaterThanOrEqual(Integer
+								.valueOf(eOccurences.getText().toString()),
+								Double.valueOf(eLambda.getText().toString())));				
+				eProbabilityGTE.post(new Runnable() {
+					public void run() {
+						eProbabilityGTE.setText(String.valueOf(pGTE));
+					}
+				});
+			
+				final double pGT = Functions.format(Poisson
+						.calcProbabilityGreaterThan(Integer.valueOf(eOccurences
+								.getText().toString()), Double.valueOf(eLambda
+								.getText().toString())));
+				eProbabilityGT.post(new Runnable() {
+					public void run() {
+						eProbabilityGT.setText(String.valueOf(pGT));
+					}
+				});
+		
+				final double pLTE = Functions.format(Poisson
+						.calcProbabilityLessThanOrEqual(Integer
+								.valueOf(eOccurences.getText().toString()),
+								Double.valueOf(eLambda.getText().toString())));
+				eProbabilityLTE.post(new Runnable() {
+					public void run() {
+						eProbabilityLTE.setText(String.valueOf(pLTE));
+					}
+				});
+		
+				final double pLT = Functions.format(Poisson
+						.calcProbabilityLessThan(Integer.valueOf(eOccurences
+								.getText().toString()), Double.valueOf(eLambda
+								.getText().toString())));
+				eProbabilityLT.post(new Runnable() {
+					public void run() {
+						eProbabilityLT.setText(String.valueOf(pLT));
+					}
+				});
+				
+				bPoissonCalcP.post(new Runnable() {
+					public void run() {
+						bPoissonCalcP.setText( getString( R.string.calc ) );
+						bPoissonCalcP.setEnabled(true);
+					}
+				});
+			}
+		}).start();
     }
-    
+
     public void bernoulliDistributionOnClick(View view){
     	EditText eNumSuccess = (EditText) findViewById(R.id.eBernoulliX);
     	EditText eNumTrials = (EditText) findViewById(R.id.eBernoulliN);

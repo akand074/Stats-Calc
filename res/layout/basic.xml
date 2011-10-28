@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_height="fill_parent" android:layout_width="fill_parent" android:gravity="top">
     <com.google.ads.AdView android:id="@+id/adView" android:layout_height="wrap_content" ads:adUnitId="a14e62b90928c5e" ads:adSize="BANNER" ads:loadAdOnCreate="true" android:layout_width="fill_parent"/>
-	<ScrollView	android:layout_height="fill_parent" android:layout_width="fill_parent" android:background="@drawable/numbers2">
+	<ScrollView	android:layout_height="fill_parent" android:layout_width="fill_parent" android:background="@drawable/background2">
 		<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:padding="10dip">
 		    <TableLayout android:layout_height="fill_parent" android:layout_width="fill_parent" android:stretchColumns="1">
 		        <TableRow android:layout_width="fill_parent" android:layout_height="wrap_content">

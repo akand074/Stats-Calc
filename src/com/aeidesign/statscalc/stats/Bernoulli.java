@@ -1,11 +1,15 @@
 package com.aeidesign.statscalc.stats;
 
+import java.math.BigDecimal;
+
 public class Bernoulli {
 	
 	public static double calcProbability(int x, int n, double p) {
-		return Functions.calcFactorial(n)
-			.divide( Functions.calcFactorial(x).multiply( Functions.calcFactorial(n - x) ) )
-			.doubleValue() * Math.pow(p, x) * Math.pow(1 - p, n - x);
+		BigDecimal numerator = new BigDecimal(Functions.calcFactorial(n));
+		BigDecimal denominator = new BigDecimal((Functions.calcFactorial(x)).multiply(Functions.calcFactorial(n - x)));
+		BigDecimal retVal = numerator.divide(denominator, BigDecimal.ROUND_HALF_UP);
+		retVal = retVal.multiply(new BigDecimal(Math.pow(p, x) * Math.pow(1-p, n-x)));
+		return retVal.doubleValue();
 	}
 	
 	public static double calcProbabilityLessThan(int x, int n, double p){

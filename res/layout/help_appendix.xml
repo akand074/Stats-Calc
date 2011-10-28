@@ -4,9 +4,9 @@
 <ScrollView
   android:orientation="vertical"
   android:layout_width="fill_parent"
-  android:layout_height="fill_parent">
+  android:layout_height="fill_parent" android:background="@drawable/background2">
     <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:padding="5dip">
-        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/tAppendix" android:text="Info"></TextView>
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/tAppendix" android:text="Info" android:textColor="#FFFFFF"></TextView>
     </LinearLayout>
 </ScrollView>
 </LinearLayout>

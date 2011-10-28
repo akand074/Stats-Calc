@@ -97,14 +97,72 @@ public class PermutationsCombinations extends Activity {
     		return;
     	}
     	
+    	permVal.setText("");
+    	permWithRep.setText("");
+    	combVal.setText("");
+    	combWithRep.setText("");
+    	numSubset.setText("");
+    	pigeonhole.setText("");
     	
+    	calc.setEnabled(false);
+    	calc.setText( "Calculating ..." );
     	
-    	permVal.setText(String.valueOf(PermComb.calcPermutations(set, group)));
-    	permWithRep.setText(String.valueOf(PermComb.calcPermutationsWithRep(set, group)));
-    	combVal.setText(String.valueOf(PermComb.calcCombinations(set, group)));
-    	combWithRep.setText(String.valueOf(PermComb.calcCombinationsWithRep(set, group)));
-    	numSubset.setText(String.valueOf(PermComb.calcNumSubset(set)));
-    	pigeonhole.setText(String.valueOf(PermComb.calcPigeonhole(set, group)));
+    	final long setF = set;
+    	final long groupF = group;
+    	
+		new Thread(new Runnable() {
+			public void run() {
+				final String perm = PermComb.calcPermutations(setF, groupF);
+				permVal.post(new Runnable() {
+					public void run() {
+						permVal.setText(String.valueOf(perm));
+					}
+				});
+
+
+				final String permR = PermComb.calcPermutationsWithRep(setF, groupF)		;	
+				permWithRep.post(new Runnable() {
+					public void run() {
+						permWithRep.setText(String.valueOf(permR));
+					}
+				});
+			
+				final String comb = PermComb.calcCombinations(setF, groupF);
+				combVal.post(new Runnable() {
+					public void run() {
+						combVal.setText(String.valueOf(comb));
+					}
+				});
+				
+				final String combR = PermComb.calcCombinationsWithRep(setF, groupF);
+				combWithRep.post(new Runnable() {
+					public void run() {
+						combWithRep.setText(String.valueOf(combR));
+					}
+				});
+				
+				final String sub = PermComb.calcNumSubset(setF);
+				numSubset.post(new Runnable() {
+					public void run() {
+						numSubset.setText(String.valueOf(sub));
+					}
+				});
+		
+				final double pigeon = PermComb.calcPigeonhole(setF, groupF);
+				pigeonhole.post(new Runnable() {
+					public void run() {
+						pigeonhole.setText(String.valueOf(pigeon));
+					}
+				});
+				
+				calc.post(new Runnable() {
+					public void run() {
+						calc.setText( getString( R.string.calc ) );
+						calc.setEnabled(true);
+					}
+				});
+			}
+		}).start();
 	}
 
 }

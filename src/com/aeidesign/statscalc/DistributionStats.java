@@ -128,12 +128,24 @@ public class DistributionStats extends Activity {
     		return;
     	}
     	
+    	if( Integer.valueOf(eOccurences.getText().toString()) > Integer.MAX_VALUE || Integer.valueOf(eLambda.getText().toString()) > Integer.MAX_VALUE  ){
+    		Toast.makeText(getApplicationContext(), "Value for # of occurences or Lambda is too large.", Toast.LENGTH_SHORT).show();
+    		return;
+    	}
+    	
+    	eProbability.setText("");
+    	eProbabilityGTE.setText("");
+    	eProbabilityGT.setText("");
+    	eProbabilityLTE.setText("");
+    	eProbabilityLT.setText("");
+    	
+    	final Poisson poisson = new Poisson();
     	bPoissonCalcP.setEnabled(false);
     	bPoissonCalcP.setText( "Calculating ..." );
     	
 		new Thread(new Runnable() {
 			public void run() {
-				final double p = Functions.format(Poisson.calcProbability(
+				final double p = Functions.format(poisson.calcProbability(
 						Integer.valueOf(eOccurences.getText().toString()),
 						Double.valueOf(eLambda.getText().toString())));
 				eProbability.post(new Runnable() {
@@ -143,7 +155,7 @@ public class DistributionStats extends Activity {
 				});
 
 
-				final double pGTE = Functions.format(Poisson
+				final double pGTE = Functions.format(poisson
 						.calcProbabilityGreaterThanOrEqual(Integer
 								.valueOf(eOccurences.getText().toString()),
 								Double.valueOf(eLambda.getText().toString())));				
@@ -153,7 +165,7 @@ public class DistributionStats extends Activity {
 					}
 				});
 			
-				final double pGT = Functions.format(Poisson
+				final double pGT = Functions.format(poisson
 						.calcProbabilityGreaterThan(Integer.valueOf(eOccurences
 								.getText().toString()), Double.valueOf(eLambda
 								.getText().toString())));
@@ -163,7 +175,7 @@ public class DistributionStats extends Activity {
 					}
 				});
 		
-				final double pLTE = Functions.format(Poisson
+				final double pLTE = Functions.format(poisson
 						.calcProbabilityLessThanOrEqual(Integer
 								.valueOf(eOccurences.getText().toString()),
 								Double.valueOf(eLambda.getText().toString())));
@@ -173,7 +185,7 @@ public class DistributionStats extends Activity {
 					}
 				});
 		
-				final double pLT = Functions.format(Poisson
+				final double pLT = Functions.format(poisson
 						.calcProbabilityLessThan(Integer.valueOf(eOccurences
 								.getText().toString()), Double.valueOf(eLambda
 								.getText().toString())));
@@ -194,14 +206,15 @@ public class DistributionStats extends Activity {
     }
 
     public void bernoulliDistributionOnClick(View view){
-    	EditText eNumSuccess = (EditText) findViewById(R.id.eBernoulliX);
-    	EditText eNumTrials = (EditText) findViewById(R.id.eBernoulliN);
-    	EditText ePercentSuccess = (EditText) findViewById(R.id.eBernoulliS);
-    	EditText eProbability = (EditText) findViewById(R.id.eBernoulliP);
-    	EditText eProbabilityGTE = (EditText) findViewById(R.id.eBernoulliPGT_E);
-    	EditText eProbabilityGT = (EditText) findViewById(R.id.eBernoulliPGT);
-    	EditText eProbabilityLTE = (EditText) findViewById(R.id.eBernoulliPLT_E);
-    	EditText eProbabilityLT = (EditText) findViewById(R.id.eBernoulliPLT);
+    	final EditText eNumSuccess = (EditText) findViewById(R.id.eBernoulliX);
+    	final EditText eNumTrials = (EditText) findViewById(R.id.eBernoulliN);
+    	final EditText ePercentSuccess = (EditText) findViewById(R.id.eBernoulliS);
+    	final EditText eProbability = (EditText) findViewById(R.id.eBernoulliP);
+    	final EditText eProbabilityGTE = (EditText) findViewById(R.id.eBernoulliPGT_E);
+    	final EditText eProbabilityGT = (EditText) findViewById(R.id.eBernoulliPGT);
+    	final EditText eProbabilityLTE = (EditText) findViewById(R.id.eBernoulliPLT_E);
+    	final EditText eProbabilityLT = (EditText) findViewById(R.id.eBernoulliPLT);
+    	final Button bBernoulliCalcP = ((Button) findViewById(R.id.bBernoulliCalcP));
     	
     	if ( eNumSuccess.getText().length() < 1 || eNumTrials.getText().length() < 1 || ePercentSuccess.getText().length() < 1){
     		Toast.makeText(getApplicationContext(), "Please enter a value for # of Successes, # of Trials and % Success", Toast.LENGTH_SHORT).show();
@@ -217,37 +230,68 @@ public class DistributionStats extends Activity {
     		Toast.makeText(getApplicationContext(), "% success must be between 0 and 100", Toast.LENGTH_SHORT).show();
     		return;
     	}
+    	
+    	eProbability.setText("");
+    	eProbabilityGTE.setText("");
+    	eProbabilityGT.setText("");
+    	eProbabilityLTE.setText("");
+    	eProbabilityLT.setText("");
    		
-    	try {
-			eProbability.setText( String.valueOf( Functions.format(Bernoulli.calcProbability(Integer.valueOf(eNumSuccess.getText().toString()), 
-					Integer.valueOf(eNumTrials.getText().toString()), Double.valueOf(ePercentSuccess.getText().toString()) / 100) )) );
-    	} catch (NumberFormatException e) {
-				e.printStackTrace();
-		}
-    	try {
-			eProbabilityGTE.setText( String.valueOf( Functions.format(Bernoulli.calcProbabilityGreaterThanOrEqual(Integer.valueOf(eNumSuccess.getText().toString()), 
-					Integer.valueOf(eNumTrials.getText().toString()), Double.valueOf(ePercentSuccess.getText().toString()) / 100) )) );
-    	} catch (NumberFormatException e) {
-				e.printStackTrace();
-		}
-    	try {
-			eProbabilityGT.setText( String.valueOf( Functions.format(Bernoulli.calcProbabilityGreaterThan(Integer.valueOf(eNumSuccess.getText().toString()), 
-					Integer.valueOf(eNumTrials.getText().toString()), Double.valueOf(ePercentSuccess.getText().toString()) / 100) )) );
-    	} catch (NumberFormatException e) {
-				e.printStackTrace();
-		}
-    	try {
-			eProbabilityLTE.setText( String.valueOf( Functions.format(Bernoulli.calcProbabilityLessThanOrEqual(Integer.valueOf(eNumSuccess.getText().toString()), 
-					Integer.valueOf(eNumTrials.getText().toString()), Double.valueOf(ePercentSuccess.getText().toString()) / 100) )) );
-    	} catch (NumberFormatException e) {
-				e.printStackTrace();
-		}
-    	try {
-			eProbabilityLT.setText( String.valueOf( Functions.format(Bernoulli.calcProbabilityLessThan(Integer.valueOf(eNumSuccess.getText().toString()), 
-					Integer.valueOf(eNumTrials.getText().toString()), Double.valueOf(ePercentSuccess.getText().toString()) / 100) )) );
-    	} catch (NumberFormatException e) {
-				e.printStackTrace();
-		}
+    	bBernoulliCalcP.setEnabled(false);
+    	bBernoulliCalcP.setText( "Calculating ..." );
+    	
+		new Thread(new Runnable() {
+			public void run() {
+				final double p = Functions.format(Bernoulli.calcProbability(Integer.valueOf(eNumSuccess.getText().toString()), 
+						Integer.valueOf(eNumTrials.getText().toString()), Double.valueOf(ePercentSuccess.getText().toString()) / 100) );
+				eProbability.post(new Runnable() {
+					public void run() {
+						eProbability.setText(String.valueOf(p));
+					}
+				});
+
+
+				final double pGTE = Functions.format(Bernoulli.calcProbabilityGreaterThanOrEqual(Integer.valueOf(eNumSuccess.getText().toString()), 
+						Integer.valueOf(eNumTrials.getText().toString()), Double.valueOf(ePercentSuccess.getText().toString()) / 100) );			
+				eProbabilityGTE.post(new Runnable() {
+					public void run() {
+						eProbabilityGTE.setText(String.valueOf(pGTE));
+					}
+				});
+			
+				final double pGT = Functions.format(Bernoulli.calcProbabilityGreaterThan(Integer.valueOf(eNumSuccess.getText().toString()), 
+						Integer.valueOf(eNumTrials.getText().toString()), Double.valueOf(ePercentSuccess.getText().toString()) / 100) );
+				eProbabilityGT.post(new Runnable() {
+					public void run() {
+						eProbabilityGT.setText(String.valueOf(pGT));
+					}
+				});
+		
+				final double pLTE = Functions.format(Bernoulli.calcProbabilityLessThanOrEqual(Integer.valueOf(eNumSuccess.getText().toString()), 
+						Integer.valueOf(eNumTrials.getText().toString()), Double.valueOf(ePercentSuccess.getText().toString()) / 100) );
+				eProbabilityLTE.post(new Runnable() {
+					public void run() {
+						eProbabilityLTE.setText(String.valueOf(pLTE));
+					}
+				});
+		
+				final double pLT = Functions.format(Bernoulli.calcProbabilityLessThan(Integer.valueOf(eNumSuccess.getText().toString()), 
+						Integer.valueOf(eNumTrials.getText().toString()), Double.valueOf(ePercentSuccess.getText().toString()) / 100) );
+				eProbabilityLT.post(new Runnable() {
+					public void run() {
+						eProbabilityLT.setText(String.valueOf(pLT));
+					}
+				});
+				
+				bBernoulliCalcP.post(new Runnable() {
+					public void run() {
+						bBernoulliCalcP.setText( getString( R.string.calc ) );
+						bBernoulliCalcP.setEnabled(true);
+					}
+				});
+			}
+		}).start();
+    	
     }
     
     public void tDistributionOnClick(View view){    	

@@ -20,7 +20,14 @@
         </TableRow>
         <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10dip">
             <LinearLayout android:layout_span="2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical">
-                <Button android:layout_width="wrap_content" android:id="@+id/eBernoulliCalcP" android:layout_height="wrap_content" android:text="@string/calc" android:onClick="bernoulliDistributionOnClick"></Button>
+
+                <Button
+                    android:id="@+id/bBernoulliCalcP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="bernoulliDistributionOnClick"
+                    android:text="@string/calc" >
+</Button>
             </LinearLayout>
         </TableRow>
         <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">

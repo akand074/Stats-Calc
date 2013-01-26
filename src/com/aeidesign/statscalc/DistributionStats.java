@@ -128,7 +128,7 @@ public class DistributionStats extends Activity {
     		return;
     	}
     	
-    	if( Integer.valueOf(eOccurences.getText().toString()) > Integer.MAX_VALUE || Integer.valueOf(eLambda.getText().toString()) > Integer.MAX_VALUE  ){
+    	if( Integer.valueOf(eOccurences.getText().toString()) > Integer.MAX_VALUE || Double.valueOf(eLambda.getText().toString()) > Integer.MAX_VALUE  ){
     		Toast.makeText(getApplicationContext(), "Value for # of occurences or Lambda is too large.", Toast.LENGTH_SHORT).show();
     		return;
     	}

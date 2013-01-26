@@ -93,11 +93,13 @@ public class Descriptive {
 		if (sample.size() < 4){
 			return 0;
 		}
-		if ((sample.size() / 2) % 2 == 0) {
-			return (sample.get(sample.size() / 4 - 1) + sample.get(sample.size() / 4)) / 2;
-		} else {
-			return sample.get(sample.size() / 4 - 1);
-		}
+		
+		ArrayList<Double> temp = sample;
+		
+		sample = new ArrayList<Double>(sample.subList(0, sample.size() / 2));
+		double lq = getMedian();
+		sample = temp;
+		return lq;
 	}
 	
 	public double getUpperQuartile(){
@@ -107,11 +109,13 @@ public class Descriptive {
 		if (sample.size() < 4){
 			return 0;
 		}
-		if ((sample.size() / 2) % 2 == 0) {
-			return (sample.get(sample.size() / 4 * 3 - 1) + sample.get(sample.size() / 4 * 3)) / 2;
-		} else {
-			return sample.get(sample.size() / 4 * 3);
-		}
+		
+		ArrayList<Double> temp = sample;
+		
+		sample = new ArrayList<Double>(sample.subList(sample.size() / 2 + 1, sample.size() - 1));
+		double lq = getMedian();
+		sample = temp;
+		return lq;
 	}
 	
 	public double getIQR(){
@@ -146,7 +150,7 @@ public class Descriptive {
 		for(int i = 0; i < sampleSize; i++){
 			standardDeviation += Math.pow(sample.get(i) - mean, 2);
 		}
-		standardDeviation /= sampleSize;
+		standardDeviation /= sampleSize - 1;
 		standardDeviation = Math.sqrt(standardDeviation);
 		return standardDeviation;
 		

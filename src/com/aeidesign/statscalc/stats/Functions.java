@@ -7,17 +7,15 @@ import java.math.MathContext;
 public class Functions {
 	
 	public static BigInteger calcFactorial(long value){
-		if ( value == 0 )
-			return BigInteger.valueOf(1	);
 		
-		BigInteger tempVal = BigInteger.valueOf(value);
+		BigInteger[] factorials = new BigInteger[(int) value + 1];
+		factorials[0] = BigInteger.ONE;
+
+		for (int i = 1; i <= value; i++) {
+            factorials[i] = factorials[i - 1].multiply(new BigInteger("" + i));
+        }
 		
-		while(value > 1){
-			tempVal = tempVal.multiply( BigInteger.valueOf(value - 1) );
-			value--;
-		}
-		
-		return tempVal;
+		return factorials[(int)value];
 	}
 	
 	public static double format(double value){

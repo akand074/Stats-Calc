@@ -76,8 +76,8 @@ public class PermutationsCombinations extends Activity {
     }
     
     private void calculateData() {
-    	long set = 0;
-    	long group = 0;
+    	int set = 0;
+    	int group = 0;
     	
     	if ( setSize.getText().toString().equals("")){
     		Toast.makeText(getApplicationContext(), "Please enter a value for the set", Toast.LENGTH_SHORT).show();
@@ -85,11 +85,11 @@ public class PermutationsCombinations extends Activity {
     	}
     	
     	if(groupSize.getText().toString().equals("")){
-    		set = Long.parseLong(setSize.getText().toString());
-        	group = Long.parseLong(setSize.getText().toString());
+    		set = Integer.parseInt(setSize.getText().toString());
+        	group = Integer.parseInt(setSize.getText().toString());
     	} else {
-        	set = Long.parseLong(setSize.getText().toString());
-        	group = Long.parseLong(groupSize.getText().toString());
+        	set = Integer.parseInt(setSize.getText().toString());
+        	group = Integer.parseInt(groupSize.getText().toString());
     	}
     	
     	if ( group > set){
@@ -107,8 +107,8 @@ public class PermutationsCombinations extends Activity {
     	calc.setEnabled(false);
     	calc.setText( "Calculating ..." );
     	
-    	final long setF = set;
-    	final long groupF = group;
+    	final int setF = set;
+    	final int groupF = group;
     	
 		new Thread(new Runnable() {
 			public void run() {
@@ -148,7 +148,7 @@ public class PermutationsCombinations extends Activity {
 					}
 				});
 		
-				final double pigeon = PermComb.calcPigeonhole(setF, groupF);
+				final int pigeon = PermComb.calcPigeonhole(setF, groupF);
 				pigeonhole.post(new Runnable() {
 					public void run() {
 						pigeonhole.setText(String.valueOf(pigeon));

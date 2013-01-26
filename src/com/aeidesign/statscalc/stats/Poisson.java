@@ -38,9 +38,17 @@ public class Poisson {
 		}
 		
 		double probability = 0;
-		for(int i = 0; i < x; i ++){
-			probability += calcProbability(i, lambda);
+		
+		if(pLessThanOrEqual != 0) {
+			probability = pLessThanOrEqual;
+			probability -= calcProbability(x, lambda);
+		} else {
+			for(int i = 0; i < x; i ++){
+				probability += calcProbability(i, lambda);
+			}
 		}
+		
+		
 		pLessThan = probability;
 		return pLessThan;
 	}
@@ -59,9 +67,16 @@ public class Poisson {
 		}
 		
 		double probability = 0;
-		for(int i = 0; i <= x; i++){
-			probability += calcProbability(i, lambda);
+		
+		if(pLessThan != 0) {
+			probability = pLessThan;
+			probability += calcProbability(x, lambda);
+		} else {
+			for(int i = 0; i <= x; i++){
+				probability += calcProbability(i, lambda);
+			}
 		}
+		
 		pLessThanOrEqual = probability;
 		return pLessThanOrEqual;
 	}

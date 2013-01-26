@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
     android:orientation="vertical"
     android:layout_height="fill_parent" android:layout_width="fill_parent" android:background="@drawable/background" android:gravity="top">
-    <com.google.ads.AdView android:id="@+id/adView" android:layout_height="wrap_content" ads:adUnitId="a14e62b90928c5e" ads:adSize="BANNER" ads:loadAdOnCreate="true" android:layout_width="fill_parent"/>
     <ScrollView android:layout_width="fill_parent" android:id="@+id/scrollView1" android:layout_height="fill_parent">
         <TableLayout android:id="@+id/tableLayout1" android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent">
             <TableRow android:id="@+id/tableRow1" android:padding="5px" android:gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">

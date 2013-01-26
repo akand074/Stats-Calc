@@ -10,13 +10,13 @@
 		<b>Sum: </b> The resultant of adding together every data point in the set.\n\n
 		<b>Arithmetic Mean: </b> The sum of all data points divided by the total number of data points in the set. Commonly known as the average and is used as a measure of centrality for normal distributed data.\n\n
 		<b>Geometric Mean: </b> An average derived by multiplying all the numbers in a data set and taking the <i>n</i>th root where <i>n</i> is the number of terms in the data set. This is useful in situations where simple addition is not descriptive of true mean. For example, when describing rates of return. NOTE: This only works for a pure positive set. NaN will result when negative values exist.\n\n
-		<b>Lower Quartile: </b> Point that separates the lower 25 percent of data from the upper 75 percent.\n\n
+		<b>Lower Quartile: </b> Median of the lower half of the data set not including the actual median.\n\n
 		<b>Median: </b> The number which separates the lower half of the data set from the higher half. Used as a measure of centrality for skewed data.\n\n
-		<b>Upper Quartile: </b>	Point that separates the lower 75 percent of data from the upper 25 percent.\n\n
+		<b>Upper Quartile: </b>	Median of the upper half of the data set not including the actual median.\n\n
 		<b>IQR: </b> The interquartile range. This is the difference between the upper and lower quartile. This represents the distance between the top of the lower quartile and the bottom of the upper quartile.\n\n
 		<b>Mode: </b> The value that occurs most frequently in a data set.
-		<i>NOTE: </i> This currently returns 0 if none exists or otherwise the last occurence if more than one exists.\n\n
-		<b>Standard Deviation: </b> Numerical value that describes how much variation there is from the mean. Low standard deviation means that data points are clustered very close to the mean. Higher standard deviations indicate the data points are spread out over a large range.\n\n
+		<i>NOTE: </i> This currently returns 0 if none exists or otherwise the last occurrence if more than one exists.\n\n
+		<b>Standard Deviation: </b> Numerical value that describes how much variation there is from the mean. Low standard deviation means that data points are clustered very close to the mean. Higher standard deviations indicate the data points are spread out over a large range. NOTE: This uses the n-1 formula. \n\n
 		<b>Standard Error: </b> A method of estimating standard deviation. Used when standard deviation of the entire population is not feasible to calculate and thus a sample is taken and used to calculate standard error as an estimation of the standard deviation.\n\n
 		<b>Variance: </b> A measure of how far a set of numbers are spread out from each other. It is the standard deviation squared.\n\n
 		<b>Kurtosis: </b> A numerical measure of the peakedness of a distribution. A higher kurtosis value means that a larger portion of the variance is the result of infrequent extreme deviations (i.e outliers).\n\n
